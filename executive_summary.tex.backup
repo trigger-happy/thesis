@@ -15,17 +15,62 @@
 \maketitle
 
 \section*{Abstract}
-Insert the document abstract here
+Genetic algorithms have been applied to enhance AI in games. The biggest
+limiting factor however in the use of genetic algorithms however has been
+the time it takes for an acceptable solution to evolve after numerous generations.
+In light of this we attempt to 
 
-\tableofcontents
 \pagebreak
 
+\tableofcontents
+
+
 \section*{List of Figures}
+Insert list of figures here
+
 
 
 \section*{List of Tables}
+Insert list of tables here
+
+
 
 \section*{Chapter 1}
-
 \subsection*{Introduction}
+Intro here
+
+
+\subsubsection*{Context of the Study}
+Place context of the study here
+
+
+\subsubsection*{Objectives}
+Place the objectives here
+
+
+\subsubsection*{Research Questions}
+Place the research questions here
+
+
+\subsubsection*{Significance of the Study}
+Significance of the study here
+
+
+
+\section*{Chapter 2}
+\subsection*{Review of Related Literature}
+Insert review of related literature here
+
+
+\section*{Chapter 3}
+
+
+\subsection*{Framework}
+Insert the framework here
+
+
+\subsection*{Method}
+Insert the method here
+
+
 \end{document}
