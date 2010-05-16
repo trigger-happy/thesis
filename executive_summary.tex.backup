@@ -12,4 +12,20 @@
 \date{2010-05-16}
 
 \begin{document}
+\maketitle
+
+\section*{Abstract}
+Insert the document abstract here
+
+\tableofcontents
+\pagebreak
+
+\section*{List of Figures}
+
+
+\section*{List of Tables}
+
+\section*{Chapter 1}
+
+\subsection*{Introduction}
 \end{document}
