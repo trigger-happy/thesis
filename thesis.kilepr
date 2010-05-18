@@ -26,10 +26,10 @@ ReadWrite=true
 
 [item:executive_summary.tex]
 archive=true
-column=72
+column=65
 encoding=UTF-8
 highlight=LaTeX
-line=102
+line=113
 mode=LaTeX
 open=true
 order=0
@@ -45,5 +45,5 @@ open=false
 order=-1
 
 [view-settings,view=0,item:executive_summary.tex]
-CursorColumn=72
-CursorLine=102
+CursorColumn=65
+CursorLine=113
