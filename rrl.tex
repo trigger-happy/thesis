@@ -1,0 +1,54 @@
+\subsection*{Review of Related Literature}
+
+	This section aims to provide the context where this study may be placed. 
+	Studies that have already been made in the field are to be discussed here in order to 
+	explain the concepts involved in enhancing Genetic Algorithms through the GPU and 
+	Genetic Algorithms in a game. The section will also highlight contributions not yet 
+	applied in the field, namely using the GPU to enhance the Genetic Algorithms in a game.
+
+\subsubsection*{Genetic Algorithms through the GPU}
+	
+
+	Genetic Programming can be a very time-consuming process.  The members of its populations are optimized against a fitness landscape through a fitness check.  
+	It then tries the output or plugs it in again for a better fitness score. For a large population, the processing power needed cannot be handled by the CPU alone.  
+	According to this article , GPUs in PCs are considered as more powerful in pure FLOPS[1].  For example, in the GeForce 8 Series the NVIDIA 8800 Ultra performs around 576 GFLOPS 
+	on 128 processing elements.  This equates to around 4.5 GFLOPS per element, compared with 2.75 per core for the Blue Gene/L supercomputer.  With that kind of processing power, 
+	new sets of problems can be solved.  
+
+	Some of the applications cited by this article were the KDD 1999 IDS dataset, where, they restricted themselves to a subset of 10% 
+	of the 4 millions plus entries to evaluate from[1].  It only took 5.86 ms to evaluate on a GPU compared to the 43.54 ms on the CPU.  Another application was found on image filtering.  
+	They used Genetic Programming to reverse engineer image filters, i.e., find the mapping between an image and the output of a filter applied to it.  The results were that the CPU process 
+	was 100 times slower than the GPU one.  
+
+	This article talked how several computers can be used to efficiently process large datasets and execute complex and evolved programs[2].  
+	They used the spare processing power seen in the computers in the student's laboratory.  It detailed how a root computer distributed work over a network of computers to increase processing speed and efficiency.
+	
+	Further implementations were introduced in the field of Genetic Algorithms.  As mentioned in this article, NVIDIA introduced a new feature called the Compute Unified Device Architecture (CUDA), 
+	a general-purpose parallel architecture with a new parallel programming model and instruction set architecture[3].  Because the GPU is a lot more effective in terms of primitive operations, 
+	CUDA was introduced to take advantage of the massively parallel high-performance computing on the GPU.  
+
+	However, not all Genetic Programming are equal in performance.  This article  differentiate Block GP and Thread GP[4].  A Block GP is where every GP programs are 
+	interpreted by all threads running on a given processor.  On the other hand, a Thread GP is where every GP programs are interpreted by their own thread.  The article 
+	highlighted an experiment where they compared the speed at which each setup is executed.  The results were that the Block GP out-performed the Thread GP in every benchmark , 
+	population size and the number of fitness cases.
+
+\subsubsection*{Genetic Algorithms Applied in Games}	
+
+	Genetic algorithms in games have largely been applied in solving problems relating to Artificial Intelligence and character behavior in games. One instance of this application 
+	has been done in the construction of an AI for controlling the snake in a Snake game [5]. Tobin's approach is to alter the Snake's behavior based on a gene that acts as a miniature 
+	program that gets called at every tick of the game. Given a set of helper functions that determined if there was danger or food in certain directions of the snake's head, the program 
+	would construct genomes that varied in the generated tree of function calls. This tree would then determine the snake's next actions during every tick of the game. Tobin was able to 
+	produce genomes which created snakes that could gain scores that are close to the maximum attainable in the game.  
+
+	Another attempt at applying genetic algorithms in modifying or 
+	enhancing AI behavior was done by Brian Schwab as a proof of concept in his book “AI Game Engine Programming” [6]. In chapter 20, he attempted to enhance the AI's ability to maneuver 
+	the player's ship in the classic game of asteroids. The genomes were constructed to represent various floating point values that would dictate different elements for decision making. 
+	These included the distance between the ship and the asteroid, the velocity of the ship, the velocity of the asteroid, the current angle of the rotation of the ship and more. 
+	These values, coupled with a set of predefined functions, would then determine how the ship would evade all the asteroids in the field. Brian was able to prove that the ship's AI can 
+	perform better when evolved through the use of GAs as compared to hand-modifying the AI parameters and repeatedly testing the new set of values in the game.
+	
+	A different application of GAs in a mobile version of the game of snakes was conducted by Milan Verma and Peter McOwan in their research [7]. Instead of modifying the behavior of the 
+	snake in the game, they used GAs instead for creating whole new game levels that matched the difficulty requested by the user. Their technique was to use genomes that determined various 
+	aspects of any single game level and then determined the level's fitness by having the level “played” by a synthetic game-player. The score that the synthetic game-player would then determine 
+	if the level is too easy or too hard and levels that matched the user's wants would then be given to the user that requested it. Their study proved successful and they were able to deliver a 
+	mobile game that could adapt to a user's needs.
