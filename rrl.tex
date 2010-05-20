@@ -10,9 +10,7 @@
 
 	Genetic Programming can be a very time-consuming process.  The members of its populations are optimized against a fitness landscape through a fitness check.  
 	It then tries the output or plugs it in again for a better fitness score. For a large population, the processing power needed cannot be handled by the CPU alone.  
-
 	According to this article , GPUs in PCs are considered as more powerful in pure FLOPS\cite{Banzhaf09}.  For example, in the GeForce 8 Series the NVIDIA 8800 Ultra performs around 576 GFLOPS 
-
 	on 128 processing elements.  This equates to around 4.5 GFLOPS per element, compared with 2.75 per core for the Blue Gene/L supercomputer.  With that kind of processing power, 
 	new sets of problems can be solved.  
 
@@ -23,21 +21,12 @@
 
 	This article talked how several computers can be used to efficiently process large datasets and execute complex and evolved programs\cite{Harding09}.  
 	They used the spare processing power seen in the computers in the student's laboratory.  It detailed how a root computer distributed work over a network of computers to increase processing speed and efficiency.
-	
 	Further implementations were introduced in the field of Genetic Algorithms.  As mentioned in this article, NVIDIA introduced a new feature called the Compute Unified Device Architecture (CUDA), 
 	a general-purpose parallel architecture with a new parallel programming model and instruction set architecture\cite{Zhang09}.  Because the GPU is a lot more effective in terms of primitive operations, 
 	CUDA was introduced to take advantage of the massively parallel high-performance computing on the GPU.  
 
-<<<<<<< HEAD
 	However, not all Genetic Programming are equal in performance.  This article  differentiate Block GP and Thread GP\cite{Robbilliard09}.  A Block GP is where every GP programs are 
 	interpreted by all threads running on a given processor.  On the other hand, a Thread GP is where every GP programs are interpreted by their own thread.  The article 
-=======
-	However, not all implementations of Genetic Algorithms are equal in performance.  This article differentiates Block GP and Thread GP[4].  A Block GP is where each GP program is 
-	interpreted by all threads running on a given processor.  On the other hand, a Thread GP is where each GP \begin{filecontents}
- 
-\end{filecontents}
-program is interpreted by a single thread.  The article 
->>>>>>> acd6ee50d0edb9c94f217336bc2ff592def11f17
 	highlighted an experiment where they compared the speed at which each setup is executed.  The results were that the Block GP out-performed the Thread GP in every benchmark , 
 	population size and the number of fitness cases.
 
