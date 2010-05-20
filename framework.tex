@@ -3,24 +3,49 @@
 There are a lot of terms that will be used throughout this paper.
 The following terms however are central and should therefore be defined clearly
 to avoid any misconceptions and misunderstandings.
-%put these on bullet points
--Graphics Processing Unit (GPU). A Graphics Processing Unit or GPU is special type
+
+\begin{itemize}
+ \item Graphics Processing Unit (GPU) -  A Graphics Processing Unit or GPU is special type
 of computer device that deals with the processing of graphics that will be displayed
 on screen. It is similar to a Central Processing Unit or CPU in their ability to execute
 a sequence of instructions over a set of data. The difference however is that while the
 CPU is capable of executing a wide range of instructions, the GPU is specialized to perform
-highly intensive mathematical computations and over a large set of data.
--Genetic Algorithm (GA). Genetic Algorithms are part of a special family of algorithms
-called Stochastic Search Algorithms, also known in simple terms as randomized search. GAs
-follow the nature's pattern of evolution and the concept of "survival of the fittest." Given
-a random set of solutions, each one is evaluated and then scored according to a fitness function.
-Solutions that obtain the best scores become part of the next generation of solutions while the
-rest are replaced through reproduction (mixing elements of one solution with another solution).
-Eventually, only the most "fit" of solutions will be part of the final generation of solutions.
+highly intensive mathematical computations and over a large set of data in a parallel manner.
 
+ \item Genetic Algorithm (GA) - Genetic Algorithms are part of a special family of algorithms
+called Stochastic Search Algorithms, also known in simple terms as randomized search. GAs
+follow nature's pattern of evolution and the concept of "survival of the fittest." Given
+a random set of individuals, each one is evaluated and then scored according to a fitness function.
+Individuals that obtain the best scores become part of the next generation of individuals while the
+rest are replaced through reproduction (mixing elements of one individual with another individual).
+Eventually, only the most "fit" of individuals will be part of the final generation.
+
+ \item Fitness function - The fitness function is the part of the genetic algorithm that ranks
+an individual according to a set of arbitrary criteria. It is the score that this function
+gives to an individual that determines if the said individual will be part of the next generation
+or not.
+
+ \item Individual - An individual is a representation of a possible set of parameters to a problem.
+These could be variables that may be plugged into an equation or the set of timing values for an
+AI agent's reaction time. Individuals may conceptually be thought of as a possible solution to a
+particular problem and the correctness of the solution is determined by the fitness function.
+
+ \item Generation - A generation, also known as a population, is a set of individuals that represent
+an iteration in the algorithm. Individuals in a generation are ranked by the fitness function and then
+mixed with other individuals to generate a new set of individuals through a process akin to biological
+reproduction.
+
+\end{itemize}
 
 \subsubsection*{Variables of the Study}
-%Also put these on bullet points
--Time it takes for an acceptable solution to be found as compared to
+In order to measure the success of the project, there is a need to measure several variables. These
+variables will determine if utilizing the GPU is not only efficient, but also acceptable in generating
+an adequate solution to the AI problem.
+
+\begin{itemize}
+ \item Running time - The time it takes for an acceptable solution to be found as compared to
 a pure CPU solution
--Performance of the AI evolved from the GPU as compared to a hand tuned solution
+
+ \item AI Performance - How well the AI performs in playing the game and achieving the intended goals
+of the game (eg: not getting killed, obtaining the highest score possible, etc).
+\end{itemize}
