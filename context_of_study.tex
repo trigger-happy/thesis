@@ -1,2 +1,31 @@
 \subsubsection*{Context of the Study}
-Place context of the study here
+Genetic algorithms are one of the many types of artificial intelligence
+techniques that exist today. If implemented well, genetic algorithms can
+evolve a computer controlled agent to perform adequately according to some
+set criteria defined in a fitness function. The cost of using this algorithm
+however is the time it takes to evolve a population of individual solutions
+to become acceptable. The time it takes can range from a few hours to a number
+of weeks, depending on the complexity of the game where the agent must perform.
+This limitation makes them difficult or impractical to use in the process of
+game development.
+
+
+The main reasons why genetic algorithms take up a lot of time is because of the
+number of possible solutions that must be tested given a specific generation,
+the time it takes to evaluate each of these possible solutions and the number
+of generations that may take before a single or a number of solutions may be
+considered acceptable. Modern day CPUs may be fast, but they can only reduce
+the running time of a genetic algorithm by so much. A common solution to the
+problem is through parallelization across multiple CPUs either in a computing
+cluster or through multiple processors. These solutions however are either
+too expensive or still insufficient.
+
+
+A single computer processor is capable of a variety of things, but it can only process
+one thing at a time. This is where Graphics Processing Units, or GPUs, come in.
+GPUs have been designed to execute a single set of instructions over numerous elements
+of data. Not only do they have multiple processing units, each processing unit is also
+capable of running several identical instructions simultaneously, making GPUs ideal
+for highly parallel algorithms. It is our goal therefore to show that GPUs can be used
+for evolving computer controlled agents for use in computer games at a rate that is much
+faster than those that are evolved through the use of a CPU.
