@@ -19,21 +19,21 @@
 	They used Genetic Programming to reverse engineer image filters, i.e., find the mapping between an image and the output of a filter applied to it.  The results were that the CPU process 
 	was 100 times slower than the GPU one.  
 
-	This article talked how several computers can be used to efficiently process large datasets and execute complex and evolved programs\cite{Harding09}.  
+	This article talked about how several computers can be used to efficiently process large datasets and execute complex and evolved programs\cite{Harding09}.  
 	They used the spare processing power seen in the computers in the student's laboratory.  It detailed how a root computer distributed work over a network of computers to increase processing speed and efficiency.
 	Further implementations were introduced in the field of Genetic Algorithms.  As mentioned in this article, NVIDIA introduced a new feature called the Compute Unified Device Architecture (CUDA), 
 	a general-purpose parallel architecture with a new parallel programming model and instruction set architecture\cite{Zhang09}.  Because the GPU is a lot more effective in terms of primitive operations, 
 	CUDA was introduced to take advantage of the massively parallel high-performance computing on the GPU.  
 
-	However, not all Genetic Programming are equal in performance.  This article  differentiate Block GP and Thread GP\cite{Robbilliard09}.  A Block GP is where every GP programs are 
-	interpreted by all threads running on a given processor.  On the other hand, a Thread GP is where every GP programs are interpreted by their own thread.  The article 
-	highlighted an experiment where they compared the speed at which each setup is executed.  The results were that the Block GP out-performed the Thread GP in every benchmark , 
+	However, not all Genetic Programming are equal in performance.  This article  differentiates Block GP and Thread GP\cite{Robbilliard09}.  A Block GP is where every GP programs is
+	interpreted by all threads running on a given processor.  On the other hand, a Thread GP is where every GP programs is interpreted by their own thread.  The article 
+	highlighted an experiment where they compared the speed at which each setup is executed.  The results were that the Block GP out-performed the Thread GP in every benchmark, 
 	population size and the number of fitness cases.
 
 \subsubsection*{Genetic Algorithms Applied in Games}	
 
 	Genetic algorithms in games have largely been applied in solving problems relating to Artificial Intelligence and character behavior in games. One instance of this application 
-	has been done in the construction of an AI for controlling the snake in a Snake game\cite{website:Ehlis00}. Tobin's approach is to alter the Snake's behavior based on a gene that acts as a miniature 
+	is the construction of an AI for controlling the snake in a Snake game\cite{website:Ehlis00}. Tobin's approach is to alter the snake's behavior based on a gene that acts as a miniature 
 	program that gets called at every tick of the game. Given a set of helper functions that determined if there was danger or food in certain directions of the snake's head, the program 
 	would construct genomes that varied in the generated tree of function calls. This tree would then determine the snake's next actions during every tick of the game. Tobin was able to 
 	produce genomes which created snakes that could gain scores that are close to the maximum attainable in the game.  
