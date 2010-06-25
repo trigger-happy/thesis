@@ -1,0 +1,24 @@
+\chapter{Framework}
+%\thispagestyle{empty}
+\section{Architectural Design}
+
+\begin{figure}
+    \centering
+        \includegraphics[width=400 pt]{architecture.jpg}
+    \caption{Architecture of the Visualization Application}
+    \label{fig:architecture}
+\end{figure}
+
+\bigskip
+The system displays tropical rain data coming from different sensors, specifically, tipping bucket, Wireless IP Access System (WIPAS) and acoustic sensor in the form of a map, weather icons and dynamic bar graphs. The core of the whole system is the visualization application, which is dependent on two other components, namely, the database and the application for data extraction. The data that will be fed into the system will come from the sensors, which output data in different file formats - .csv for tipping bucket, .xls for WIPAS and .txt for acoustic sensor. The data file is then fed into the visualization system through an application that is also used for data extraction. To prepare the data for further research, the system also contains an application for downloading data. 
+
+\section{Description of Components}
+
+The application for data extraction is responsible mainly for reading the data file and adding the data to the database. The data may be backlogged files, which can be uploaded to the system manually, or real-time, which will be automatically sent to the system by the rain sensors. The visualization application is responsible for the visual representation of rain data. It shows the rain rate in a specific location. By default, the user views the current rain data. However, the user can also view backlog files by choosing from a list the date and time at which the data was taken. 
+
+\bigskip
+The web-based user interface serves as the window in which the user can interact with the system by viewing the visualization,  uploading backlog files using the data extraction feature or downloading data through the export data feature. In uploading backlog files, the user will have to specify the location of the data source. To ensure data integrity, the user will have to login before this feature can be accessed. The export data feature allows for downloading of uploaded data in CSV format. It uses the visualization algorithm to compute for rain strength and appends it to the data file.  
+
+\bigskip
+The mobile component, on the other hand, is an extension of the visualization application of the web component. The output is similar to the web component - a map containing icons representing rain strength. This can be viewed by selecting a particular device type, date, time and location. The mobile component is also capable of showing a list of critical areas, a feature that is not present in the web component. These areas have rain rates or signal or acoustic power beyond the threshold on the specified date and time. 
+

@@ -1,0 +1,91 @@
+\chapter{METHODOLOGY}
+%\thispagestyle{empty}
+\section{Implementation Details}
+
+\subsection{Data Extraction}
+The data extraction feature was coded in PHP and made available through a web-based graphical user interface as shown in Figure \ref{fig:data_extraction}. It accepts files in .txt, .xls or .csv format to process data from different sources, namely WIPAS, acoustic sensors and the tipping bucket. By clicking on the Go button in the user interface, computation in the data from the input file is performed and results are automatically saved into the database. The source location is included in the database along with the computed results. This feature can only be accessed if the user was able to successfully login to the system. The reason for the system security is to maintain data integrity.
+
+\begin{figure}
+    \centering
+        \includegraphics[width=220 pt]{app_for_data_extraction.jpg}
+    \caption{Graphical user interface for extracting data}
+    \label{fig:data_extraction}
+\end{figure}
+
+\subsection{Database for Rain Data}
+MySQL was used for the database that stores data on rain rate and strength. It is composed of five tables, namely, acoustic sensor data, tipping bucket data, WIPAS data,data source location and user. The first three of which contain the data from the acoustic sensor, tipping bucket and WIPAS, respectively. Contents of the first three tables, as indicated in Figure \ref{fig:database_struct}, are based on the format of the input files that can be uploaded to the database using the data extraction feature. The data source location table contains the location of all the rain sensing devices. It contains the exact coordinates and the address of the location. The last table contains the list of users who are allowed to access the admin functionalities. The database will be queried by the visualization application whenever the system receives requests for visualization
+
+\begin{figure}
+    \centering
+        \includegraphics[width=400 pt]{database_struct.jpg}
+    \caption{Database Structure}
+    \label{fig:database_struct}
+\end{figure}
+
+\subsection{Emergency indicator maps}
+The Google Maps API is a free web mapping service that allows developers to embed both static and dynamic map on their website. This map includes markers for easy identification of user-specified locations. Developers can include customizations, such as displaying the current time or the map coordinates of the location upon clicking the corresponding marker. The API is open-source and coded in JavaScript and XML.
+
+\bigskip
+The emergency indicator maps made use of the Google Maps API. Location markers were added manually using the existing code. The user of the visualization tool may limit which markers to display by selecting either of the three different data sources, namely WIPAS, tipping bucket and acoustic sensors. A weather icon (see Table \ref{table:weather_icons}) that indicates the rain strength that appears on the corresponding locations and will change per minute interval as shown in Figure \ref{fig:weather_map}. The rain fall rate, acoustic and signal power areused to determine the weather icon that will be displayed on the map. 
+
+\begin{figure}
+    \centering
+        \includegraphics[width=400 pt]{weather_map.jpg}
+    \caption{Weather map indicating rain strength using icons}
+    \label{fig:weather_map}
+\end{figure}
+
+\bigskip
+%%%table here%%%
+\begin{table}
+\caption{Icons used to represent rainfall rate and acoustic and signal power}
+\centering
+\begin{tabular}{c c c c c}% centered columns (4 columns)
+\hline\hline
+Icon & Meaning & Rainfall rate & Acoustic Power & Signal Power
+ \\ & & (in mm/sec) & (in dB) & (in dB) \\ [0.5ex]
+\hline
+\includegraphics[width=20 pt]{sunny.jpg} & Sunny & 0-90 & 0-666 & 0-29 \\
+\includegraphics[width=20 pt]{light_rain.jpg} & Light rain & 91-180 & 667-1332 & 30-59 \\
+\includegraphics[width=20 pt]{moderate_rain.jpg} & Moderate to heavy rain & 181-260 & 1333-1999 & 60-89 \\ 
+\includegraphics[width=20 pt]{danger.jpg} & Very heavy rain & $>=$ 270 & $>=$ 2000 & $>=$ 90  \\[1ex ]
+\hline
+\end{tabular}
+\label{table:weather_icons}
+\end{table}
+
+\subsection{Location-specific rain telemetry}
+Upon clicking one of the markers, a screen which indicates the rain telemetry in the selected location will be displayed as shown in Figure \ref{fig:bar_graph}. Rain telemetry includes intensity of the rain, amount of precipitation, etc. Again, the user may select from the three different data sources. 
+
+\bigskip
+Each of the rain telemetry will be displayed using dynamic bar graphs based on time. The bar graphs changes color to indicate the general state of rain based on the variable the graph represents. For example, green will pertain to rainfall rate of 0 - 90 mm/hr, yellow for 91 - 180 mm/hr, orange for 181-269 and red if the rain fall rate is above 269 mm/hr. For the real time data visualization, a delay occurs before it gets displayed to be able to transfer the data from the different data sources to the database. For backlog data, the database is queried every ten minutes so that it consumes less processing power on the server side. For both cases, a time identifier that corresponds to the current state of the dynamic bar graph shall be displayed at the top of the screen together with the location name.
+
+\begin{figure}
+    \centering
+        \includegraphics[width=250 pt]{bar_graph.jpg}
+    \caption{Dynamic Rain Data Bar Graphs}
+    \label{fig:bar_graph}
+\end{figure}
+
+\subsection{Data Downloading}
+The sole purpose of the export data feature is to prepare the data for further research. This feature is coded in PHP and it can be accessed through a web interface as shown in Figure \ref{fig:data_downloading}. Once the user has provided all the necessary information and clicked Export, the system will automatically query the database to extract all rain data from the given location within the specified date and time. Using the same ranges used in the visualization component, the system will append the corresponding rain strength to the extracted data. Rain strength will either be sunny, light to moderate rain, moderate to heavy rain or very heavy rain. Adding rain strength to the file output will make data analysis easier. The file output is in CSV format.
+
+\begin{figure}
+    \centering
+        \includegraphics[width=250 pt]{data_download.jpg}
+    \caption{Graphical user interface for exporting data}
+    \label{fig:data_downloading}
+\end{figure}
+
+\subsection{Mobile Component}
+The mobile component is coded in Java and uses the LWUIT UI library for the graphical user interface. It only works on CLDC1.1 MIDP2.0/CDC PBP/SE phones that support GPRS, WAP or WiFi connections.  In the mobile component, the user will have to select a device type and specify the date and time. The specified information will then be sent from the mobile phone to the server housing the web component through HttpConnection. The server will then query the database for locations of the specified device type that has data on the specified date and time. The server will then send to the mobile phone a list of the locations and another list containing the locations that are under critical conditions. The latter are list of locations that have rain data exceeding the threshold: 90dB for WIPAS, 2000 dB for acoustic sensor and 270 mm/hr for tipping bucket. From these lists, the user will then select the location that will be monitored. The mobile phone will then send another http request for a static image of Google Map containing markers representing the rainfall rate, acoustic or signal power (see Figure \ref{fig:mobile_component}). Like the color coding used in the bar graphs, the hierarchy of colors is green, yellow, orange and red with green signifying low rainfall rate, acoustic or signal power.  The image does not only show the specified location but also the locations around it. The icon of the specified location can be distinguished from the other locations because it is marked with an 'X'.
+
+\begin{figure}
+    \centering
+        \includegraphics[width=140 pt]{mobile_component.jpg}
+    \caption{Mobile Static Emergency Indicator Map}
+    \label{fig:mobile_component}
+\end{figure}
+
+\section{Testing}
+The visualization for both real-time and backlog data were tested based on three items: (1) correctness of icons displayed, (2) correctness of the bar graphs displayed and (3) response time. Testing was done on several instances based on three parameters - (1) time mode, whether data is real time or backlog, (2) device type, whether the device selected is wipas, acoustic sensor or tipping bucket, (3) data presence, whether there is data or not for the selected timestamp.

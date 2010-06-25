@@ -1,0 +1,87 @@
+%\chapter{Problem and Its Background}
+\chapter{INTRODUCTION}
+
+\section{Background of the Study}
+
+Natural calamities such as earthquakes, landslides and storms are inevitable phenomena. These natural catastrophes can be very destructive in that more often than not, these events lead to huge environmental and economic losses. In worse situations, these may even cause the loss of human lives and psychological trauma to the victims.
+
+\bigskip
+Who would forget the 2004 Indian Ocean Tsunami which hit Sri Lanka, Indonesia, India, Thailand and other South Asian nations and took the lives of more than 200,000 people \cite{cnn}? For the past ten years alone, mankind has experienced numerous disasters which were classified as the most catastrophic events in world history based on the death toll. Among the major hazards were floods and landslides caused by heavy rainfall \cite{un}. In 1996-1998, famine worsened in North Korea as 400,000 hectares of arable land were devastated due to the flood caused by unprecedented rainfall. This claimed the lives of an estimated 600,000 to 3 million people \cite{nytimes}. In December 1999, continuing rainfall in Venezuela triggered soil instability causing the Vargas mudslide which killed more than 30,000 people \cite{nytimes}. Experts, like the Intergovernmental Panel on Climate Change (IPCC), agree that there are many causes for the hazards mentioned above but they also believe that heavy precipitation, which is likely to increase in frequency, significantly increases the likelihood of the occurrence of such disasters \cite{ipcc}.
+
+\bigskip
+Floods and landslides are likewise major causes of disasters in the Philippines. In November 1991, typhoon Thelma struck Ormoc; it caused floods that drowned at least 8,000 people and property damages reaching 736 million pesos \cite{cdrc}. The National Disaster Coordinating Council report last December 2005 discusses the landslides and floods in Camarines Norte, Catanduanes and Oriental Mindoro which were caused by continuous heavy rains induced by the northeast monsoon \cite{ndccReport}. The report states that almost 50,000 people were displaced and that there was 28 million pesos worth of damage to agriculture in Oriental Mindoro alone. The International Herald Tribune reports from September to December of 2006 about the consecutive landslides which occurred in different provinces in the Bicol region, most seriously in Albay where it swept three villages and almost buried them in mud. Just this February and July, the same tragedy happened.
+
+\bigskip
+Even though it is impossible to control nature and prevent the occurrence of natural disasters, preparation would make it possible to minimize their catastrophic effects, specifically the loss of property and human lives. However, instead of preventive measures, the current protocol of the National Disaster Coordinating Council (2007) is to send a disaster assessment team after the disaster has already struck \cite{ndcc}. This team determines the extent of the damages to agricultural crops and livestock, telecommunications facilities and public structures. It is only then that the health services, relief assistance and social services are sent because the organization does not have its own budget to disburse. ``It operates through the member agencies and its local network" and only seeks assistance from private institutions and non-government associations upon surveying the damages. Unfortunately, this slows down delivery of disaster response services. Informing the people of the possible locations where landslides and floods are most likely to occur can considerably lessen the effects of the upcoming disaster \cite{un}. This can be done by implementing a nationwide disaster alert system that will accurately pinpoint areas experiencing rain beyond the normal rainfall range. This will enable authorities to rapidly deploy disaster mitigation and rescue teams and administer the quick delivery of relief services. More than that, preparedness for disaster can significantly reduce the death toll caused by calamities.
+
+\subsection{Disaster Management Project in the Ateneo}
+
+With the aim of minimizing the catastrophic effects of the disasters mentioned above, the Ateneo de Manila University, in collaboration with the Manila Observatory, Smart Telecommunications, Inc. and Japan Radio Corporation, embarked on a project to create a nationwide disaster alert system. This system applies a different approach in monitoring meteorological events by focusing on rain telemetry. It utilizes various apparatuses, more particularly, wireless communication systems, tipping buckets and sound recorders to record rain rate and strength. The project kicked off last year when Electronics and Communications Engineering (ECE) students of the Ateneo de Manila University conducted extensive studies on the relationship between wireless devices and rain strength. They setup wireless sensing networks within the campus, specifically in Manuel V. Pangilinan (MVP) Student Center and Blue Eagle Gym. An illustration of the network is shown in Figure \ref{fig:wireless_network}. 
+
+\begin{figure}
+	\centering
+		\includegraphics[width=450 pt]{wireless_network.jpg}
+	\caption{Wireless Sensing Network}
+	\label{fig:wireless_network}
+\end{figure}
+
+\bigskip
+As shown in Figure \ref{fig:wireless_network}, each network was composed of wireless communication system, tipping bucket and acoustic sensors. For the wireless communication system, two wireless broadband technologies were used. The first was the Wireless IP Access System (WIPAS) donated by Japan Radio Corporation. The second was the broadband connection of the Philippine Long Distance Telephone Co.-Smart (PLDT-Smart). These broadband connections were used to detect signal attenuation caused by rain. Each broadband antenna was connected to a computer that logs the receiving signal level (RSL) every second. The WIPAS logger outputs data as a CSV file while the Smart Broadband connection logger outputs an Excel file (with .xls file extension).
+
+\bigskip
+To verify the data taken from the wireless communication system, tipping buckets and acoustic sensors were also deployed in the area. The tipping bucket logs rain rate in tips per minute and outputs the data as a .csv file. Each tip is equivalent to 0.2 millimeters of rain. Aside from the broadband connection and the tipping bucket, acoustic sensors were also used in the network.
+
+\bigskip
+Unlike the aforementioned devices, data could not be taken directly from the acoustic sensor. It had to pass through a converter. Figure \ref{fig:process_of_acquisition} shows the process by which data was acquired from the sound of the rain recorded on the acoustic sensor.
+
+\begin{figure}
+	\centering
+		\includegraphics[width=350 pt]{process_of_acquisition.jpg}
+	\caption{Process of Acquisition of Data from the Sound Sensor}
+	\label{fig:process_of_acquisition}
+\end{figure}
+
+\bigskip
+As shown in Figure \ref{fig:process_of_acquisition}, the acoustic sensor must be plugged into a computer in order to extract the sound recording. The output is a .wav file, which is used as an input to the converter application. The said application outputs a .txt file containing the power of the sound per second.
+
+\bigskip
+Since the data gathered came from different sources, different methods for processing each group of data was employed; thus, output came in three different forms: either in .txt, .xls or .csv file. After the output files were produced, each of them was graphed manually. Unfortunately, the graphs cannot be interpreted by lay persons, so it defeated the purpose of making information on the behavior of rain available to everyone. With a visualization application, rain information can be easily interpreted by anyone.
+
+
+\section{Research Objectives}
+
+The objective of this study is to develop a visual component to rain telemetry. Specifically, the aim is to identify visualization techniques for various inputs of rain data.
+
+\section{Research Question}
+
+With retrieval of rain telemetry through wireless networks now possible through the research conducted by the students of the ECCE Department of Ateneo de Manila University, the next step is to convert the raw form into information that can be comprehended by the public. This study aims to answer the following research questions:
+
+\bigskip
+What visualization techniques can be employed to facilitate the display of rain data in such a way that they could be made publicly available and easily understandable?
+
+\section{Scope and Limitations}
+
+This study covers web and mobile development of visualizing rain data. Both applications retrieve data as a static text file.
+
+\bigskip
+With the aid of the Department of Information Systems and Computer Science of the Ateneo and the Ateneo Java Wireless Competency Center, the application provides a visualization of the data gathered from the wireless sensors and make it available to the public via the internet and mobile phones. In an overview, this visualization application will show icons representing rain rate, acoustic and or signal power drawn against the specific location of the wireless sensing network. It will also show a more detailed visualization of rain data of each location through dynamic bar graphs. 
+
+\bigskip
+A map, where the graphs will be plotted is also included in the application. Processing and analysis of data will still be done separately so the application should be able to process .xls, .txt and .csv files that contain the data from the different sources (i.e. the rain sensors). 
+
+\bigskip
+Future plans have already been drawn with regards to the integration of the visualization application and the wireless sensing networks to create a nationwide disaster alert system. The framework of this system is shown in Figure \ref{fig:disaster_system_framework}.
+
+\begin{figure}
+	\centering
+		\includegraphics[width=350 pt]{disaster_system_framework.jpg}
+	\caption{Framework of the Nationwide Disaster Alert System}
+	\label{fig:disaster_system_framework}
+\end{figure}
+
+\bigskip
+The wireless sensing networks will be deployed nationwide and the data gathered from each network will be stored in a data repository. Once the application is viewed online or via mobile devices, it will query the data from the data repository to visualize the strength and rate of the rain. With the visualization application integrated into the system, the rain data will be understandable and accessible by the public. 
+
+\section{Significance}
+
+The importance of making the system public rests on the fact that public accessibility of the system calls for the involvement and participation of the people. They will not only be passive beneficiaries of dole outs and assistance. They can be partners in the task of disaster preparedness, prevention and mitigation. Early assessment of the risk and the participation of the community in the decision making are ``needed to help reduce the overall risk to society, the economy and the environment" \cite{un}.
