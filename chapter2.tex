@@ -1,184 +1,53 @@
 \chapter{REVIEW OF RELATED LITERATURE}
-\section{Data Visualization}
-By interacting with the physical world, human beings have developed a more coordinated eye-brain system that allows us to easily interpret information from images \cite{wolff}. Because of this unique ability, visualization has been the most effective way of conveying scientific data, which is complex and abstract in its raw form.
 
-\bigskip
-Visual representation of data may be classified into two general forms: information visualization and scientific visualization, the broadest of which is information visualization. It concerns the visual representation of a collection of non-numerical data, like articles, files, databases and networks \cite{friendly}. The second classification is scientific visualization which is more focused on modeling of natural phenomena through complex data structures \cite{wolff}. Scientific visualization is not only limited to modeling. It may also represent scientific data through other forms of visualization techniques.
+% See if this should be removed in the future
+This section aims to provide the context where this study may be placed. 
+Studies that have already been made in the field are to be discussed here in order to 
+explain the concepts involved in enhancing Genetic Algorithms through the GPU and 
+Genetic Algorithms in a game. The section will also highlight contributions not yet 
+applied in the field, namely using the GPU to enhance Genetic Algorithms in a game.
 
-\bigskip
-With the unimaginable advancement in computing, data visualization evolved from simple point plots and bar graphs to complex yet aesthetically-appealing models. Several modern data visualization applications do not only represent data but also engage human imagination and creativity. To create these applications, programmers, statisticians and researchers follow a sequence of steps to visually represent the data patterns or trends that they wish to highlight.
+\section{Genetic Algorithms through the GPU}
 
-\section{Steps for Visualizing Data}
-The process of visualizing data begins with data acquisition \cite{fry}. In this process, data may be acquired from a file on a storage device, such as hard disk, or a source on a network. This process can be either extremely complicated in which the system has to gather only the useful data in a large system or very simple in which the system only has to read from a text file. Acquisition not only involves how data is obtained but also how the user can download the data. This will greatly affect how the system will be designed.  For example, if the system is accessible online, then the time it will take to download the data to the user's browser must be taken into account. Since the data is usually a part of a much bigger data set on the server, the data must be structured in such a way that common subsets can easily be retrieved.  
+Genetic Programming can be a very time-consuming process.  The members of its populations are optimized against a fitness landscape through a fitness check.  
+It then tries the output or plugs it in again for a better fitness score. For a large population, the processing power needed cannot be handled by the CPU alone.  
+According to this article , GPUs in PCs are considered as more powerful in pure FLOPS\cite{Banzhaf09}.  For example, in the GeForce 8 Series the NVIDIA 8800 Ultra performs around 576 GFLOPS 
+on 128 processing elements.  This equates to around 4.5 GFLOPS per element, compared with 2.75 per core for the Blue Gene/L supercomputer.  With that kind of processing power, 
+new sets of problems can be solved.  
 
-\bigskip
-The next step is parsing \cite{fry}. Once the data file is acquired, each line must be broken into individual parts which will be tagged with its intended use. Then, conversions will be done to each field to change it into useful format. For example, data values passed to a Java program need to be converted to Java-specific data types, specifically, String, Float, Integer and Character. 
+Some of the applications cited by this article were the KDD 1999 IDS dataset, where, they restricted themselves to a subset of 10% 
+of the 4 millions plus entries to evaluate from\cite{Banzhaf09}.  It only took 5.86 ms to evaluate on a GPU compared to the 43.54 ms on the CPU.  Another application was found on image filtering.  
+They used Genetic Programming to reverse engineer image filters, i.e., find the mapping between an image and the output of a filter applied to it.  The results were that the CPU process 
+was 100 times slower than the GPU one.  
 
-\bigskip
-After this, the data is filtered to remove portions that will not be used \cite{fry}. This step also includes mathematical computation to deduce data that are not provided by the source and normalization to standardize the data values. This step is followed by mining or the analysis stage. To deduce patterns or mathematical equations that represent the data, statistics and data mining are used in this stage.
+This article talked about how several computers can be used to efficiently process large datasets and execute complex and evolved programs\cite{Harding09}.  
+They used the spare processing power seen in the computers in the student's laboratory.  It detailed how a root computer distributed work over a network of computers to increase processing speed and efficiency.
+Further implementations were introduced in the field of Genetic Algorithms.  As mentioned in this article, NVIDIA introduced a new feature called the Compute Unified Device Architecture (CUDA), 
+a general-purpose parallel architecture with a new parallel programming model and instruction set architecture\cite{Zhang09}.  Because the GPU is a lot more effective in terms of primitive operations, 
+CUDA was introduced to take advantage of the massively parallel high-performance computing on the GPU.  
 
-\bigskip
-After mining, the data is represented through a basic visual model \cite{fry}. The model that will be used depends on the visualization technique best fitted for the acquired data and the data pattern that will be highlighted. Although this is the third to the last stage, this greatly influences data acquisition and filtering. After this stage, the resulting visualization is further refined to put more emphasis on particular data or to increase readability by changing some attributes, such as color. Finally, user interaction is added to the application allowing the user to manipulate and explore the data either by limiting the data values shown on the visualization or changing the perspective.
+However, not all Genetic Programming are equal in performance.  This article  differentiates Block GP and Thread GP\cite{Robbilliard09}.  A Block GP is where every GP programs is
+interpreted by all threads running on a given processor.  On the other hand, a Thread GP is where every GP programs is interpreted by their own thread.  The article 
+highlighted an experiment where they compared the speed at which each setup is executed.  The results were that the Block GP out-performed the Thread GP in every benchmark, 
+population size and the number of fitness cases.
 
-\bigskip
-In order to come up with a visualization application, these series of steps must be followed. However, the most crucial stage of all of these steps is visual representation which can only be achieved by employing one or a combination of visualization techniques. 
+\section{Genetic Algorithms Applied in Games}
 
-\section{Visualization Techniques}
-The two most basic visualization techniques are point plots and bar graphs \cite{wolff}. Despite the simplicity of these graphs, these are the more widely used means of presenting data. From these graphs, researchers can easily deduce the correlation between two variables, which is a fundamental question in a scientific inquiry. However, bar graphs may sometimes obscure the data rather than make it clearer. Exponential growth, for example, is more obvious when the data is graphed using connected point plots rather than bar graphs. On the other hand, the difference in the values is much clearer in stacked bar graphs than in scattered plots. The choice of technique in visualizing data, therefore, depends on the type of data set and parameters that will be shown.
+Genetic algorithms in games have largely been applied in solving problems relating to Artificial Intelligence and character behavior in games. One instance of this application 
+is the construction of an AI for controlling the snake in a Snake game\cite{Ehlis00}. Tobin's approach is to alter the snake's behavior based on a gene that acts as a miniature 
+program that gets called at every tick of the game. Given a set of helper functions that determined if there was danger or food in certain directions of the snake's head, the program 
+would construct genomes that varied in the generated tree of function calls. This tree would then determine the snake's next actions during every tick of the game. Tobin was able to 
+produce genomes which created snakes that could gain scores that are close to the maximum attainable in the game.  
 
-\bigskip
-A higher form of visualization uses contours and images \cite{wolff}. Unlike the first one, two parameters are considered rather than one. Examples of which are applications that show heat maps.
+Another attempt at applying genetic algorithms in modifying or 
+enhancing AI behavior was done by Brian Schwab as a proof of concept in his book “AI Game Engine Programming” \cite{Schwab04}. In chapter 20, he attempted to enhance the AI's ability to maneuver 
+the player's ship in the classic game of asteroids. The genomes were constructed to represent various floating point values that would dictate different elements for decision making. 
+These included the distance between the ship and the asteroid, the velocity of the ship, the velocity of the asteroid, the current angle of the rotation of the ship and more. 
+These values, coupled with a set of predefined functions, would then determine how the ship would evade all the asteroids in the field. Brian was able to prove that the ship's AI can 
+perform better when evolved through the use of GAs as compared to hand-modifying the AI parameters and repeatedly testing the new set of values in the game.
 
-\bigskip
-A much more advanced technique uses vectors \cite{wolff}. This is used when the data set has both magnitude and direction so that the output is a vector representation. An example of which is a visualization of wind velocity.    
-
-\bigskip
-Multiparameter scalar and vector data sets demand a much more sophisticated approach to visualization \cite{wolff}. Often these data sets are represented using colored 3D mapping of data with the rest of the parameters mapped on top of it.
-
-\bigskip
-Aside from the standard 2D/3D visualization techniques, there are other visualization techniques that combine basic visualization principles \cite{keim}. Examples of which are geometrically transformed displays, iconic displays and dense pixel displays.
-
-\bigskip
-Geometrically transformed display techniques (see Figure \ref{fig:parallel}) are used to highlight significant changes in multidimensional data sets \cite{keim}. Examples of techniques under this class are Prosection Views, Hyperslice and Parallel Coordinates technique. The idea behind parallel coordinates technique is to visualize each of the data item as a polygonal line that intersects each of the vertical display axes at the data value of the considered attribute. 
-
-\bigskip
-\begin{figure}
-	\centering
-		\includegraphics{parallel.png}
-	\caption{Parallel Coordinate Visualization \cite{keim}}
-	\label{fig:parallel}
-\end{figure}
-
-\bigskip
-In iconic displays, visualization is done by mapping the attribute values of a multidimensional data item to the features of an arbitrary icon, such as star, stick figure, and little faces \cite{keim}.  In the stick figure technique, two attributes determine the density of the head and body while the remaining attributes determine the other features of the stick figure, specifically the angles and/or limb length.
-
-\bigskip
-\begin{figure}
-	\centering
-		\includegraphics{stick.png}
-	\caption{Stick Figure Visualization \cite{alfaruque}}
-	\label{fig:stick}
-\end{figure}
-
-\bigskip
-Another group of visualization techniques is the dense pixel technique \cite{keim}. In this technique, colored pixels are used to represent each dimension value and pixels representing the same dimension are grouped into adjacent areas. The pixels are arranged on the screen depending on the purpose of the visualization. When pixels are arranged using the most appropriate technique, valuable information such as local correlations, dependencies and hot spots can be easily deduced from the resulting visualization. 
-
-\bigskip
-Two of the most common means of arranging the pixels are recursive pattern technique and circle segments technique \cite{keim}.  In recursive pattern technique (see Figure \ref{fig:recursive}), the pixels are arranged through generic recursion. This technique is applied to datasets that are ordered based on one attribute (e.g. time series data). The user may control the arrangement of the pixels by specifying parameters in each recursion level, creating more informative substructures. For each recursion, the pixels are arranged within a rectangle, the height and weight of which is specified by the user. First, the pixels are arranged from left to right based on the parameter specified by the user, then from right to left at the bottom then left to right again, and so on. The same arrangement is done on the succeeding recursion levels except that the elements arranged in level \textit{i} is the result of the arrangement done on the previous level, level (\textit{i}-1).
-
-\bigskip
-\begin{figure}
-	\centering
-		\includegraphics{recursive.png}
-	\caption{Dense Pixel Displays: Recursive Pattern Technique\cite{keim}}
-	\label{fig:recursive}
-\end{figure}
-
-\bigskip
-In the circle segments technique (see Figure \ref{fig:circle}), each single colored pixel corresponding to one attribute value is arranged in a segmented circle \cite{keim}. Each segment represents one dimension and pixels representing the same dimension are grouped into one segment. The pixels are plotted by drawing a line perpendicular to the segment and arranged from the center to the outside. This produces visualization with the difference between the attribute values emphasized at the center.
-
-\bigskip
-\begin{figure}
-	\centering
-		\includegraphics{circle.png}
-	\caption{Dense Pixel Displays: Circle Segments Technique\cite{keim}}
-	\label{fig:circle}
-\end{figure}
-
-\bigskip
-The developments in visualization techniques have made visual representations more informative yet easier to interpret. Because of this, data visualization applications have been used in several fields outside of research, such as weather forecasting. 
-
-\section{Weather Visualization}
-Visualization applications that handle weather information fall under a more specific branch of data visualization called weather visualization \cite{lodha}. An example of weather visualization tool is Aviation Weather Data Visualization Environment (AWE). It is tailor-fitted for general aviation pilots. It shows a real-time graphical representation of weather information on a cartographic grid. 
-
-\bigskip
-In spite of the diversity of the application of weather forecasting, developers have failed to take advantage of this to further develop their weather visualization systems. Thus, most of the weather visualization tools have not been developed to cater to more specific needs, such as disaster prediction and management. However, there are but a few studies conducted on weather visualization that was aimed at developing tools that are not only limited to weather forecasting. 
-
-\bigskip
-A study conducted in Hong Kong tapped into the versatility of weather data visualization tools to analyze air pollution \cite{chan}. The developers of the system integrated three visualization techniques, namely, polar system, parallel coordinates and weighted complete graph. 
-
-\bigskip
-Although the two aforementioned studies were successful, the systems' target audiences are those with advanced technical know-how on weather forecasting since the systems do not provide a conclusive description of weather condition. Instead, the user must deduce this from the illustrations of each parameter of the weather information. The complexity of interpreting the information from these systems makes the graphic representation impossible for laymen to interpret. 
-
-\bigskip
-Unlike these systems, the system that we are proposing is leaning towards developing a public visualization tool that is easy to interpret. The system will focus only on specific weather information - precipitation. Since tropical rain behaves differently from rains in other parts of the globe, some weather information may obscure the exact weather forecast in a tropical region.
-
-\section{Visualizing Tropical Rain}
-Two thirds of all the rain in the world falls in the tropical region \cite{adler}. Tropical rainfall is described as very uncharacteristic, as compared to other regions. In temperate climates, the rain cells are larger and the rain rate is relatively 'lighter' \cite{allnutt}. In stark contrast, rain in the tropics has relatively smaller rain cells that result to 'heavy' down pours over a short period. This uncharacteristic behavior is due to temperature changes in the atmosphere and the vast oceans that surround the tropics \cite{pids}. 
-
-\bigskip
-The different parts of the tropical region also experience varying difference in the duration, intensity and timing of rainy and dry periods \cite{pids}. One particular phenomenon that has been found to have caused the variability of rainfall intensity is the El Ni�o Southern Oscillation (ENSO). Climate analysts study strange occurrences, such as this, to understand tropical meteorology. 
-
-\bigskip
-Because of the uncharacteristic behavior of tropical rain, much research has been conducted to predict rain in the Philippines. Rainman, which is used in measuring rainfall and stream fall, is one of the tools that PAGASA uses to research on the predictability of rain \cite{pids}. This uses climate variables, such as the southern oscillation index and the sea surface temperature, measured over a one to twelve month period in three different locations to create forecasting models. The predictions from these models were verified with real climate data of the three sites over the past thirty years. Results from Rainman, as seen in Table \ref{table:rainman}, suggest that there is a higher chance of heavy rainfall in the Philippines during the Pacific Ocean's cool phase than its warm phase.
-
-\begin{table}[h]
-	\centering
-		\caption{Probability of Rainfall During the Warm and Cool Phases of the Pacific Ocean}
-		\label{table:rainman}
-		\begin{tabular}{@{\extracolsep{\fill}} | p{.19\textwidth} | p{.3\textwidth}| p{.3\textwidth}| }
-			\hline
-			 \textbf{Study Site}& \textbf{During a cooler Pacific Ocean (Sep-Feb)} & \textbf{During a warmer Pacific Ocean (Mar-Sep)}\\
-			\hline
-			Malaybalay	& 70\%	& 20\% - 30\% \\
-			\hline
-			Tacloban	& 60\% - 80\%	& 20\% - 40\% \\
-			\hline
-			Tuguegarao &	60\% - 80\%	& Reduced	\\
-			\hline
-		\end{tabular}
-\end{table}
-
-\bigskip
-However, very recent studies by UK and US researchers show otherwise. According to the research, there is an increase in the frequency of heavy rainfall when the tropics warmed up and then a decrease when it cooled down \cite{allan}. Studies suggest that this happens because during warm climate, the atmosphere can hold more water vapor \cite{allan} and there is more moisture over the ocean \cite{adler}.
-
-\bigskip 
-Aside from the studies that characterize or explain the behavior of rain, several researches have also been conducted regarding the visualization of rain. One of them was done at the University of Bonn in Denmark \cite{gerstner} using weather radars. The weather radars were used to provide rainfall rate estimates by measuring the backscatter or reflectivity from rain drops in the atmosphere. However, in their research, very large amount of data needs to be processed and this resulted in performance problems and delays in the delivery of the rain fall visualization. To resolve this, they used multiresolution algorithms which vary the data displayed relative to the scaling of the map. Zoomed maps are displayed in higher resolution and with more details while overview maps are just displayed in lower resolution. Although they were able to address this problem, their visualization tool still lacks display of backlog data that can be used for further research in the behavior of rain. Also, their visualization tool gets its data from weather radars, which, in as much as they are part of the new generation technologies, are expensive and not readily available here in the Philippines.
-
-\bigskip
-A similar research is done by Celano and his colleagues \cite{celano} in ARPA-SIM organization in Italy. Using satellites to retrieve the rain information and the Google Earth platform, they are able to display the accumulated rainfall and its distribution over the map. One of the features of their visualization tool is that it is able to determine whether there is light rain, moderate rain, heavy rain, rain hail mixture or snow. Another important feature is that their map is dynamic. It is able to ``play" the weather status depending on the time sequence specified. Furthermore, its real time visualization capability provides an effective early warning system for possible hazardous occurrences caused by very bad weather. One of its major limitations is its inaccuracy in the association of the location with its corresponding rain event. This is a result of its use of a geo-alignment system which gives a point in the map that is off by about 100 to 150 meters from the original location. Also, like the previous research mentioned, it only accepts data from its expensive satellites.
-
-\section{Connecting to a Wireless Network}
-	As opposed to wired communication devices, wireless technologies, such as PDAs, cell phones and laptops, connect to one or more wireless devices without network or peripheral cabling \cite{karygiannis}.  These devices use radio frequency transmissions to send and receive data. Wireless networks provide transport capabilities between and among wireless devices and the wired networks. Wireless networks are categorized into Wireless Wide Area Network (WWAN), Wireless Local Area Networks (WLAN), and Wireless Personal Area Networks (WPAN). 
-	
-\bigskip	
-WLAN operates through a fixed network infrastructure \cite{karygiannis}. It is composed of client stations, such as wireless-enabled laptops and handheld devices. Client stations use wireless network interface cards (NIC) to communicate with each other via the access point (AP). The AP is similar to a cell-site base station in cellular communications. It is a stationary device that is ``a radio transceiver on one side and a bridge to the wired backbone on the other." 
-
-\bigskip
-WLAN offer more flexibility and portability over wired networks \cite{karygiannis}. However, it is subject to the limitations of radio frequency transmissions. Radio signals are propagated through reflection, diffraction or scattering \cite{ibe}. Radio wave is reflected when it is blocked by an object that is larger than its wavelength. Diffraction or bending of radio waves occurs when there is an obstruction to the radio path. Scattering of a radio wave happens when it encounters an object with smaller dimensions than its wavelength. Several factors that lead to the occurrence of the said radio propagation mechanisms contribute to signal propagation loss. This includes weather conditions, specifically, rain. 
-
-\bigskip
-In Wessling, Germany, researchers studied the correlation between rain intensity and signal attenuation of a 40 GHz Italsat beacon \cite{fiebig}. The results of the study showed that as rain intensity increases, the power of the wireless signal significantly decreases. 
-
-\bigskip
-In another study, it showed that rain attenuation cause the highest propagation impairment at frequencies above 10 GHz compared to other propagation factors, namely gaseous absorption, cloud attenuation, melting layer attenuation, tropospheric scintillations and low-angle fading \cite{dissanayake}. 
-
-\bigskip
-Some researchers utilized these findings to create models that predict rain attenuation base on rain rate. One particular study revealed that most of these models were accurate at medium to low rain rates in tropical regions. \cite{allnutt}
-
-\bigskip
-Although several studies have shown that there is a correlation between signal attenuation and rain intensity, most of this research was aimed at predicting rain attenuation based on rain intensity instead of the other way around. 
-
-\bigskip
-One particular research conducted by ECE majors in the Ateneo de Manila University utilized signal attenuation to measure rain intensity. The proponents used Wireless IP Access System (WIPAS) as part of their wireless sensing network \cite{abrajano}. They found a significant decrease in the signal attenuation (dB) for certain rain intensities. With this finding, they recommended the use of the wireless sensing device in a disaster detection and prevention system.
-
-\section{Disaster Management System}
-
-\subsection{Components of Disaster Management Systems}
-Ideally, disaster management systems should support accurate disaster prediction, efficient information dissemination and well-organized damage assessment and rehabilitation \cite{singh}. Disaster prediction includes preventive measures, specifically, ``vulnerability analysis, hazard zonation and prior risk assessement, � timely and reliable weather forecasts and advance warnings of severe weather\cite{singh1}." Preparedness to disaster will significantly ``minimize the loss of life and damage and facilitate timely and effective rescue, relief and rehabilitation of the affected population \cite{singh1}".
-
-\subsection{ICT in Disaster Management}
-Since a disaster management system should efficiently mobilize people of different background and location, it must be capable of integrating information regardless of discipline, organization and geographic location \cite{venkatachary}. It should allow multiple accesses to valuable information depending on the level of access granted to the user. This disaster information can be further analyzed in order to pinpoint the right course of action that must be taken. Doing all of these manually is not only tedious but also inefficient, thus, technology must be utilized in a disaster management system.   
-
-\bigskip
-Technology can be used in ``data collection, networking, communication, warning dissemination, service delivery mechanisms, GIS databases, expert analysis systems, information resources etc. \cite{venkatachary1}" These functions can be performed by current technologies, which can be adopted into a disaster management system. This includes ``remote sensing, Global Positioning Systems (GPS), Data Collection Platforms (DCPs), hand-held GPS, Geographical Information System (GIS) \cite{venkatachary1}" and ``Geospatial models, Cyclone warning and Dissemination System (CWDS) \cite{venkatachary1}."
-
-\bigskip
-The concept of using information technology to make disaster management easier and more efficient is not new. However, there are only very few disaster management systems that exist today and only a few of them are widely deployed despite of their importance in disaster preparedness and mitigation \cite{careem}.
-
-\bigskip
-One of these projects made to provide efficient information management concerning disaster risk reduction is the Sahana Project \cite{careem}. Sahana has been deployed to manage major disasters all over the world; these include the 2004 Tsunami in Asia, 2005 Kashmir earthquake in Pakistan and the 2006 Guinsaugon landslides in the Philippines. Currently, it has modules such as missing person registry, request/aid management which coordinates specific aid requests with the available donations, and shelter registry which keeps track of all available evacuation centers and the facilities and services provided in those locations. Sahana, however, is considered only as a post-disaster management and humanitarian assistance tool - information are only collected and provided once a disaster has already occurred. At the moment, it lacks modules which can help in disaster preparedness and pre-disaster risk reduction.
-
-
-
-
+A different application of GAs in a mobile version of the game of snakes was conducted by Milan Verma and Peter McOwan in their research \cite{Verma05}. Instead of modifying the behavior of the 
+snake in the game, they used GAs instead for creating whole new game levels that matched the difficulty requested by the user. Their technique was to use genomes that determined various 
+aspects of any single game level and then determined the level's fitness by having the level “played” by a synthetic game-player. The score that the synthetic game-player obtained would then determine 
+if the level is too easy or too hard and levels that matched the user's wants would then be given to the user that requested it. Their study proved successful and they were able to deliver a 
+mobile game that could adapt to a user's needs.
