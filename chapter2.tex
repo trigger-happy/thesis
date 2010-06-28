@@ -15,12 +15,12 @@ According to this article , GPUs in PCs are considered as more powerful in pure 
 on 128 processing elements.  This equates to around 4.5 GFLOPS per element, compared with 2.75 per core for the Blue Gene/L supercomputer.  With that kind of processing power, 
 new sets of problems can be solved.  
 
-Some of the applications cited by this article were the KDD 1999 IDS dataset, where, they restricted themselves to a subset of 10% 
-of the 4 millions plus entries to evaluate from\cite{Banzhaf09}.  It only took 5.86 ms to evaluate on a GPU compared to the 43.54 ms on the CPU.  Another application was found on image filtering.  
+A sample application can be found in the KDD 1999 IDS dataset, where, they had around 4 million entries.\cite{Banzhaf09}.  They evaluated 10 percent of the total subset that were given.  They 
+found out that it only took 5.86 ms to evaluate on a GPU compared to the 43.54 ms on the CPU.  Another application was found on image filtering.  
 They used Genetic Programming to reverse engineer image filters, i.e., find the mapping between an image and the output of a filter applied to it.  The results were that the CPU process 
 was 100 times slower than the GPU one.  
 
-This article talked about how several computers can be used to efficiently process large datasets and execute complex and evolved programs\cite{Harding09}.  
+Several computers can be used to efficiently process large datasets and execute complex and evolved programs.\cite{Harding09}.  
 They used the spare processing power seen in the computers in the student's laboratory.  It detailed how a root computer distributed work over a network of computers to increase processing speed and efficiency.
 Further implementations were introduced in the field of Genetic Algorithms.  As mentioned in this article, NVIDIA introduced a new feature called the Compute Unified Device Architecture (CUDA), 
 a general-purpose parallel architecture with a new parallel programming model and instruction set architecture\cite{Zhang09}.  Because the GPU is a lot more effective in terms of primitive operations, 
