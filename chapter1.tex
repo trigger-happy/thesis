@@ -3,37 +3,35 @@
 
 \section{Background of the Study}
 
-% refer to p 421 in ai game development
+% AI Game engine prog p 415
 Genetic algorithms are one of the many types of artificial intelligence
 techniques that exist today. If implemented well, genetic algorithms can
 evolve a computer controlled agent to perform adequately according to some
 set criteria defined in a fitness function. However, a significant amount of 
 time is required for the algorithm to evolve a population of individual solutions 
-into an acceptable solution. The time it takes can range from a few hours to a number
-of weeks, depending on the complexity of the game where the agent must perform.
-This limitation makes them difficult or impractical to use in the process of
-game development.
+into an acceptable solution\cite{Schwab04}. The time it takes can range from
+a few hours to a number of weeks, depending on the complexity of the game where
+the agent must perform. This limitation makes them difficult or impractical to
+use in the process of game development\cite{Schwab04}.
 
 % refer to the bottom part of p 415 and top part of p 417 in AI game engine prog
 The primary reasons genetic algorithms take up a lot of time are the number of 
 possible solutions that must be tested given a specific generation, the time it 
 takes to evaluate each of these possible solutions, and the number of generations 
-that may be needed before arriving at a single or a number of acceptable solutions. 
-Modern day CPUs can only reduce
-the running time of a genetic algorithm by so much. A common solution to the
-problem is through parallelization across multiple CPUs either in a computing
-cluster or through multiple processors. These solutions however are either
-too expensive or still insufficient.
-
-
-A single computer processor is capable of a variety of things, but it can only process
-one thing at a time. This is where Graphics Processing Units, or GPUs, come in.
+that may be needed before arriving at a single or a number of acceptable solutions\cite{Schwab04}. 
+One way to tackle the issue is by using faster processors in order to reduce the
+overall computation time of the Genetic Algorithm. A better solution though would
+be to process all the individuals in a single generation in parallel through the
+use of threads. A computer processor is capable of a variety of things, but it can only process
+one instruction at a time. This is where Graphics Processing Units, or GPUs, come in.
 GPUs have been designed to execute a single set of instructions over numerous elements
-of data. Not only do they have multiple processing units, each processing unit is also
+of data, a technique known as ``Single-Instruction, Multiple-Thread\cite{pdf:NVCudaPrgGuide}.''
+Not only do they have multiple processing units, each processing unit is also
 capable of running several identical instructions simultaneously, making GPUs ideal
-for highly parallel algorithms. It is our goal therefore to show that GPUs can be used
-for evolving computer controlled agents for use in computer games at a rate that is much
-faster than those that are evolved through the use of a CPU.
+for highly parallel algorithms\cite{pdf:NVCudaPrgGuide}. It is our goal therefore to
+show that GPUs can be used to evolve an optimized solution for the behavior of computer
+controlled agents in a computer game at a rate that is much faster than those that are optimized
+through the use of a CPU.
 
 %\begin{figure}
 %	\centering
