@@ -37,7 +37,8 @@ through the use of a CPU.
 	\centering
 		\graphicspath{{images/}}
 		\includegraphics[width=450 pt]{gpu.jpg}
-	\caption{Threads and thread blocks in a GPU}
+	\caption{Concurrent threads in a GPU organized in thread blocks, all of which
+are running in parallel}
 	\cite{pdf:NVCudaPrgGuide}
 	\label{fig:gpu_diagram}
 \end{figure}
@@ -46,85 +47,80 @@ through the use of a CPU.
 
 The objective of this study is to show that the GPU can be used to reduce the time
 it takes to optimize game AI and thus make them more practical for use during the
-development process of computer games. This research aims to do the following:
-
-\begin{itemize}
- \item Illustrate the performance gains of using a GPU to optimize the AI with the
-use of Genetic Algorithms.
-\end{itemize}
+development process of computer games. This research aims to illustrate the
+performance gains of using a GPU to optimize the AI with the use of Genetic Algorithms.
 
 
 \section{Research Question}
 
-These are the questions that should be addressed in designing the application:
+In order to complete the research objective of illustrating the benefits of using
+a GPU for optimizing game AI, we will need to answer the following questions:
 
-\begin{itemize}
- \item How should the AI be represented as a genome for the purpose of evolution in a genetic algorithm?
+\begin{enumerate}
+ \item Which parts of the AI can we optimize through the use of genetic algorithms?
 
  \item How do we structure the game such that most of the code may be shared between
 the actual game and the offline tool that utilizes the GPU?
 
- \item Under what specific criteria should we judge an individual solution for use in the
-fitness function?
-
- \item How practical is this solution compared to a pure CPU implementation?
-\end{itemize}
-
-
-The following questions are for determining if the application proves our theory
-in making use of GPUs for evolving AI solutions to a game:
-
-\begin{itemize}
- \item How much faster is the GPU assisted solution as compared to the pure CPU
- version?
- 
- \item How well did the evolved AI solutions perform in the actual game?
- 
- \item Is it possible to re-use portions of the code for evolving the AI for other
- types of games?
-\end{itemize}
+ \item How much faster can the GPU based application generate an optimized ``gene''
+as compared to a CPU based implementation?
+\end{enumerate}
 
 \section{Scope and Limitations}
 
-DUR
+The focus of the study is in determining the performance gains that can be attained from
+running the genetic algorithm on the GPU. As such, the main variable in this study is the
+average running time of the application in generating an optimal solution. Although there
+are many other factors that would determine whether this approach to optimizing game AI
+is practical, they will have to be the subject of further research due to the limited time
+available for this study.
+
 
 \section{Significance}
 
 Genetic algorithms have applications over a wide variety of fields.
 Inspired by evolutionary biology, it can find the optimal solution
-for a given problem.  For example, artificial neural networks , ANNs, are used in the manufacturing
-industry to identify the best parameters for constructing a model.  Genetic 
-algorithm based ANNs are found to be the best due to its time-saving potential\cite{Venkatesan08}.  
-Another application can be found in the field of traffic control.  They used genetic algorithm to design an
-optimal toll ring scheme\cite{Sumalee08}.
-Other applications can be found in the field of AI.  For example, we can 
-make more sophisticated AI using genetic algorithms.  These AIs will be smarter in the 
-sense that it can ``learn''.  This can be very invaluable in a game due to making the AI a lot more challenging.  
-With the age of graphics reaching its peak, the need for better AI starts being an
-ingredient for a succesful commercial game\cite{Yue06}.  Because of the inherent ability
-of genetic algorithms in learning, AIs can be made more robust.  They could 
-display behaviors that were not seen in the previous playthrough.  Thus, 
-this could make more challenging AIs after each playthrough.  This was made an 
-example of through Megaman 2 in the boss fight against Air Man.  It kept trying different 
-set of inputs to defeat Air Man.  Each generation performed better than the last 
-until it reached Generation 13 whereby its fitness score didn't increase anymore\cite{website:Kuliniewicz09}.  
+for a given problem. For example, artificial neural networks (ANN),
+are used in the manufacturing industry to identify the best parameters
+for constructing a model. Genetic algorithm based ANNs are found to be
+the best due to its time-saving potential\cite{Venkatesan08}. Another
+application can be found in the field of traffic control. They used
+genetic algorithm to design an optimal toll ring scheme to reduce traffic
+congestion\cite{Sumalee08}. Other applications can be found in the field
+of Game AI. For example, we can make more sophisticated AI using genetic
+algorithms. These AIs will be smarter in the sense that they can ``learn''.
+This aspect of AI can make it more challenging, a very valuable element
+in a computer game. With the age of graphics reaching its peak, the need
+for better AI is starting to become an ingredient for a succesful
+commercial game\cite{Yue06}. Because of the inherent ability of genetic
+algorithms in learning, AIs can be made more robust. They could display
+behaviors that were not seen in the previous playthrough. Thus, this
+could make more challenging AIs after each playthrough. An application
+of this can be seen in an experiment to create an intelligent player
+for a game titled ``Megaman 2\cite{website:Kuliniewicz09}.'' Here the
+computer controlled player played by trying different sets of inputs
+to defeat a particular boss named ``Air Man.'' With each generation,
+the computer player performed better than its previous playthrough
+until it had reached the point wherein its fitness score would no longer
+increase. 
 
 
-Other applications of genetic algorithm can be found in companies like First Quadrant Corp.
-It is an investment management firm that used genetic algorithms to model yield on 
-investment funds\cite{website:Davis}.  Through this method, they are have a ``significant improvement''
-of over USD 128 Billion under investment\cite{website:Davis}.  Furthermore, in the field of Telecommunications, 
-Cox Associates is using genetic algorithms for their cellular clients\cite{website:Davis}.  
-As a result, they are saving millions of dollars.  Another application can be found 
-in the field of traffic control, specifically in traffic lights and pedestrian crossing
-control\cite{Turky09}.  
+%Other applications of genetic algorithm can be found in companies like First Quadrant Corp.
+%It is an investment management firm that used genetic algorithms to model yield on 
+%investment funds\cite{website:Davis}. Through this method, they are have a
+%``significant improvement'' of over USD 128 Billion under investment\cite{website:Davis}.
+%Furthermore, in the field of Telecommunications, Cox Associates is using genetic
+%algorithms for their cellular clients\cite{website:Davis}. As a result, they are
+%saving millions of dollars. Another application can be found in the field of traffic
+%control, specifically in traffic lights and pedestrian crossing control\cite{Turky09}.
 
-Various studies have already been done in the fields of genetic algorithm with some of the applications
-being used commercially.
-However, it would seem that there has yet to be any study done in improving genetic algorithms
-using the GPU for Game AIs.  It has been proven that genetic algorithms are limited without
-the processing power of the GPU\cite{Banzhaf09}.  Therefore, the processing power of the GPU can give better 
-results because of its parallel structure.  Thus, it is possible to have a large population size.
-With this, the AI can evolve and find better results , i.e., fitness scores, creating behaviors that are normally
-unseen in normal situation.  It is here that we belive that we 
-could make a contribution to the field of both Genetic Programming and Game Development (AI development).
+
+Various studies have already been done in the fields of genetic algorithm with
+some of the applications being used commercially. However, it would seem that there
+has yet to be any study done in improving genetic algorithms using the GPU for optimizing
+game AI. It has been proven that genetic algorithms are limited and impractical without
+the processing power of the GPU\cite{Banzhaf09}. Without this limitation however, GAs
+could be used to optimize game AI in place of manually hand tuning them. Not only does
+this have the potential to reduce the time it takes to fine-tune the game AI, it will
+also allow the game developer/designer to work on other tasks while the computer
+does the fine-tuning.
