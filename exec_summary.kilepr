@@ -4,7 +4,7 @@ img_extIsRegExp=false
 img_extensions=.eps .jpg .jpeg .png .pdf .ps .fig .gif
 kileprversion=2
 kileversion=2.0.85
-lastDocument=exec_summary.tex
+lastDocument=chapter1.tex
 masterDocument=
 name=exec_summary
 pkg_extIsRegExp=false
@@ -110,10 +110,10 @@ order=-1
 
 [item:chapter1.tex]
 archive=true
-column=43
+column=37
 encoding=UTF-8
 highlight=LaTeX
-line=24
+line=105
 mode=LaTeX
 open=true
 order=1
@@ -125,8 +125,8 @@ encoding=UTF-8
 highlight=LaTeX
 line=32
 mode=LaTeX
-open=false
-order=1
+open=true
+order=2
 
 [item:chapter3.tex]
 archive=true
@@ -180,10 +180,10 @@ order=-1
 
 [item:exec_summary.tex]
 archive=true
-column=16
+column=17
 encoding=UTF-8
 highlight=LaTeX
-line=36
+line=38
 mode=LaTeX
 open=true
 order=0
@@ -197,8 +197,8 @@ CursorColumn=0
 CursorLine=0
 
 [view-settings,view=0,item:chapter1.tex]
-CursorColumn=43
-CursorLine=24
+CursorColumn=37
+CursorLine=105
 
 [view-settings,view=0,item:chapter2.tex]
 CursorColumn=0
@@ -221,5 +221,5 @@ CursorColumn=0
 CursorLine=0
 
 [view-settings,view=0,item:exec_summary.tex]
-CursorColumn=16
-CursorLine=36
+CursorColumn=17
+CursorLine=38
