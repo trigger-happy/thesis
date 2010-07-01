@@ -23,7 +23,8 @@ One way to tackle the issue is by using faster processors in order to reduce the
 overall computation time of the Genetic Algorithm. A better solution though would
 be to process all the individuals in a single generation in parallel through the
 use of threads. A computer processor is capable of a variety of things, but it can only process
-one instruction at a time. This is where Graphics Processing Units, or GPUs, come in.
+one instruction at a time.  Even with the modern CPU with multiple processing cores, the CPU can only
+run one instruction at a time per core.  This is where Graphics Processing Units, or GPUs, come in.
 GPUs have been designed to execute a single set of instructions over numerous elements
 of data, a technique known as ``Single-Instruction, Multiple-Thread\cite{pdf:NVCudaPrgGuide}.''
 Not only do they have multiple processing units, each processing unit is also

@@ -6,7 +6,7 @@ Our first set of research questions involve the design of the application itself
 There are several things that must be done during the design phase. The first is
 the design of the actual game where the AI must be placed in. For this we chose to
 create a simple 2D tank game where the objective is to shoot the other tanks
-while at at the same time avoiding death from the projectiles of other tanks. We
+while at the same time avoiding destruction from the projectiles of other tanks. We
 chose this kind of game as it is simple enough to create within a short amount of time
 while at the same time being complex enough for the AI to perform a wide variety of
 actions. Additional game elements like health points, player score, power ups and
@@ -25,9 +25,9 @@ designed and evolved.
 Once we have chosen which AI implementation to use, the next design issue that needs to
 be addressed is the way the "genes" should be structured for evolution. The simplest
 structure would be a vector of numeric values that can be used to tune some specific
-parameters in the AI's code. Things like the minimum amount of hp that the agent can have
-before it attempts to run away from battle to heal or the minimum distance between the
-agent and an incoming projectile before the agent should attempt to dodge. This structure
+parameters in the AI's code. Things like the minimum amount of health points that the agent can have
+before it attempts to withdraw from battle to repair or the minimum distance between the
+agent and an incoming projectile before the agent should attempt to evade. This structure
 implies that the AI's decision making is already fixed and the only things that change
 are the various parameters that will trigger a yes or no in any single decision. There
 are other possible genetic structures, but these may be too complicated to implement

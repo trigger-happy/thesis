@@ -3,13 +3,13 @@
 % See if this should be removed in the future
 This section aims to provide the context where this study may be placed. 
 Studies that have already been made in the field are to be discussed here in order to 
-explain the concepts involved in enhancing Genetic Algorithms through the GPU and 
-Genetic Algorithms in a game. The section will also highlight contributions not yet 
-applied in the field, namely using the GPU to enhance Genetic Algorithms in a game.
+explain the concepts involved in enhancing genetic algorithms through the GPU and 
+genetic algorithms in a game. The section will also highlight contributions not yet 
+applied in the field, namely using the GPU to enhance genetic algorithms in a game.
 
 \section{Genetic Algorithms through the GPU}
 
-Genetic Programming can be a very time-consuming process.  The members of its populations are optimized against a fitness landscape through a fitness check.  
+Genetic programming can be a very time-consuming process.  The members of its populations are optimized against a fitness landscape through a fitness check.  
 It then tries the output or plugs it in again for a better fitness score. For a large population, the processing power needed cannot be handled by the CPU alone.  
 According to this article , GPUs in PCs are considered as more powerful in pure FLOPS\cite{Banzhaf09}.  For example, in the GeForce 8 Series the NVIDIA 8800 Ultra performs around 576 GFLOPS 
 on 128 processing elements.  This equates to around 4.5 GFLOPS per element, compared with 2.75 per core for the Blue Gene/L supercomputer.  With that kind of processing power, 
@@ -17,18 +17,18 @@ new sets of problems can be solved.
 
 A sample application can be found in the KDD 1999 IDS dataset, where, they had around 4 million entries.\cite{Banzhaf09}.  They evaluated 10 percent of the total subset that were given.  They 
 found out that it only took 5.86 ms to evaluate on a GPU compared to the 43.54 ms on the CPU.  Another application was found on image filtering.  
-They used Genetic Programming to reverse engineer image filters, i.e., find the mapping between an image and the output of a filter applied to it.  The results were that the CPU process 
+They used genetic programming to reverse engineer image filters, i.e., find the mapping between an image and the output of a filter applied to it.  The results were that the CPU process 
 was 100 times slower than the GPU one.  
 
 Several computers can be used to efficiently process large datasets and execute complex and evolved programs.\cite{Harding09}.  
 They used the spare processing power seen in the computers in the student's laboratory.  It detailed how a root computer distributed work over a network of computers to increase processing speed and efficiency.
-Further implementations were introduced in the field of Genetic Algorithms.  As mentioned in this article, NVIDIA introduced a new feature called the Compute Unified Device Architecture (CUDA), 
-a general-purpose parallel architecture with a new parallel programming model and instruction set architecture\cite{Zhang09}.  Because the GPU is a lot more effective in terms of primitive operations, 
+Further implementations were introduced in the field of genetic algorithms.  As mentioned in this article, NVIDIA introduced a new feature called the Compute Unified Device Architecture (CUDA), 
+a general-purpose parallel architecture with a new parallel programming model and instruction set architecture\cite{Zhang09}.  Because the GPU is much more effective in terms of primitive operations, 
 CUDA was introduced to take advantage of the massively parallel high-performance computing on the GPU.  
 
-However, not all Genetic Programming are equal in performance.  This article  differentiates Block GP and Thread GP\cite{Robbilliard09}.  A Block GP is where every GP programs is
-interpreted by all threads running on a given processor.  On the other hand, a Thread GP is where every GP programs is interpreted by their own thread.  The article 
-highlighted an experiment where they compared the speed at which each setup is executed.  The results were that the Block GP out-performed the Thread GP in every benchmark, 
+However, not all genetic programs are equal in performance.  This article  differentiates Block genetic programming and Thread genetic programming\cite{Robbilliard09}.  A Block genetic progamming is where every genetic programs is
+interpreted by all threads running on a given processor.  On the other hand, a Thread genetic programming is where every genetic programs is interpreted by their own thread.  The article 
+highlighted an experiment where they compared the speed at which each setup is executed.  The results were that the Block genetic programs out-performed the Thread genetic programs in every benchmark, 
 population size and the number of fitness cases.
 
 \section{Genetic Algorithms Applied in Games}
@@ -44,10 +44,10 @@ enhancing AI behavior was done by Brian Schwab as a proof of concept in his book
 the player's ship in the classic game of asteroids. The genomes were constructed to represent various floating point values that would dictate different elements for decision making. 
 These included the distance between the ship and the asteroid, the velocity of the ship, the velocity of the asteroid, the current angle of the rotation of the ship and more. 
 These values, coupled with a set of predefined functions, would then determine how the ship would evade all the asteroids in the field. Brian was able to prove that the ship's AI can 
-perform better when evolved through the use of GAs as compared to hand-modifying the AI parameters and repeatedly testing the new set of values in the game.
+perform better when evolved through the use of genetic algorithms as compared to hand-modifying the AI parameters and repeatedly testing the new set of values in the game.
 
-A different application of GAs in a mobile version of the game of snakes was conducted by Milan Verma and Peter McOwan in their research \cite{Verma05}. Instead of modifying the behavior of the 
-snake in the game, they used GAs instead for creating whole new game levels that matched the difficulty requested by the user. Their technique was to use genomes that determined various 
+A different application of genetic algorithms in a mobile version of the game of snakes was conducted by Milan Verma and Peter McOwan in their research \cite{Verma05}. Instead of modifying the behavior of the 
+snake in the game, they used genetic algorithms instead for creating whole new game levels that matched the difficulty requested by the user. Their technique was to use genomes that determined various 
 aspects of any single game level and then determined the level's fitness by having the level “played” by a synthetic game-player. The score that the synthetic game-player obtained would then determine 
 if the level is too easy or too hard and levels that matched the user's wants would then be given to the user that requested it. Their study proved successful and they were able to deliver a 
 mobile game that could adapt to a user's needs.
