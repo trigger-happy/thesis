@@ -24,33 +24,35 @@ new sets of problems can be solved.
 A sample application can be found in the KDD 1999 IDS dataset, where, they had around
 4 million entries.\cite{Banzhaf09}. They evaluated 10 percent of the total subset that
 were given. They found out that it only took 5.86 ms to evaluate on a GPU compared to
-the 43.54 ms on the CPU. Another application was found on image filtering. They used
-genetic programming to reverse engineer image filters, i.e., find the mapping between
-an image and the output of a filter applied to it.  The results were that the CPU process 
-was 100 times slower than the GPU one.  
+the 43.54 ms on the CPU. They also used genetic programming to reverse engineer image
+filters, i.e., find the mapping between an image and the output of a filter applied to 
+it. The results were that the CPU process was 100 times slower than the GPU one.  
 
 \subsection{Using CUDA in Accelerating Genetic Algorithms}
 Several computers can be used to efficiently process large datasets and execute complex
 and evolved programs.\cite{Harding09}. They used the spare processing power seen in the
 computers in the student's laboratory. It detailed how a root computer distributed work
 over a network of computers to increase processing speed and efficiency. Further
-implementations were introduced in the field of genetic algorithms. NVIDIA introduced a new feature called the Compute Unified Device Architecture (CUDA),
+implementations were introduced in the field of genetic algorithms. NVIDIA introduced a new 
+feature called the Compute Unified Device Architecture (CUDA),
 a general-purpose parallel architecture with a new parallel programming model and instruction
-set architecture\cite{Zhang09}.  Because the GPU is much more effective in terms of primitive
+set architecture\cite{Zhang09}. They present that with the given technology, genetic algorithms
+are performed faster and more effectively. Because the GPU is much more effective in terms of primitive
 operations, CUDA was introduced to take advantage of the massively parallel high-performance
 computing on the GPU.  
 
-\subsection{Implementing High Performance Genetic Prorgamming}
-However, not all genetic programs are equal in performance. This article  differentiates
+\subsection{Implementing High Performance Genetic Programming}
+However, not all genetic programs are equal in performance. They showed the difference between
 Block genetic programming and Thread genetic programming\cite{Robbilliard09}. A Block
 genetic progamming is where every genetic programs is interpreted by all threads running
 on a given processor. On the other hand, a Thread genetic programming is where every genetic
-programs is interpreted by their own thread. The article highlighted an experiment where they
-compared the speed at which each setup is executed. The results were that the Block genetic
+programs is interpreted by their own thread. They performed an experiment where
+the speeds at which each setup is executed are compared. The results were that the Block genetic
 programs out-performed the Thread genetic programs in every benchmark, population size and
 the number of fitness cases.
 
 \section{Genetic Algorithms Applied in Games}
+\subsection{Application of Genetic Programming in a Snake Game}
 Genetic algorithms in games have largely been applied in solving problems relating to
 Artificial Intelligence and character behavior in games. One instance of this application
 is the construction of an AI for controlling the snake in a Snake game\cite{Ehlis00}.
@@ -62,17 +64,6 @@ tree would then determine the snake's next actions during every tick of the game
 was able to produce genomes which created snakes that could gain scores that are close to
 the maximum attainable in the game.  
 
-Another attempt at applying genetic algorithms in modifying or enhancing AI behavior was
-done by Brian Schwab as a proof of concept in his book ``AI Game Engine Programming
-\cite{Schwab04}.'' In chapter 20, he attempted to enhance the AI's ability to maneuver
-the player's ship in the classic game of asteroids. The genomes were constructed to represent
-various floating point values that would dictate different elements for decision making.
-These included the distance between the ship and the asteroid, the velocity of the ship, the
-velocity of the asteroid, the current angle of the rotation of the ship and more. These
-values, coupled with a set of predefined functions, would then determine how the ship would
-evade all the asteroids in the field. Brian was able to prove that the ship's AI can perform
-better when evolved through the use of genetic algorithms as compared to hand-modifying the
-AI parameters and repeatedly testing the new set of values in the game.
 
 A different application of genetic algorithms in a mobile version of the game of snakes
 was conducted by Milan Verma and Peter McOwan in their research \cite{Verma05}. Instead
@@ -84,3 +75,14 @@ game-player. The score that the synthetic game-player obtained would then determ
 the level is too easy or too hard and levels that matched the user's wants would then be
 given to the user that requested it. Their study proved successful and they were able to
 deliver a mobile game that could adapt to a user's needs.
+
+\subsection{AI Game Programming}
+As a proof of concept, Brian Schwab attempted to enhance the AI's ability to maneuver
+the player's ship in the classic game of asteroids\cite{Schwab04}. The genomes were constructed to represent
+various floating point values that would dictate different elements for decision making.
+These included the distance between the ship and the asteroid, the velocity of the ship, the
+velocity of the asteroid, the current angle of the rotation of the ship and more. These
+values, coupled with a set of predefined functions, would then determine how the ship would
+evade all the asteroids in the field. Brian was able to prove that the ship's AI can perform
+better when evolved through the use of genetic algorithms as compared to hand-modifying the
+AI parameters and repeatedly testing the new set of values in the game.
