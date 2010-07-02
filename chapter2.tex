@@ -10,7 +10,7 @@ applied in the field, namely using the GPU to enhance genetic algorithms in a ga
 
 % We need to add more material in this entire chapter
 \section{Genetic Algorithms through the GPU}
-
+\subsection{Genetic Algorithm Acceleration through GPU}
 Genetic programming can be a very time-consuming process.  The members of its
 populations are optimized against a fitness landscape through a fitness check. It
 then tries the output or plugs it in again for a better fitness score. For a large
@@ -29,17 +29,18 @@ genetic programming to reverse engineer image filters, i.e., find the mapping be
 an image and the output of a filter applied to it.  The results were that the CPU process 
 was 100 times slower than the GPU one.  
 
+\subsection{Using CUDA in Accelerating Genetic Algorithms}
 Several computers can be used to efficiently process large datasets and execute complex
 and evolved programs.\cite{Harding09}. They used the spare processing power seen in the
 computers in the student's laboratory. It detailed how a root computer distributed work
 over a network of computers to increase processing speed and efficiency. Further
-implementations were introduced in the field of genetic algorithms. As mentioned in this
-article, NVIDIA introduced a new feature called the Compute Unified Device Architecture (CUDA),
+implementations were introduced in the field of genetic algorithms. NVIDIA introduced a new feature called the Compute Unified Device Architecture (CUDA),
 a general-purpose parallel architecture with a new parallel programming model and instruction
 set architecture\cite{Zhang09}.  Because the GPU is much more effective in terms of primitive
 operations, CUDA was introduced to take advantage of the massively parallel high-performance
 computing on the GPU.  
 
+\subsection{Implementing High Performance Genetic Prorgamming}
 However, not all genetic programs are equal in performance. This article  differentiates
 Block genetic programming and Thread genetic programming\cite{Robbilliard09}. A Block
 genetic progamming is where every genetic programs is interpreted by all threads running
@@ -50,7 +51,6 @@ programs out-performed the Thread genetic programs in every benchmark, populatio
 the number of fitness cases.
 
 \section{Genetic Algorithms Applied in Games}
-
 Genetic algorithms in games have largely been applied in solving problems relating to
 Artificial Intelligence and character behavior in games. One instance of this application
 is the construction of an AI for controlling the snake in a Snake game\cite{Ehlis00}.
