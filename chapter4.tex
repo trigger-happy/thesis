@@ -75,4 +75,11 @@ of the best individuals in succeeding generations no longer increase after multi
 The success of the GPU based application's performance over the CPU based version is measured
 by the time it takes for the GPU version to find an optimal solution for the AI's evasion
 behavior over the CPU version. Both applications will be run a number of times and their
-average running time will be used for comparison.
+average running time will be used for comparison. Because of the random nature of genetic
+algorithms, the optimal solution found in each run may not necessarily be the same. We will
+therefore consider a solution as optimal if it performs just as well as other candidate
+solutions when placed in identical levels. Performance is measured by how long the AI
+can survive without getting hit by any bullet. Two levels are identical when they have the
+same number of bullets fired and every bullet fired in one stage has the same starting position,
+firing time and trajectory as its corresponding bullet in another stage. With this, highly
+similar solutions should yield AI players with very similar lifespans.
