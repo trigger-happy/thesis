@@ -9,34 +9,60 @@
 % Procedures
 % Data Analysis (this is where statistics come in) <-- DO NOT FORGET
 \section{Implementation Details}
+We used a 2D tank game as a test bed for optimizing the game AI. In
+this game, there would be several tanks which are controlled by the
+AI. The objective of the game is to eliminate the other tanks and be
+the last tank remaining.  Tanks are able to move and attack to accomplish
+the objective. The best AI should ideally be able to shoot accurately
+and dodge effectively in order to eliminate the other tanks and
+survive as long as possible. 
 
-Our first set of research questions involve the design of the application itself.
-There are several things that must be done during the design phase. The first is
-the design of the actual game where the AI must be placed in. For this we chose to
-create a simple 2D tank game where the objective is to shoot the other tanks
-while at the same time avoiding destruction from the projectiles of other tanks. We
-chose this kind of game as it is simple enough to create within a short amount of time
-while at the same time being complex enough for the AI to perform a wide variety of
-actions. Additional game elements like health points, player score, power ups and
-obstacles may be implemented to increase or decrase the complexity of the game.
+\subsection{Simulation}
+The behavior we want to optimize is the evasion behavior.  The test bed for the 
+behavior would involve a single tank in the center of the field and random points 
+in the field where bullets will travel towards the tank.  The AI will take note of
+three elements in evading. 
+
+\begin{enumerate}
+ \item Collision State - a state where the AI will take note of the speed 
+of objects in the field.
+ \item Direction State - a state where the AI will take note 
+of the direction it's facing.
+ \item Distance State - a state where the AI will
+take note of the distance of the tank and the bullets.
+\end{enumerate}
+
+In this scenario, the AI will try to dodge the bullets that will collide with
+it.  The length of time the AI managed to survive will serve as the fitness score
+for this particular individual.
 
 
-The next design element that needs to be tackled is the implementation of the AI itself.
-Although we will be using Genetic Algorithms to evolve the AI in becoming optimal, it
-will still require a framework which it will operate in. Such implementations include
-Finite State Machines, Fuzzy State Machines, Hierarchical State Machines, Behavior Trees
-and Hierarchical Task Networks. Each of these has its pros and cons and the choice of
-which AI implementation to use will determine how the AI's "genetic" structure will be
-designed and evolved.
+In a single generation, there will be a large number of individual genomes. The number
+can range from 1,024 to 4,096. Each individual genome will go through the evasion
+test bed to obtain its fitness score.  When the simulation time has passed a time 
+limit or the tank in each simulations has been shot, the test for that 
+particular generation will end and the individuals are ranked according to their fitness
+score. The top 15 percent of individuals will automatically become part of the next
+generation. The remaining 85 percent will become the parents of the next generation 
+through reproduction. The test will then repeat evaluating the individuals of the new
+generation. The entire process will end only when the fitness score of the best individuals
+in succeeding generations no longer increase after multiple iterations.
+
+\subsection{Application}
+Two version of the application will be created. The first one will be CPU-based version of
+the application. This version will be optimized for the CPU and will make use of threads
+in multi-core CPUs. The other application will be GPU-based. We will optimize it to make use
+of Nvdia's Compute Unified Device Architecture. 
 
 
-Once we have chosen which AI implementation to use, the next design issue that needs to
-be addressed is the way the "genes" should be structured for evolution. The simplest
-structure would be a vector of numeric values that can be used to tune some specific
-parameters in the AI's code. Things like the minimum amount of health points that the agent can have
-before it attempts to withdraw from battle to repair or the minimum distance between the
-agent and an incoming projectile before the agent should attempt to evade. This structure
-implies that the AI's decision making is already fixed and the only things that change
-are the various parameters that will trigger a yes or no in any single decision. There
-are other possible genetic structures, but these may be too complicated to implement
-within a reasonable time frame.
+The CPU version will run a single test bed for scoring an individual. The more cores the CPU has
+the more threads that will be utilized to speed up the process. On the other hand, the GPU version
+will assign one thread block per test bed. Each thread in a block will be responsible for 
+updating a specific object in a particular instance. A single thread will be responsible
+for executing the AI functions. After evaluating a generation, the ranking and the genetic 
+operations will be handled by the CPU.
+
+\subsection{Genetic Design}
+
+
+\subsection{Measuring the Results}
