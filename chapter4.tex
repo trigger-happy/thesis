@@ -11,7 +11,30 @@
 \section{Implementation Details}
 
 \subsection{Application and Tools}
-% TODO: work out the content here
+The application to be developed for optimizing the AI will have 2 versions.
+The first version will run the game and perform the genetic operations entirely
+on the CPU. This version of the application will serve as a benchmark on the
+time it takes for an optimized solution to be found through genetic algorithms.
+The other version will run the game simulation on the GPU and the rest of the
+code in the CPU.
+
+
+The following are the tools, libraries and systems used for developing and testing
+the application:
+
+\begin{enumerate}
+  \item Fedora 13 Linux (for the operating system)
+  \item gcc 4.4.4 compiler suite
+  \item Boost 1.43.0 libraries
+  \item Nvidia CUDA 3.1 SDK
+  \item CMake 2.8 build system
+  \item ClanLib 2.1 game engine (to be used for viewing the AI's performance)
+\end{enumerate}
+
+The hardware used for development is any Intel based multicore CPU and any Nvidia
+graphics card with CUDA compute capability greater than 1.0. The main system to be
+used for gathering results is a Fedora 13 desktop with an Intel Core 2 Quad for the
+CPU and an Nvidia GTS 250 for the graphics card.
 
 
 \subsection{Simulation Details}
@@ -37,12 +60,12 @@ the game and the moment the tank collides with a bullet.
 
 
 In a single generation, there will be a large number of individual genomes. The number
-can range from 1,024 to 4,096. Each individual genome will go through the evasion
-test bed to obtain its fitness score.  When the simulation time has passed a time 
-limit or the tank in each simulation has been shot, the test for that 
-particular generation will end and the individuals are ranked according to their fitness
-score. The top 15\% of individuals will automatically become part of the next
-generation. The remaining 85\% will become the parents of the next generation 
+can range from 1,024 to 4,096 (exact value to be determined through experimentation).
+Each individual genome will go through the evasion test bed to obtain its fitness score.
+When the simulation time has passed a time limit or the tank in each simulation has been
+shot, the test for that particular generation will end and the individuals are ranked
+according to their fitness score. The top 15\% of individuals will automatically become
+part of the next generation. The remaining 85\% will become the parents of the next generation 
 through reproduction. The test will then repeat the process and evaluate the new
 generation of individuals. The entire process will end only when the fitness score
 of the best individuals in succeeding generations no longer increase after multiple iterations.
