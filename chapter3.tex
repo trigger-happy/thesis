@@ -37,6 +37,11 @@ an iteration in the algorithm. Individuals in a generation are ranked by the fit
 mixed with other individuals to generate a new set of individuals through a process akin to biological
 reproduction.
 
+  \item Optimizer - For this paper, it will refer to the application that will attempt to find an
+optimal set of parameters (gene) for the game AI. Two versions of this will be developed, a CPU
+based optimizer which only makes use of the main processor and the GPU version, which utilizes
+the GPU for the bulk of its work.
+
 \end{itemize}
 
 \section{Variables of the Study}
@@ -46,9 +51,11 @@ variables will determine if utilizing the GPU is not only efficient, but also ac
 an adequate solution to the AI problem.
 
 \begin{itemize}
- \item Running time - The time it takes for an acceptable solution to be found as compared to
-a pure CPU solution.
+ \item Running time - The time it takes for an acceptable solution can be found in a single run.
+This can pertain to the time it takes for either the CPU-based or GPU-based optimizer to find an
+optimal solution to a particular problem.
 
  \item AI Performance - How well the AI performs in playing the game and achieving the intended goals
-of the game (e.g., not getting killed, obtaining the highest score possible).
+of the game. One example is the length of time that the AI player has remained alive in a single
+game.
 \end{itemize}
