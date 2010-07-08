@@ -9,19 +9,18 @@
 % Procedures
 % Data Analysis (this is where statistics come in) <-- DO NOT FORGET
 \section{Implementation Details}
-We used a 2D tank game as a test bed for optimizing the game AI. In
-this game, there would be several tanks which are controlled by the
-AI. The objective of the game is to eliminate the other tanks and be
-the last tank remaining.  Tanks are able to move and attack to accomplish
-the objective. The best AI should ideally be able to shoot accurately
-and dodge effectively in order to eliminate the other tanks and
-survive as long as possible. 
 
-\subsection{Simulation}
-The behavior we want to optimize is the evasion behavior.  The test bed for the 
-behavior would involve a single tank in the center of the field and random points 
-in the field where bullets will travel towards the tank.  The AI will take note of
-three elements in evading. 
+\subsection{Application and Tools}
+% TODO: work out the content here
+
+
+\subsection{Simulation Details}
+The game that we intend to use as a test bed for our AI is a simple 2D tank game.
+In order to simplify the process, only a subset of the game will be implemented.
+The game will have a single tank controlled by the AI and the objective of the AI
+is to stay alive for as long as possible by evading all the bullets that approach
+it from random points around the playing field. The AI will take note of three
+elements in evading the bullets in the playing field.
 
 \begin{enumerate}
  \item Collision State - a state where the AI will take note of the speed 
@@ -33,36 +32,24 @@ take note of the distance of the tank and the bullets.
 \end{enumerate}
 
 In this scenario, the AI will try to dodge the bullets that will collide with
-it.  The length of time the AI managed to survive will serve as the fitness score
-for this particular individual.
+it. The fitness of the AI will be determined by the duration between the start of
+the game and the moment the tank collides with a bullet.
 
 
 In a single generation, there will be a large number of individual genomes. The number
 can range from 1,024 to 4,096. Each individual genome will go through the evasion
 test bed to obtain its fitness score.  When the simulation time has passed a time 
-limit or the tank in each simulations has been shot, the test for that 
+limit or the tank in each simulation has been shot, the test for that 
 particular generation will end and the individuals are ranked according to their fitness
-score. The top 15 percent of individuals will automatically become part of the next
-generation. The remaining 85 percent will become the parents of the next generation 
-through reproduction. The test will then repeat evaluating the individuals of the new
-generation. The entire process will end only when the fitness score of the best individuals
-in succeeding generations no longer increase after multiple iterations.
-
-\subsection{Application}
-Two version of the application will be created. The first one will be CPU-based version of
-the application. This version will be optimized for the CPU and will make use of threads
-in multi-core CPUs. The other application will be GPU-based. We will optimize it to make use
-of Nvdia's Compute Unified Device Architecture. 
+score. The top 15\% of individuals will automatically become part of the next
+generation. The remaining 85\% will become the parents of the next generation 
+through reproduction. The test will then repeat the process and evaluate the new
+generation of individuals. The entire process will end only when the fitness score
+of the best individuals in succeeding generations no longer increase after multiple iterations.
 
 
-The CPU version will run a single test bed for scoring an individual. The more cores the CPU has
-the more threads that will be utilized to speed up the process. On the other hand, the GPU version
-will assign one thread block per test bed. Each thread in a block will be responsible for 
-updating a specific object in a particular instance. A single thread will be responsible
-for executing the AI functions. After evaluating a generation, the ranking and the genetic 
-operations will be handled by the CPU.
-
-\subsection{Genetic Design}
-
-
-\subsection{Measuring the Results}
+\subsection{Data Analysis}
+The success of the GPU based application's performance over the CPU based version is measured
+by the time it takes for the GPU version to find an optimal solution for the AI's evasion
+behavior over the CPU version. Both applications will be run a number of times and their
+average running time will be used for comparison.
