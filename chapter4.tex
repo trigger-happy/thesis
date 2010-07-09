@@ -31,10 +31,13 @@ the application:
   \item ClanLib 2.1 game engine (to be used for viewing the AI's performance)
 \end{enumerate}
 
+% We may have to use the new research comp for testing instead.
 The hardware used for development can be any Intel based multicore CPU and any Nvidia
 graphics card with CUDA compute capability greater than 1.0. The main system to be
 used for gathering results is a Fedora 13 desktop with an Intel Core 2 Quad for the
-CPU and an Nvidia GTS 250 for the graphics card.  Secondary hardwares include %insert computer specs here.
+CPU and an Nvidia GTS 250 for the graphics card. The main system to be utilized for
+developing and debugging the application is a Fedora 13 laptop with an Intel
+Core i3 for the CPU and a Nvidia Geforce 310M for the GPU.
 
 
 \subsection{Simulation Details}
@@ -42,8 +45,10 @@ The game that we intend to use as a test bed for our AI is a simple 2D tank game
 In order to simplify the process, only a subset of the game will be implemented.
 The game will have a single tank controlled by the AI and the objective of the AI
 is to stay alive for as long as possible by evading all the bullets that approach
-it from fixed points near the edges of the field. The firing sequence and the rate of fire is determined at the start of the program and remain constaint throughtout the evolutionary process. The AI will take note of three
-elements in evading the bullets in the playing field.
+it from fixed points near the edges of the field. The firing sequence and the rate
+of fire is determined at the start of the program and remain constant throughout
+the testing procedure. The AI will take note of three elements in evading the
+bullets in the playing field.
 
 \begin{enumerate}
  \item Collision State - a state where the AI will take note of the speed 
@@ -64,22 +69,43 @@ can range from 1,024 to 4,096 (exact value to be determined through experimentat
 Each individual genome will go through the evasion test bed to obtain its fitness score.
 When the tank in each simulation has been
 shot, the test for that particular generation will end and the individuals are ranked
-according to their fitness score. The top 15\% of individuals will automatically become
+according to their fitness score. The score of an individual is assigned a value
+between 0 to 1 inclusive. A value of 0 would mean that the AI was shot at the
+very moment that the game has started while a score of 1 would mean that the AI
+was able to survive until the end of the time limit.
+Due to the nature of the game, there is a possibility
+that the AI will remain unharmed for an indefinite amount of time. To avoid this,
+we will be capping the game time to a maximum of 5 minutes. Individuals that are
+still alive by then are given the score of 1.0 and may be considered optimal for
+that particular stage configuration.
+The top 15\% of individuals will automatically become
 part of the next generation. The remaining 85\% will become the parents of the next generation 
 through reproduction. The test will then repeat the process and evaluate the new
-generation of individuals. The entire process will end only when the fitness score
-of the best individuals in succeeding generations no longer increase after multiple iterations.
+generation of individuals. The evolution process will end only when the fitness score
+of the best individuals in succeeding generations no longer increase after multiple iterations
+or when an individual with a fitness score of 1.0 is found during the evolution
+process.
 
 
 \subsection{Data Analysis}
-The success of the GPU based application's performance over the CPU based version is measured
-by the time it takes for the GPU version to find an optimal solution for the AI's evasion
-behavior over the CPU version. Both applications will be run a number of times and their
-average running time will be used for comparison. Because of the random nature of genetic
-algorithms, the optimal solution found in each run may not necessarily be the same. We will
-therefore consider a solution as optimal if it performs just as well as other candidate
-solutions when placed in identical levels. Performance is measured by how long the AI
-can survive without getting hit by any bullet. Two levels are identical when they have the
-same number of bullets fired and every bullet fired in one stage has the same starting position,
-firing time and trajectory as its corresponding bullet in another stage. With this, highly
-similar solutions should yield AI players with very similar lifespans.
+Data will be gathered by running the CPU and GPU based applications a number of
+times. There are 3 kinds of data to be gathered in each run of the application.
+
+\begin{enumerate}
+  \item The fitness score of the best individual.
+  \item The generation in which the individual was found.
+  \item The time it took to find that individual (in physical time).
+\end{enumerate}
+
+Data will be laid out in a table where the columns indicate the range of fitness
+values that are fixed into intervals of 30 while each row represents a single
+generation. This results in the table having columns representing the fitness
+ranges 0-0.33, 0.34-0.66, and so on. The data stored in this table
+will be the time the application took in seconds (in physical time) to obtain
+the best individual. Multiple results from the same application that end up in
+the same cell will have their mean value stored. Comparison is done only in the
+cells which have a recorded runtime from both the GPU and CPU based application.
+Cells with only one or the other are ignored. Scoring is done by tallying the
+number of cells where the runtime of one application is faster than the other.
+The application with the higher score can be concluded as the faster 
+implementation.
