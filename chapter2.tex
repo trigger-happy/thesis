@@ -28,6 +28,13 @@ the 43.54 ms on the CPU. They also used genetic programming to reverse engineer 
 filters, i.e., find the mapping between an image and the output of a filter applied to 
 it. The results were that the CPU process was 100 times slower than the GPU one.  
 
+\subsection{Single Instruction, Multiple Threads Architechture of Nvidia Graphics Card}
+A multiprocessor creates, manages, and executes threads in groups of 32 threads\cite{NVCudaPrgGuide}. 
+These group of threads are called as warps. Each threads have their start at the same 
+time and at the same program address. However, they have their own instruction address 
+counter and register state. Thus, the threads are able to branch and execute independently.
+When a multiprocessor is given
+
 \subsection{Using CUDA in Accelerating Genetic Algorithms}
 Several computers can be used to efficiently process large datasets and execute complex
 and evolved programs.\cite{Harding09}. They used the spare processing power seen in the
