@@ -33,7 +33,30 @@ A multiprocessor creates, manages, and executes threads in groups of 32 threads\
 These group of threads are called as warps. Each threads have their start at the same 
 time and at the same program address. However, they have their own instruction address 
 counter and register state. Thus, the threads are able to branch and execute independently.
-When a multiprocessor is given
+When a multiprocessor is given one or more thread blocks to execute, it partitions into warps 
+that get scheduled for execution. A warp executes one common instruction at a time. When
+all 32 threads of a warp agree on their execution path, full efficiency is realized. If the threads
+diverges via a data-dependent conditional branch, the warp serially executes each branch.
+The threads will then converge back to the same execution path.  However, the divergence only
+happens within a warp and does not affect other warps.
+
+The single instruction, multiple threads (SIMT) architechture is similar to the single instruction,
+multiple data (SIMD) vector organizations in that a single instruction controls multiple processing
+elements\cite{NVCudaPrgGuide}. The difference lie in that the SIMD vectore organizations expose 
+the SIMD width to the software. The SIMT instructions, on the other hand, specify the execution 
+and branching behavior of a single thread. In contrast with SIMD vector machines, SIMT 
+enables parallel coding for independent, scalar threads, as well as data-parallel code for 
+coordinated threads. 
+
+\begin{figure}
+	\centering
+		\graphicspath{{images/}}
+		\includegraphics[width=190 pt]{cpu_gpu_blackandwhite.png}
+	\caption{CPU vs GPU architechture}
+	\cite{pdf:NVCudaPrgGuide}
+	\label{fig:gpu_diagram}
+\end{figure}
+
 
 \subsection{Using CUDA in Accelerating Genetic Algorithms}
 Several computers can be used to efficiently process large datasets and execute complex
