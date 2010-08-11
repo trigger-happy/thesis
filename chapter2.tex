@@ -117,3 +117,27 @@ determine how the ship would evade all the asteroids in the field. Brian was abl
 that the ship's AI can perform better when evolved through the use of genetic algorithms as
 compared to hand-modifying the AI parameters and repeatedly testing the new set of values in
 the game.
+
+\subsection{Verlet Integration}
+The Verlet integration is a way of numerically describing  the movement of an object through
+time\cite{Bitterli09}. There are several types of Verlet integration, Position Verlet, Velocity 
+Verlet, and Leapfrog. Position Verlet gives the new position of the object by the following 
+formula:
+
+\begin{eqnarray}
+Position_{new}  & = &
+Position_{current} + 
+(Position_{current} - Position_{old}) +
+Acceleration * Timestep^2 \nonumber \\
+Position_{old} & = & Position_{new} \nonumber \\
+\label{Verlet}
+\end{eqnarray}
+
+The Verlet integration eliminates the need to calculate the velocity since it estimates 
+the velocity using the current position and subtracting the distance with the old position. 
+Through this method, the computation is fast and stable, which means a lot in enhancing the
+performance of the game. Collision detection also becomes easier with the Verlet integration.
+Collision is detected by finding the new position of an object and see if it intersects with
+another object.
+
+
