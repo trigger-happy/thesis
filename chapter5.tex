@@ -1,157 +1,237 @@
-\chapter{RESULTS AND DISCUSSION}
+\chapter{RESULTS}
+This section would have preliminary results from our prototype. We tried two test to run a simulation of the tank
+trying to dogde bullet fire. For the prototype, we still haven't manage to optimize the GPU based genetic algorithm.
+Furthermore, the initial random pool aren't shared between the two application.  Thus, our result would show that
+the CPU based GA are better than the GPU based one as seen on table \ref{table:CPU first test} and 
+\ref{table:CPU second test} when compared to table \ref{table:GPU first test} and \ref{table:GPU second test}. 
+Additionally, we did not include more generation for the time being. This is due to the genes stagnating after a 
+certain generation as shown in the tables below.
 
-\section{Visualization Techniques for Rain Data}
-In this study, we used two image representations of rain data, namely: icons and bar graphs. Based on a standard rain chart, icons were used to represent rate of rainfall. In addition, the visual representation of rate changes in intervals of 60 seconds.  This models real time data. Rain telemetry is also represented via bar graphs that change in color depending on the intensity of the rain. The application represents dynamic visualization of rain data for a specific location and time.
-
-\section{Testing Visualization Application}
-
-\subsection{Icons}
-The correctness of the weather icons displayed were verified by (1) matching the cartographic positions, location names and amount of the icons for each device with the location information found in the database and (2) matching the type of icons displayed with their corresponding values as defined in Table \ref{table:weather_icons}.
-
-When the application is run, one of the four icons in Table \ref{table:weather_icons} is displayed for each location of the currently selected device. Table \ref{table:location_db} shows the database information for all of the four test locations for the tipping bucket. Parallel to that, Figure \ref{fig:cartographic} shows that there are four icons located in the correct cartographic positions corresponding to coordinates found in the database. Figure \ref{fig:location_click}, on the other hand, shows that when the icon is clicked, the corresponding location name in the database is displayed.
 
 %%%table here%%%
 \begin{table}
-\caption{Location Information for the Tipping Buckets}
+\caption{First Test CPU}
 \centering
-\begin{tabular}{c c c c c}% centered columns (5 columns)
-\hline\hline
-location\_id & location\_address & location\_coord & location\_name & device\_type \\ [0.5ex]
-\hline
-2 & mo admu & 11,123 & quezon city & TB \\
-7 & lawton & 14.6,120.98 & manila & TB \\
-12 & cagayan de oro & 8.47,124.43 & xavier university & TB \\
-13 & legazpi & 13.13,123.53 & brgy. buklod & TB \\ [1ex]
-\hline
-\end{tabular}
-\label{table:location_db}
+ \begin{tabular}{ | l | l | l |}
+    \hline
+    Generation & Score & Time \\ \hline
+    0 & 0.0914444 & 4.55 \\ \hline
+    1 & 0.100611 & 4.86 \\ \hline
+    2 & 0.100611 & 5.25 \\ \hline
+    3 & 0.117444 & 6.01 \\ \hline
+    4 & 0.111278 & 5.59 \\ \hline
+    5 & 0.117278 & 6.18 \\ \hline
+    6 & 0.117278 & 6.05 \\ \hline
+    7 & 0.111556 & 6.13 \\ \hline
+    8 & 0.111278 & 5.65 \\ \hline
+    9 & 0.1385 & 7.15 \\ \hline
+    10 & 0.139444 & 6.96 \\ \hline
+    11 & 0.118 & 6.31 \\ \hline
+    12 & 0.127111 & 6.77 \\ \hline
+    13 & 0.119833 & 6.51 \\ \hline
+    14 & 0.117389 & 6.51 \\ \hline
+    15 & 0.121 & 6.67 \\ \hline
+    16 & 0.121 & 6.7 \\ \hline
+    17 & 0.138056 & 7.15 \\ \hline
+    18 & 0.138056 & 7.19 \\ \hline
+    19 & 0.127667 & 6.91 \\ \hline
+    20 & 0.131778 & 7.2 \\ \hline
+    21 & 0.174944 & 9.3 \\ \hline
+    22 & 0.137389 & 7.45 \\ \hline
+    23 & 0.174944 & 8.89 \\ \hline
+    24 & 0.132556 & 7.2 \\ \hline
+    25 & 0.132556 & 7.06 \\ \hline
+    26 & 0.132556 & 7.45 \\ \hline
+    27 & 0.137889 & 7.25 \\ \hline
+    28 & 0.137889 & 7.71 \\ \hline
+    29 & 0.152389 & 7.76 \\ \hline
+    30 & 0.163222 & 8.32 \\ \hline
+    31 & 0.152556 & 8.05 \\ \hline
+    32 & 0.148778 & 7.89 \\ \hline
+    33 & 0.132556 & 7.01 \\ \hline
+    34 & 0.132556 & 7.07 \\ \hline
+    35 & 0.132556 & 6.63 \\ \hline
+    36 & 0.132556 & 7.02 \\ \hline
+    37 & 0.132556 & 6.87 \\ \hline
+    38 & 0.132556 & 7.32 \\ \hline 
+    39 & 0.132556 & 6.9 \\ \hline
+    40 & 0.132556 & 7.45 \\ \hline
+    41 & 0.132556 & 7.13 \\ \hline
+    42 & 0.132556 & 7.17 \\ \hline
+    43 & 0.132556 & 6.91 \\ \hline
+    44 & 0.132556 & 7.04 \\ \hline
+    45 & 0.132556 & 7.19 \\ \hline
+    \end{tabular}
+\label{table:CPU first test}
 \end{table}
 \bigskip
 
-\begin{figure}
-    \centering
-        \includegraphics[width=190 pt]{cartographic_rep.jpg}
-    \caption{Cartographic Representation}
-    \label{fig:cartographic}
-\end{figure}
-\bigskip
-
-To test the correctness of the weather icons, the values for the rain data were matched up with their expected icon in Table \ref{table:weather_icons}. The actual icons displayed were then compared with the expected icons to determine whether the icons displayed are correct. Table \ref{table:icon_comparison} shows some examples of this. Overall, the actual icons displayed were a hundred percent match with the expected icons.
-
-\begin{figure}
-    \centering
-        \includegraphics[width=185 pt]{location_info.jpg}
-    \caption{Location information shown by a clicked weather icon}
-    \label{fig:location_click}
-\end{figure}
-
-%%%table here%%%
 \begin{table}
-\caption{Comparison between the actual and expected weather icon based on the rain rate}
+\caption{First Test GPU}
 \centering
-\begin{tabular}{c c c}% centered columns (4 columns)
-\hline\hline
-Rainfall rate & Expected icon & Actual icon
- \\ (in mm/sec) &  &  \\ [0.5ex]
-\hline
-1 & \includegraphics[width=20 pt]{sunny.jpg} & \includegraphics[width=20 pt]{sunny.jpg} \\
-45 & \includegraphics[width=20 pt]{sunny.jpg} & \includegraphics[width=20 pt]{sunny.jpg} \\ 
-90 & \includegraphics[width=20 pt]{sunny.jpg} & \includegraphics[width=20 pt]{sunny.jpg} \\ 
-135 & \includegraphics[width=20 pt]{light_rain.jpg} & \includegraphics[width=20 pt]{sunny.jpg} \\
-190 & \includegraphics[width=20 pt]{moderate_rain.jpg} & \includegraphics[width=20 pt]{moderate_rain.jpg} \\
-235 & \includegraphics[width=20 pt]{moderate_rain.jpg} & \includegraphics[width=20 pt]{moderate_rain.jpg} \\
-280 & \includegraphics[width=20 pt]{danger.jpg} & \includegraphics[width=20 pt]{danger.jpg}\\ [1ex]
-\hline
-\end{tabular}
-\label{table:icon_comparison}
+ \begin{tabular}{ | l | l | l |}
+    \hline
+    Generation & Score & Time \\ \hline
+    0 & 0.0932222 & 6.41 \\ \hline
+    1 & 0.0932222 & 6.41 \\ \hline
+    2 & 0.0971667 & 6.66 \\ \hline
+    3 & 0.0900556 & 6.2 \\ \hline
+    4 & 0.0975556 & 6.69 \\ \hline
+    5 & 0.105889 & 7.25 \\ \hline
+    6 & 0.107611 & 7.38 \\ \hline
+    7 & 0.107611 & 7.38 \\ \hline
+    8 & 0.114778 & 7.87 \\ \hline
+    9 & 0.114778 & 7.84 \\ \hline
+    10 & 0.114778 & 7.87 \\ \hline
+    11 & 0.114778 & 7.87 \\ \hline
+    12 & 0.114778 & 7.87 \\ \hline
+    13 & 0.114778 & 7.86 \\ \hline
+    14 & 0.114778 & 7.89 \\ \hline
+    15 & 0.1285 & 8.83 \\ \hline
+    16 & 0.114778 & 7.87 \\ \hline
+    17 & 0.118111 & 8.07 \\ \hline
+    18 & 0.114333 & 7.82 \\ \hline
+    19 & 0.114333 & 7.78 \\ \hline
+    20 & 0.128111 & 8.73 \\ \hline
+    21 & 0.118111 & 8.16 \\ \hline
+    22 & 0.126333 & 8.6 \\ \hline
+    23 & 0.126111 & 8.6 \\ \hline
+    24 & 0.126333 & 8.6 \\ \hline
+    25 & 0.126333 & 8.61 \\ \hline
+    26 & 0.126333 & 8.61 \\ \hline
+    27 & 0.126333 & 8.59 \\ \hline
+    28 & 0.126333 & 8.61 \\ \hline
+    29 & 0.126333 & 8.62 \\ \hline
+    30 & 0.126333 & 8.63 \\ \hline
+    31 & 0.126333 & 8.64 \\ \hline
+    32 & 0.126333 & 8.62 \\ \hline
+    33 & 0.126333 & 8.63 \\ \hline
+    34 & 0.126333 & 8.63 \\ \hline
+    35 & 0.126333 & 8.61 \\ \hline
+    36 & 0.126333 & 8.58 \\ \hline
+    37 & 0.126333 & 8.59 \\ \hline
+    38 & 0.126333 & 8.59 \\ \hline
+    39 & 0.126333 & 8.63 \\ \hline
+    40 & 0.126333 & 8.6 \\ \hline
+    41 & 0.126333 & 8.6 \\ \hline
+    42 & 0.126333 & 8.59 \\ \hline
+    43 & 0.126333 & 8.6 \\ \hline
+    44 & 0.126333 & 8.6 \\ \hline
+    45 & 0.126333 & 8.6 \\ \hline
+    \end{tabular}
+\label{table:GPU first test}
 \end{table}
 \bigskip
 
-\subsection{Bar Graphs}
-The bar graphs were tested using the same techniques used for the icons. For each second, the actual color and length of the bar graph were compared with the expected color and length for the value of the rain data during the current timestamp. Table \ref{table:color_comparison} below shows some examples of this. 
-
-%table here
 \begin{table}
-\caption{Comparison between the actual and expected weather icon based on the rain rate}
+\caption{Second Test CPU}
 \centering
-\begin{tabular}{c c c}% centered columns (3 columns)
-\hline\hline
-Rain Rate & Expected Color & Actual Color \\
-(in mm/hr) & & \\ [0.5ex]
-\hline
-1	& Green &	Green \\
-45 &	Green &	Green \\
-90 & Green & Green \\
-135 & Yellow & Yellow \\
-190 & Orange & Orange \\
-235 & Orange & Orange \\
-280 & Red & Red \\ [1ex]
-\hline
-\end{tabular}
-\label{table:color_comparison}
+ \begin{tabular}{ | l | l | l |}
+    \hline
+    Generation & Score & Time \\ \hline
+    0 & 0.100056 & 4.96 \\ \hline
+    1 & 0.100056 & 4.98 \\ \hline
+    2 & 0.100556 & 5.04 \\ \hline
+    3 & 0.100389 & 5.49 \\ \hline
+    4 & 0.100556 & 5.13 \\ \hline
+    5 & 0.100556 & 5.37 \\ \hline
+    6 & 0.117556 & 6.06 \\ \hline
+    7 & 0.101944 & 5.38 \\ \hline
+    8 & 0.101944 & 5.5 \\ \hline
+    9 & 0.111556 & 5.65 \\ \hline
+    10 & 0.111556 & 6.01 \\ \hline
+    11 & 0.111556 & 5.71 \\ \hline
+    12 & 0.111556 & 5.67 \\ \hline
+    13 & 0.111556 & 5.91 \\ \hline
+    14 & 0.112444 & 5.98 \\ \hline
+    15 & 0.117556 & 6.35 \\ \hline
+    16 & 0.127167 & 6.32 \\ \hline
+    17 & 0.127167 & 6.58 \\ \hline
+    18 & 0.121 & 6.12 \\ \hline
+    19 & 0.119 & 6.41 \\ \hline
+    20 & 0.118333 & 6.47 \\ \hline
+    21 & 0.118333 & 6.33 \\ \hline
+    22 & 0.118333 & 6.27 \\ \hline
+    23 & 0.118333 & 6.59 \\ \hline
+    24 & 0.127167 & 6.55 \\ \hline
+    25 & 0.127167 & 6.95 \\ \hline
+    26 & 0.118333 & 6.44 \\ \hline
+    27 & 0.118333 & 6.88 \\ \hline
+    28 & 0.118333 & 6.39 \\ \hline
+    29 & 0.118333 & 6.67 \\ \hline
+    30 & 0.118333 & 6.32 \\ \hline
+    31 & 0.118333 & 6.25 \\ \hline
+    32 & 0.118333 & 6.28 \\ \hline
+    33 & 0.118333 & 6.42 \\ \hline
+    34 & 0.118333 & 6.77 \\ \hline
+    35 & 0.118333 & 7.09 \\ \hline
+    36 & 0.118333 & 6.67 \\ \hline
+    37 & 0.1375 & 7.13 \\ \hline
+    38 & 0.118333 & 5.99 \\ \hline
+    39 & 0.118333 & 6.19 \\ \hline
+    40 & 0.118333 & 6.63 \\ \hline
+    41 & 0.118333 & 6.11 \\ \hline
+    42 & 0.118333 & 5.98 \\ \hline
+    43 & 0.118333 & 6 \\ \hline
+    44 & 0.118333 & 6.05 \\ \hline
+    45 & 0.118333 & 6.53 \\ \hline
+    \end{tabular}
+\label{table:CPU second test}
 \end{table}
 \bigskip
 
-\subsection{Response time}
-The response time for the real time mode was tested by comparing the time displayed in the visualization application with the system clock of the client computer. Figure \ref{fig:test_setup} shows the setup of the test for the response time. Table Table \ref{table:delay} shows the average delay per minute (in seconds) for ten different ten minute observation samples hosted on a remote server. It is clearly shown that there is an average of two to five seconds delay per minute when hosted on the current remote server in contrast with the absence of delay when the application is locally hosted.
-
-%table here
 \begin{table}
-\caption{Comparison between the actual and expected weather icon based on the rain rate}
+\caption{Second Test GPU}
 \centering
-\begin{tabular}{c c}% centered columns (3 columns)
-\hline\hline
-Instance id & Average delay per minute \\ [0.5ex]
-\hline
-1	& 2.5 s \\
-2	& 2.3 s \\
-3	& 4.8 s \\
-4	& 2 s \\
-5	& 4.3 s \\
-6	& 2.1 s \\
-7	& 2.1 s \\
-8	& 2.2 s \\
-9	& 2.1 s \\
-10	& 2.1 s \\ [1ex]
-\hline
-\end{tabular}
-\label{table:delay}
+ \begin{tabular}{ | l | l | l |}
+    \hline
+    Generation & Score & Time \\ \hline
+     0 & 0.106222 & 7.26 \\ \hline
+     1 & 0.0954444 & 6.54 \\ \hline
+     2 & 0.0877222 & 6 \\ \hline
+     3 & 0.100167 & 6.87 \\ \hline
+     4 & 0.107667 & 7.35 \\ \hline
+     5 & 0.107667 & 7.38 \\ \hline
+     6 & 0.107667 & 7.39 \\ \hline
+     7 & 0.107944 & 7.4 \\ \hline
+     8 & 0.1085 & 7.41 \\ \hline
+     9 & 0.112444 & 7.64 \\ \hline
+     10 & 0.109889 & 7.5 \\ \hline
+     11 & 0.112444 & 7.69 \\ \hline
+     12 & 0.109833 & 7.64 \\ \hline
+     13 & 0.116056 & 8 \\ \hline
+     14 & 0.117556 & 8.03 \\ \hline
+     15 & 0.117556 & 8.01 \\ \hline
+     16 & 0.117556 & 8.02 \\ \hline
+     17 & 0.119778 & 8.18 \\ \hline
+     18 & 0.119778 & 8.18 \\ \hline
+     19 & 0.117556 & 8 \\ \hline
+     20 & 0.118 & 8.03 \\ \hline
+     21 & 0.127222 & 8.64 \\ \hline
+     22 & 0.127222 & 8.62 \\ \hline
+     23 & 0.127222 & 8.63 \\ \hline
+     24 & 0.127222 & 8.64 \\ \hline
+     25 & 0.127222 & 8.64 \\ \hline
+     26 & 0.127222 & 8.63 \\ \hline
+     27 & 0.127222 & 8.63 \\ \hline
+     28 & 0.123111 & 8.36 \\ \hline
+     29 & 0.127222 & 8.63 \\ \hline
+     30 & 0.127222 & 8.64 \\ \hline
+     31 & 0.123111 & 8.33 \\ \hline
+     32 & 0.123111 & 8.35 \\ \hline
+     33 & 0.123111 & 8.35 \\ \hline
+     34 & 0.123111 & 8.38 \\ \hline
+     35 & 0.123111 & 8.35 \\ \hline
+     36 & 0.123111 & 8.34 \\ \hline
+     37 & 0.123111 & 8.36 \\ \hline
+     38 & 0.123111 & 8.36 \\ \hline
+     39 & 0.123111 & 8.46 \\ \hline
+     40 & 0.123111 & 8.41 \\ \hline
+     41 & 0.123111 & 8.39 \\ \hline
+     42 & 0.123111 & 8.35 \\ \hline
+     43 & 0.123111 & 8.34 \\ \hline
+     44 & 0.123111 & 8.36 \\ \hline
+     45 & 0.123111 & 8.36 \\ \hline
+    \end{tabular}
+\label{table:GPU second test}
 \end{table}
-\bigskip
-
-\begin{figure}
-    \centering
-        \includegraphics[width=220 pt]{test_setup.jpg}
-    \caption{Testing Setup for Real Time Visualization}
-    \label{fig:test_setup}
-\end{figure}
-\bigskip
-
-On the other hand, the response time for the display of backlog data was measured as the amount of time it took before all the data are loaded and become available for playing. As expected, results show that there is no delay during the animation itself but there is a delay during loading or right after the desired timestamp is selected by the user. Table \ref{table:delay_backlog} shows the delay time of visualizing backlog data for four locations for the acoustic sensor.
-
-%table here
-\begin{table}
-\caption{Comparison between the actual and expected weather icon based on the rain rate}
-\centering
-\begin{tabular}{c c c }% centered columns (3 columns)
-\hline\hline
-Instance id & Load delay & Animation delay \\ [0.5ex]
-\hline
-1	& 3 s & 0 s \\
-2	& 5 s & 0 s \\
-3	& 5 s & 0 s \\
-4	& 5 s & 0 s \\
-5	& connection & 0 s \\
-  & error & \\
-6	& 7 s & 0 s \\
-7	& 6 s & 0 s \\
-8	& 7 s & 0 s \\
-9	& 5 s & 0 s \\
-10	& 5 s & 0 s \\ [1ex]
-\hline
-\end{tabular}
-\label{table:delay_backlog}
-\end{table}
-\bigskip
-
-In summary, the web component does not have problems with the visualization of the data as it displays the correct icons and bar graphs which correspond to the data collected form the rain sensors. However, there is an external problem concerning a delay in the response of the server computer to the client.
