@@ -1,260 +1,264 @@
+Performing CPU evolution
 Running generation 0
-Generation 0 score is 0.0968889
+Generation: 0 score: 0.0914444 time: 4.55
 Running generation 1
-Generation 1 score is 0.0916111
+Generation: 1 score: 0.100611 time: 4.86
 Running generation 2
-Generation 2 score is 0.0978333
+Generation: 2 score: 0.100611 time: 5.25
 Running generation 3
-Generation 3 score is 0.1015
+Generation: 3 score: 0.117444 time: 6.01
 Running generation 4
-Generation 4 score is 0.098
+Generation: 4 score: 0.111278 time: 5.59
 Running generation 5
-Generation 5 score is 0.106667
+Generation: 5 score: 0.117278 time: 6.18
 Running generation 6
-Generation 6 score is 0.1015
+Generation: 6 score: 0.117278 time: 6.05
 Running generation 7
-Generation 7 score is 0.107
+Generation: 7 score: 0.111556 time: 6.13
 Running generation 8
-Generation 8 score is 0.101833
+Generation: 8 score: 0.111278 time: 5.65
 Running generation 9
-Generation 9 score is 0.107722
+Generation: 9 score: 0.1385 time: 7.15
 Running generation 10
-Generation 10 score is 0.103
+Generation: 10 score: 0.139444 time: 6.96
 Running generation 11
-Generation 11 score is 0.107222
+Generation: 11 score: 0.118 time: 6.31
 Running generation 12
-Generation 12 score is 0.114556
+Generation: 12 score: 0.127111 time: 6.77
 Running generation 13
-Generation 13 score is 0.114556
+Generation: 13 score: 0.119833 time: 6.51
 Running generation 14
-Generation 14 score is 0.114778
+Generation: 14 score: 0.117389 time: 6.51
 Running generation 15
-Generation 15 score is 0.114556
+Generation: 15 score: 0.121 time: 6.67
 Running generation 16
-Generation 16 score is 0.114556
+Generation: 16 score: 0.121 time: 6.7
 Running generation 17
-Generation 17 score is 0.114778
+Generation: 17 score: 0.138056 time: 7.15
 Running generation 18
-Generation 18 score is 0.114778
+Generation: 18 score: 0.138056 time: 7.19
 Running generation 19
-Generation 19 score is 0.117333
+Generation: 19 score: 0.127667 time: 6.91
 Running generation 20
-Generation 20 score is 0.116167
+Generation: 20 score: 0.131778 time: 7.2
 Running generation 21
-Generation 21 score is 0.117333
+Generation: 21 score: 0.174944 time: 9.3
 Running generation 22
-Generation 22 score is 0.123056
+Generation: 22 score: 0.137389 time: 7.45
 Running generation 23
-Generation 23 score is 0.123056
+Generation: 23 score: 0.174944 time: 8.89
 Running generation 24
-Generation 24 score is 0.123056
+Generation: 24 score: 0.132556 time: 7.2
 Running generation 25
-Generation 25 score is 0.123056
+Generation: 25 score: 0.132556 time: 7.06
 Running generation 26
-Generation 26 score is 0.123056
+Generation: 26 score: 0.132556 time: 7.45
 Running generation 27
-Generation 27 score is 0.123056
+Generation: 27 score: 0.137889 time: 7.25
 Running generation 28
-Generation 28 score is 0.123056
+Generation: 28 score: 0.137889 time: 7.71
 Running generation 29
-Generation 29 score is 0.123056
+Generation: 29 score: 0.152389 time: 7.76
 Running generation 30
-Generation 30 score is 0.123056
+Generation: 30 score: 0.163222 time: 8.32
 Running generation 31
-Generation 31 score is 0.123056
+Generation: 31 score: 0.152556 time: 8.05
 Running generation 32
-Generation 32 score is 0.123056
+Generation: 32 score: 0.148778 time: 7.89
 Running generation 33
-Generation 33 score is 0.123056
+Generation: 33 score: 0.132556 time: 7.01
 Running generation 34
-Generation 34 score is 0.123056
+Generation: 34 score: 0.132556 time: 7.07
 Running generation 35
-Generation 35 score is 0.123056
+Generation: 35 score: 0.132556 time: 6.63
 Running generation 36
-Generation 36 score is 0.123056
+Generation: 36 score: 0.132556 time: 7.02
 Running generation 37
-Generation 37 score is 0.123056
+Generation: 37 score: 0.132556 time: 6.87
 Running generation 38
-Generation 38 score is 0.123056
+Generation: 38 score: 0.132556 time: 7.32
 Running generation 39
-Generation 39 score is 0.123056
+Generation: 39 score: 0.132556 time: 6.9
 Running generation 40
-Generation 40 score is 0.123056
+Generation: 40 score: 0.132556 time: 7.45
 Running generation 41
-Generation 41 score is 0.123056
+Generation: 41 score: 0.132556 time: 7.13
 Running generation 42
-Generation 42 score is 0.123056
+Generation: 42 score: 0.132556 time: 7.17
 Running generation 43
-Generation 43 score is 0.123056
+Generation: 43 score: 0.132556 time: 6.91
 Running generation 44
-Generation 44 score is 0.123056
+Generation: 44 score: 0.132556 time: 7.04
 Running generation 45
-Generation 45 score is 0.123056
+Generation: 45 score: 0.132556 time: 7.19
 Running generation 46
-Generation 46 score is 0.123056
+Generation: 46 score: 0.132556 time: 7.02
 Running generation 47
-Generation 47 score is 0.123056
+Generation: 47 score: 0.132556 time: 7.21
 Running generation 48
-Generation 48 score is 0.123056
+Generation: 48 score: 0.132556 time: 7.31
 Running generation 49
-Generation 49 score is 0.123056
+Generation: 49 score: 0.132556 time: 7.06
 Running generation 50
-Generation 50 score is 0.123056
+Generation: 50 score: 0.132556 time: 6.89
 Running generation 51
-Generation 51 score is 0.123056
+Generation: 51 score: 0.132556 time: 7.3
 Running generation 52
-Generation 52 score is 0.123056
+Generation: 52 score: 0.132556 time: 7.19
 Running generation 53
-Generation 53 score is 0.123056
+Generation: 53 score: 0.132556 time: 7.11
 Running generation 54
-Generation 54 score is 0.123056
+Generation: 54 score: 0.132556 time: 7.14
 Running generation 55
-Generation 55 score is 0.123056
+Generation: 55 score: 0.132556 time: 6.8
 Running generation 56
-Generation 56 score is 0.123056
+Generation: 56 score: 0.132556 time: 6.9
 Running generation 57
-Generation 57 score is 0.123056
+Generation: 57 score: 0.132556 time: 7.11
 Running generation 58
-Generation 58 score is 0.123056
+Generation: 58 score: 0.132556 time: 7.02
 Running generation 59
-Generation 59 score is 0.123056
+Generation: 59 score: 0.132556 time: 6.96
 Running generation 60
-Generation 60 score is 0.123056
+Generation: 60 score: 0.132556 time: 7.08
 Running generation 61
-Generation 61 score is 0.123056
+Generation: 61 score: 0.132556 time: 6.57
 Running generation 62
-Generation 62 score is 0.123056
+Generation: 62 score: 0.132556 time: 7.13
 Running generation 63
-Generation 63 score is 0.123056
-Running generation 64
-Generation 64 score is 0.123056
-Running generation 65
-Generation 65 score is 0.123056
-Running generation 66
-Generation 66 score is 0.123056
-Running generation 67
-Generation 67 score is 0.123056
-Running generation 68
-Generation 68 score is 0.123056
-Running generation 69
-Generation 69 score is 0.123056
-Running generation 70
-Generation 70 score is 0.123056
-Running generation 71
-Generation 71 score is 0.123056
-Running generation 72
-Generation 72 score is 0.123056
-Running generation 73
-Generation 73 score is 0.123056
-Running generation 74
-Generation 74 score is 0.123056
-Running generation 75
-Generation 75 score is 0.123056
-Running generation 76
-Generation 76 score is 0.123056
-Running generation 77
-Generation 77 score is 0.123056
-Running generation 78
-Generation 78 score is 0.123056
-Running generation 79
-Generation 79 score is 0.123056
-Running generation 80
-Generation 80 score is 0.123056
-Running generation 81
-Generation 81 score is 0.123056
-Running generation 82
-Generation 82 score is 0.123056
-Running generation 83
-Generation 83 score is 0.123056
-Running generation 84
-Generation 84 score is 0.123056
-Running generation 85
-Generation 85 score is 0.123056
-Running generation 86
-Generation 86 score is 0.123056
-Running generation 87
-Generation 87 score is 0.123056
-Running generation 88
-Generation 88 score is 0.123056
-Running generation 89
-Generation 89 score is 0.123056
-Running generation 90
-Generation 90 score is 0.123056
-Running generation 91
-Generation 91 score is 0.123056
-Running generation 92
-Generation 92 score is 0.123056
-Running generation 93
-Generation 93 score is 0.123056
-Running generation 94
-Generation 94 score is 0.123056
-Running generation 95
-Generation 95 score is 0.123056
-Running generation 96
-Generation 96 score is 0.123056
-Running generation 97
-Generation 97 score is 0.123056
-Running generation 98
-Generation 98 score is 0.123056
-Running generation 99
-Generation 99 score is 0.123056
-Running generation 100
-Generation 100 score is 0.123056
-Running generation 101
-Generation 101 score is 0.123056
-Running generation 102
-Generation 102 score is 0.123056
-Running generation 103
-Generation 103 score is 0.123056
-Running generation 104
-Generation 104 score is 0.123056
-Running generation 105
-Generation 105 score is 0.123056
-Running generation 106
-Generation 106 score is 0.123056
-Running generation 107
-Generation 107 score is 0.123056
-Running generation 108
-Generation 108 score is 0.123056
-Running generation 109
-Generation 109 score is 0.123056
-Running generation 110
-Generation 110 score is 0.123056
-Running generation 111
-Generation 111 score is 0.123056
-Running generation 112
-Generation 112 score is 0.123056
-Running generation 113
-Generation 113 score is 0.123056
-Running generation 114
-Generation 114 score is 0.123056
-Running generation 115
-Generation 115 score is 0.123056
-Running generation 116
-Generation 116 score is 0.123056
-Running generation 117
-Generation 117 score is 0.123056
-Running generation 118
-Generation 118 score is 0.123056
-Running generation 119
-Generation 119 score is 0.123056
-Running generation 120
-Generation 120 score is 0.123056
-Running generation 121
-Generation 121 score is 0.123056
-Running generation 122
-Generation 122 score is 0.123056
-Running generation 123
-Generation 123 score is 0.123056
-Running generation 124
-Generation 124 score is 0.123056
-Running generation 125
-Generation 125 score is 0.123056
-Running generation 126
-Generation 126 score is 0.123056
-Running generation 127
-Generation 127 score is 0.123056
+Generation: 63 score: 0.132556 time: 6.69
 Number of generations: 0
-Best score: 0.123056
-*** Exited normally ***
- 
+Best score: 0.132556
+Total evolution time: 445.38
+Performing GPU evolution
+Running generation 0
+Generation: 0 score: 0.0932222 time: 6.41
+Running generation 1
+Generation: 1 score: 0.0932222 time: 6.41
+Running generation 2
+Generation: 2 score: 0.0971667 time: 6.66
+Running generation 3
+Generation: 3 score: 0.0900556 time: 6.2
+Running generation 4
+Generation: 4 score: 0.0975556 time: 6.69
+Running generation 5
+Generation: 5 score: 0.105889 time: 7.25
+Running generation 6
+Generation: 6 score: 0.107611 time: 7.38
+Running generation 7
+Generation: 7 score: 0.107611 time: 7.38
+Running generation 8
+Generation: 8 score: 0.114778 time: 7.87
+Running generation 9
+Generation: 9 score: 0.114778 time: 7.84
+Running generation 10
+Generation: 10 score: 0.114778 time: 7.87
+Running generation 11
+Generation: 11 score: 0.114778 time: 7.87
+Running generation 12
+Generation: 12 score: 0.114778 time: 7.87
+Running generation 13
+Generation: 13 score: 0.114778 time: 7.86
+Running generation 14
+Generation: 14 score: 0.114778 time: 7.89
+Running generation 15
+Generation: 15 score: 0.1285 time: 8.83
+Running generation 16
+Generation: 16 score: 0.114778 time: 7.87
+Running generation 17
+Generation: 17 score: 0.118111 time: 8.07
+Running generation 18
+Generation: 18 score: 0.114333 time: 7.82
+Running generation 19
+Generation: 19 score: 0.114333 time: 7.78
+Running generation 20
+Generation: 20 score: 0.128111 time: 8.73
+Running generation 21
+Generation: 21 score: 0.118111 time: 8.16
+Running generation 22
+Generation: 22 score: 0.126333 time: 8.6
+Running generation 23
+Generation: 23 score: 0.126111 time: 8.6
+Running generation 24
+Generation: 24 score: 0.126333 time: 8.6
+Running generation 25
+Generation: 25 score: 0.126333 time: 8.61
+Running generation 26
+Generation: 26 score: 0.126333 time: 8.61
+Running generation 27
+Generation: 27 score: 0.126333 time: 8.59
+Running generation 28
+Generation: 28 score: 0.126333 time: 8.61
+Running generation 29
+Generation: 29 score: 0.126333 time: 8.62
+Running generation 30
+Generation: 30 score: 0.126333 time: 8.63
+Running generation 31
+Generation: 31 score: 0.126333 time: 8.64
+Running generation 32
+Generation: 32 score: 0.126333 time: 8.62
+Running generation 33
+Generation: 33 score: 0.126333 time: 8.63
+Running generation 34
+Generation: 34 score: 0.126333 time: 8.63
+Running generation 35
+Generation: 35 score: 0.126333 time: 8.61
+Running generation 36
+Generation: 36 score: 0.126333 time: 8.58
+Running generation 37
+Generation: 37 score: 0.126333 time: 8.59
+Running generation 38
+Generation: 38 score: 0.126333 time: 8.59
+Running generation 39
+Generation: 39 score: 0.126333 time: 8.63
+Running generation 40
+Generation: 40 score: 0.126333 time: 8.6
+Running generation 41
+Generation: 41 score: 0.126333 time: 8.6
+Running generation 42
+Generation: 42 score: 0.126333 time: 8.59
+Running generation 43
+Generation: 43 score: 0.126333 time: 8.6
+Running generation 44
+Generation: 44 score: 0.126333 time: 8.6
+Running generation 45
+Generation: 45 score: 0.126333 time: 8.6
+Running generation 46
+Generation: 46 score: 0.126333 time: 8.6
+Running generation 47
+Generation: 47 score: 0.126333 time: 8.58
+Running generation 48
+Generation: 48 score: 0.126333 time: 8.59
+Running generation 49
+Generation: 49 score: 0.126333 time: 8.58
+Running generation 50
+Generation: 50 score: 0.126333 time: 8.6
+Running generation 51
+Generation: 51 score: 0.126333 time: 8.6
+Running generation 52
+Generation: 52 score: 0.126333 time: 8.59
+Running generation 53
+Generation: 53 score: 0.126333 time: 8.6
+Running generation 54
+Generation: 54 score: 0.126333 time: 8.58
+Running generation 55
+Generation: 55 score: 0.126333 time: 8.62
+Running generation 56
+Generation: 56 score: 0.126333 time: 8.72
+Running generation 57
+Generation: 57 score: 0.126333 time: 8.61
+Running generation 58
+Generation: 58 score: 0.126333 time: 8.63
+Running generation 59
+Generation: 59 score: 0.126333 time: 8.59
+Running generation 60
+Generation: 60 score: 0.126333 time: 8.6
+Running generation 61
+Generation: 61 score: 0.126333 time: 8.6
+Running generation 62
+Generation: 62 score: 0.126333 time: 8.63
+Running generation 63
+Generation: 63 score: 0.126333 time: 8.6
+Number of generations: 0
+Best score: 0.126333
+Total evolution time: 528.82
