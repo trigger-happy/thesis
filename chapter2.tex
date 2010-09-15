@@ -22,14 +22,29 @@ with 2.75 per core for the Blue Gene/L supercomputer.  With that kind of process
 new sets of problems can be solved.  
 
 A sample application can be found in the KDD 1999 IDS dataset, where, they had around
-4 million entries.\cite{Banzhaf09}. They evaluated 10 percent of the total subset that
-were given. They found out that it only took 5.86 ms to evaluate on a GPU compared to
-the 43.54 ms on the CPU. They also used genetic programming to reverse engineer image
-filters, i.e., find the mapping between an image and the output of a filter applied to 
-it. The results were that the CPU process was 100 times slower than the GPU one.  
+4 million entries\cite{Banzhaf09}. They evaluated 10 percent of the total subset
+that were given. They found out that it only took 5.86 ms to evaluate on a GPU
+compared to the 43.54 ms on the CPU. They also used genetic programming to
+reverse engineer image filters, i.e., find the mapping between an image and the
+output of a filter applied to it. The results were that the CPU process was 100
+times slower than the GPU one. 
 
-\subsection{Single Instruction, Multiple Threads Architechture of Nvidia Graphics Card}
-A multiprocessor creates, manages, and executes threads in groups of 32 threads\cite{NVCudaPrgGuide}. 
+\subsection{Single Instruction, Multiple Threads Architechture of Nvidia
+Graphics Card}
+
+
+\begin{figure}
+	\centering
+		\graphicspath{{images/}}
+		\includegraphics[width=190 pt]{cpu_gpu_blackandwhite.png}
+	\caption{CPU vs GPU architechture}
+	\cite{pdf:NVCudaPrgGuide}
+	\label{fig:gpu_diagram}
+\end{figure}
+\bigskip
+
+A multiprocessor creates, manages, and executes threads in groups of 32
+threads\cite{pdf:NVCudaPrgGuide}. 
 These group of threads are called as warps. Each threads have their start at the same 
 time and at the same program address. However, they have their own instruction address 
 counter and register state. Thus, the threads are able to branch and execute independently.
@@ -42,22 +57,13 @@ happens within a warp and does not affect other warps.
 
 The single instruction, multiple threads (SIMT) architechture is similar to the single instruction,
 multiple data (SIMD) vector organizations in that a single instruction controls multiple processing
-elements\cite{NVCudaPrgGuide}. The difference lie in that the SIMD vectore organizations expose 
-the SIMD width to the software. The SIMT instructions, on the other hand, specify the execution 
-and branching behavior of a single thread. In contrast with SIMD vector machines, SIMT 
-enables parallel coding for independent, scalar threads, as well as data-parallel code for 
+elements\cite{pdf:NVCudaPrgGuide}. The difference lie in that the SIMD vector
+organizations expose the SIMD width to the software. The SIMT instructions, on
+the other hand, specify the execution and branching behavior of a single thread.
+In contrast with SIMD vector machines, SIMT enables parallel coding for
+independent, scalar threads, as well as data-parallel code for 
 coordinated threads. 
-
-\begin{figure}
-	\centering
-		\graphicspath{{images/}}
-		\includegraphics[width=190 pt]{cpu_gpu_blackandwhite.png}
-	\caption{CPU vs GPU architechture}
-	\cite{pdf:NVCudaPrgGuide}
-	\label{fig:gpu_diagram}
-\end{figure}
-
-
+	
 \subsection{Using CUDA in Accelerating Genetic Algorithms}
 Several computers can be used to efficiently process large datasets and execute complex
 and evolved programs.\cite{Harding09}. They used the spare processing power seen in the

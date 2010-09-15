@@ -4,7 +4,7 @@ img_extIsRegExp=false
 img_extensions=.eps .jpg .jpeg .png .pdf .ps .fig .gif
 kileprversion=2
 kileversion=2.0.85
-lastDocument=chapter1.tex
+lastDocument=chapter5.tex
 masterDocument=
 name=exec_summary
 pkg_extIsRegExp=false
@@ -90,13 +90,13 @@ ReadWrite=true
 
 [item:abstract.tex]
 archive=true
-column=64
+column=7
 encoding=UTF-8
 highlight=LaTeX
-line=5
+line=2
 mode=LaTeX
-open=false
-order=2
+open=true
+order=4
 
 [item:acknowledgments.tex]
 archive=true
@@ -110,20 +110,20 @@ order=-1
 
 [item:chapter1.tex]
 archive=true
-column=32
+column=0
 encoding=UTF-8
 highlight=LaTeX
-line=39
+line=51
 mode=LaTeX
 open=true
 order=1
 
 [item:chapter2.tex]
 archive=true
-column=38
+column=63
 encoding=UTF-8
 highlight=LaTeX
-line=24
+line=63
 mode=LaTeX
 open=true
 order=3
@@ -140,23 +140,23 @@ order=3
 
 [item:chapter4.tex]
 archive=true
-column=43
+column=0
 encoding=UTF-8
 highlight=LaTeX
-line=100
+line=23
 mode=LaTeX
 open=true
 order=2
 
 [item:chapter5.tex]
 archive=true
-column=0
+column=51
 encoding=UTF-8
 highlight=LaTeX
-line=0
+line=1
 mode=LaTeX
-open=false
-order=-1
+open=true
+order=5
 
 [item:chapter6.tex]
 archive=true
@@ -180,46 +180,46 @@ order=-1
 
 [item:exec_summary.tex]
 archive=true
-column=67
+column=20
 encoding=UTF-8
 highlight=LaTeX
-line=19
+line=31
 mode=LaTeX
 open=true
 order=0
 
 [view-settings,view=0,item:abstract.tex]
-CursorColumn=64
-CursorLine=5
+CursorColumn=7
+CursorLine=2
 
 [view-settings,view=0,item:acknowledgments.tex]
 CursorColumn=0
 CursorLine=0
 
 [view-settings,view=0,item:chapter1.tex]
-CursorColumn=32
-CursorLine=39
+CursorColumn=0
+CursorLine=51
 
 [view-settings,view=0,item:chapter2.tex]
-CursorColumn=38
-CursorLine=24
+CursorColumn=63
+CursorLine=63
 
 [view-settings,view=0,item:chapter3.tex]
 CursorColumn=33
 CursorLine=42
 
 [view-settings,view=0,item:chapter4.tex]
-CursorColumn=43
-CursorLine=100
+CursorColumn=0
+CursorLine=23
 
 [view-settings,view=0,item:chapter5.tex]
-CursorColumn=0
-CursorLine=0
+CursorColumn=51
+CursorLine=1
 
 [view-settings,view=0,item:chapter6.tex]
 CursorColumn=0
 CursorLine=0
 
 [view-settings,view=0,item:exec_summary.tex]
-CursorColumn=67
-CursorLine=19
+CursorColumn=20
+CursorLine=31
