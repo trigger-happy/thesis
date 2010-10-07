@@ -11,15 +11,16 @@
 \section{Implementation Details}
 
 \subsection{Application and Tools}
-The application to be developed for optimizing the AI will have 2 versions.
-The first version will run the game and perform the genetic operations entirely
-on the CPU. This version of the application will serve as a benchmark on the
-time it takes for an optimized solution to be found through genetic algorithms.
-The other version will run the game simulation on the GPU and the rest of the
-code in the CPU.
+We have developed an evolver application which optimized the gene and a runner
+application which presented the gene. Furthermore, we also have developed a CPU and
+a GPU version for both applications. The first version ran the game and performed 
+the genetic operations entirely on the CPU. This version of the application served 
+as a benchmark on the time it took for an optimized solution to be found through 
+genetic algorithms. The other version ran the game simulation on the GPU and 
+the rest of the code in the CPU.
 
 
-The following are the tools, libraries and systems used for developing and testing
+The following were the tools, libraries and systems used for developing and testing
 the application:
 
 \begin{enumerate}
@@ -32,64 +33,58 @@ the application:
 \end{enumerate}
 
 % We may have to use the new research comp for testing instead.
-The hardware used for development can be any Intel based multicore CPU and any Nvidia
-graphics card with CUDA compute capability greater than 1.0. The main system to be
-used for gathering results is a Fedora 13 desktop with an Intel Core i3 for
-the CPU and an Nvidia GT 240 for the graphics card. The main system to be
-utilized for developing and debugging the application is a Fedora 13 laptop with
-an Intel Core i3 for the CPU and a Nvidia Geforce 310M for the GPU.
+The main system used for gathering results was a Fedora 13 desktop with an 
+Intel Core i3 for the CPU and an Nvidia GT 240 for the graphics card. The 
+main system utilized for developing and debugging the application was a 
+Fedora 13 laptop with an Intel Core i3 for the CPU and a Nvidia Geforce 
+310M for the GPU.
 
 
 \subsection{Simulation Details}
-The game that we intend to use as a test bed for our AI is a simple 2D tank game.
-In order to simplify the process, only a subset of the game will be implemented.
-The game will have a single tank controlled by the AI and the objective of the AI
-is to stay alive for as long as possible by evading all the bullets that approach
-it from fixed points near the edges of the field. The firing sequence and the rate
-of fire is determined at the start of the program and remain constant throughout
-the testing procedure. The AI will take note of three elements in evading the
+The game that we used as a test bed for our AI was a simple 2D tank game.
+In order to simplify the process, only a subset of the game was implemented.
+The game had a single tank controlled by the AI and the objective of the AI
+was to stay alive for as long as possible by evading all the bullets that approached
+it from fixed points on the field. The firing sequence and the rate
+of fire was determined at the start of the program and remained constant throughout
+the testing procedure. The AI took note of three elements in evading the
 bullets in the playing field.
 
 \begin{enumerate}
- \item Collision State - a state where the AI will take note of the speed 
+ \item Collision State - a state where the AI takes note of the speed 
 of objects in the field.
- \item Direction State - a state where the AI will take note 
+ \item Direction State - a state where the AI takes note 
 of the direction it's facing.
- \item Distance State - a state where the AI will
-take note of the distance of the tank and the bullets.
+ \item Distance State - a state where the AI takes note of the distance 
+of the tank and the bullets.
 \end{enumerate}
 
-In this scenario, the AI will try to dodge the bullets that will collide with
-it. The fitness of the AI will be determined by the duration between the start of
+In this scenario, the AI dodged the bullets that will collide with
+it. The fitness of the AI was determined by the duration between the start of
 the game and the moment the tank collides with a bullet.
 
 
-In a single generation, there will be a large number of individual genomes. The number
-can range from 1,024 to 4,096 (exact value to be determined through experimentation).
-Each individual genome will go through the evasion test bed to obtain its fitness score.
-When the tank in each simulation has been
-shot, the test for that particular generation will end and the individuals are ranked
-according to their fitness score. The score of an individual is assigned a value
-between 0 to 1 inclusive. A value of 0 would mean that the AI was shot at the
-very moment that the game has started while a score of 1 would mean that the AI
-was able to survive until the end of the time limit.
-Due to the nature of the game, there is a possibility
-that the AI will remain unharmed for an indefinite amount of time. To avoid this,
-we will be capping the game time to a maximum of 5 minutes. Individuals that are
-still alive by then are given the score of 1.0 and may be considered optimal for
-that particular stage configuration.
-The top 15\% of individuals will automatically become
-part of the next generation. The remaining 85\% will become the parents of the next generation 
-through reproduction. The test will then repeat the process and evaluate the new
-generation of individuals. The evolution process will end only when the fitness score
-of the best individuals in succeeding generations no longer increase after multiple iterations
-or when an individual with a fitness score of 1.0 is found during the evolution
-process.
+In a single generation, there were 1,024 individual genomes. Each individual genome 
+went through the evasion test bed to obtain its fitness score. When the tank in 
+each simulation was shot, the test for that particular generation ended and the 
+individuals were ranked according to their fitness score. The score of an individual 
+was assigned a value between 0 to 1 inclusive. A value of 0 would mean that the AI was 
+shot at the very moment that the game has started while a score of 1 would mean that 
+the AI was able to survive until the end of the time limit. Due to the nature of the 
+game, there was the possibility that the AI will remain unharmed for an indefinite 
+amount of time. To avoid this, we capped the game time to a maximum of 5 minutes. 
+Individuals that are still alive by then are given the score of 1.0 and may be considered 
+optimal for that particular stage configuration. The top 15\% of individuals were 
+automatically included as part of the next generation. The remaining 85\% became the 
+parents of the next generation through reproduction. The test then repeated the 
+process and evaluated the new generation of individuals. The evolution process ended
+when we reached a maximum number of generation or when an individual with a fitness 
+score of 1.0 is found during the evolution process.
 
 
 \subsection{Data Analysis}
-Data will be gathered by running the CPU and GPU based applications a number of
-times. There are 3 kinds of data to be gathered in each run of the application.
+Data was gathered by running the CPU and GPU based applications a number of
+times. There are 3 kinds of data that were gathered in each run of the application.
 
 \begin{enumerate}
   \item The fitness score of the best individual.

@@ -1,240 +1,132 @@
 \chapter{RESULTS}
-We tried two tests to run a simulation of the tank trying to dodge bullet fire. 
+We tried two tests to run a simulation of the tank trying to dodge bullet fire.
+Our initial prototype had the problem of the CPU version being faster than the
+GPU version. This was due to bottleneck between the CPU and GPU memory transfer.
+Further versions included the problem of the genes not being copied properly
+to the next generation. Thus, we had to make a gene viewer to help in debugging.
+The current version still has floating point errors and both CPU and GPU versions
+still doesn't share the initial random pool. Thus, we would have to revamped the 
+whole code to solve the issues.
+
+
+\section{Tabular Results} 
 The tables below contain the score of the best individual of each generation and
-the time
-it took to finish executing said generation. For the prototype, we are still in
-the process of optimizating the GPU
-based genetic algorithm. Furthermore, the initial random pool isn't shared between the two application.
-Thus, our results would show that the CPU based GA is better than the GPU based one as seen on table 
-\ref{table:CPU first test} and \ref{table:CPU second test} when compared to table \ref{table:GPU first test} and 
-\ref{table:GPU second test}. Additionally, we did not include any more generations for the time being. This is due to
-the genes stagnating after a certain generation as shown in the tables below.
+the time it took to finish executing said generation. Due to the problems prevalent
+in our code, we wouldn't be able to make a controlled comparison between the CPU
+and the GPU version. However, we have manage to produce some data from our prototype
+and the results are promising in that the GPU version is faster than the CPU version 
+as seen on table \ref{table:CPU result} when compared to table \ref{table:GPU result}.
+Note that the fastest generation to finish the evolution process for the CPU was generation
+0 were it took almost 16 seconds to finish. On the other hand, the slowest generation
+to finish the process was generation 49 where it took only 12 seconds to finish.
+Additionally, we did not include some generations for the time being. This is due to
+the genes stagnating in several generation as shown in the tables below.
 
 
 %%%table here%%%
 \begin{table}
-\caption{First Test CPU}
+\caption{CPU Results}
 \centering
- \begin{tabular}{ | l | l | l |}
+ \begin{longtable}{ | l | l | l | l |}
     \hline
-    Generation & Score & Time \\ \hline
-    0 & 0.0914444 & 4.55 \\ \hline
-    1 & 0.100611 & 4.86 \\ \hline
-    2 & 0.100611 & 5.25 \\ \hline
-    3 & 0.117444 & 6.01 \\ \hline
-    4 & 0.111278 & 5.59 \\ \hline
-    5 & 0.117278 & 6.18 \\ \hline
-    6 & 0.117278 & 6.05 \\ \hline
-    7 & 0.111556 & 6.13 \\ \hline
-    8 & 0.111278 & 5.65 \\ \hline
-    9 & 0.1385 & 7.15 \\ \hline
-    10 & 0.139444 & 6.96 \\ \hline
-    11 & 0.118 & 6.31 \\ \hline
-    12 & 0.127111 & 6.77 \\ \hline
-    13 & 0.119833 & 6.51 \\ \hline
-    14 & 0.117389 & 6.51 \\ \hline
-    15 & 0.121 & 6.67 \\ \hline
-    16 & 0.121 & 6.7 \\ \hline
-    17 & 0.138056 & 7.15 \\ \hline
-    18 & 0.138056 & 7.19 \\ \hline
-    19 & 0.127667 & 6.91 \\ \hline
-    20 & 0.131778 & 7.2 \\ \hline
-    21 & 0.174944 & 9.3 \\ \hline
-    22 & 0.137389 & 7.45 \\ \hline
-    23 & 0.174944 & 8.89 \\ \hline
-    24 & 0.132556 & 7.2 \\ \hline
-    25 & 0.132556 & 7.06 \\ \hline
-    26 & 0.132556 & 7.45 \\ \hline
-    27 & 0.137889 & 7.25 \\ \hline
-    28 & 0.137889 & 7.71 \\ \hline
-    29 & 0.152389 & 7.76 \\ \hline
-    30 & 0.163222 & 8.32 \\ \hline
-    31 & 0.152556 & 8.05 \\ \hline
-    32 & 0.148778 & 7.89 \\ \hline
-    33 & 0.132556 & 7.01 \\ \hline
-    34 & 0.132556 & 7.07 \\ \hline
-    35 & 0.132556 & 6.63 \\ \hline
-    36 & 0.132556 & 7.02 \\ \hline
-    37 & 0.132556 & 6.87 \\ \hline
-    38 & 0.132556 & 7.32 \\ \hline 
-    39 & 0.132556 & 6.9 \\ \hline
-    40 & 0.132556 & 7.45 \\ \hline
-    41 & 0.132556 & 7.13 \\ \hline
-    42 & 0.132556 & 7.17 \\ \hline
-    43 & 0.132556 & 6.91 \\ \hline
-    44 & 0.132556 & 7.04 \\ \hline
-    45 & 0.132556 & 7.19 \\ \hline
-    \end{tabular}
-\label{table:CPU first test}
+    Generation & Frames & Score & Time \\ \hline
+    0 & 2164 & 0.120222 & 15.92 \\ \hline
+    1 & 2166 & 0.120333 & 16.92 \\ \hline
+    2 & 2166 & 0.120333 & 17.24 \\ \hline
+    3 & 2931 & 0.162833 & 22.3 \\ \hline
+    4 & 3362 & 0.186778 & 25.71 \\ \hline
+    5 & 3362 & 0.186778 & 26.12 \\ \hline
+    6 & 3471 & 0.192833 & 26.95 \\ \hline
+    7 & 3471 & 0.192833 & 27.49 \\ \hline
+    8 & 3471 & 0.192833 & 27.97 \\ \hline
+    9 & 3471 & 0.192833 & 28.47 \\ \hline
+    10 & 3471 & 0.192833 & 28.88 \\ \hline
+    11 & 3471 & 0.192833 & 29.64 \\ \hline
+    12 & 3471 & 0.192833 & 30.46 \\ \hline
+    13 & 3471 & 0.192833 & 30.03 \\ \hline
+    14 & 3471 & 0.192833 & 30.15 \\ \hline
+    15 & 3471 & 0.192833 & 29.85 \\ \hline
+    16 & 3471 & 0.192833 & 29.37 \\ \hline
+    17 & 3471 & 0.192833 & 29.32 \\ \hline
+    18 & 3471 & 0.192833 & 29.58 \\ \hline
+    19 & 3471 & 0.192833 & 29.8 \\ \hline
+    20 & 3471 & 0.192833 & 29.91 \\ \hline
+    21 & 3471 & 0.192833 & 29.83 \\ \hline
+    22 & 3471 & 0.192833 & 29.88 \\ \hline
+    23 & 3471 & 0.192833 & 30.08 \\ \hline
+    24 & 3471 & 0.192833 & 30.06 \\ \hline
+    25 & 5911 & 0.328389 & 45.71 \\ \hline
+    26 & 5911 & 0.328389 & 45.98 \\ \hline
+    27 & 5911 & 0.328389 & 45.79 \\ \hline
+    28 & 5911 & 0.328389 & 45.93 \\ \hline
+    29 & 5911 & 0.328389 & 46.19 \\ \hline
+    30 & 5911 & 0.328389 & 46.06 \\ \hline
+    31 & 5911 & 0.328389 & 46.18 \\ \hline
+    32 & 5911 & 0.328389 & 46.24 \\ \hline
+    33 & 5911 & 0.328389 & 46.36 \\ \hline
+    34 & 5911 & 0.328389 & 46.15 \\ \hline
+    35 & 5911 & 0.328389 & 46.24 \\ \hline
+    36 & 5911 & 0.328389 & 46.57 \\ \hline
+    37 & 5911 & 0.328389 & 46.84 \\ \hline
+    38 & 5911 & 0.328389 & 49.14 \\ \hline
+    39 & 5911 & 0.328389 & 53.16 \\ \hline
+    40 & 5911 & 0.328389 & 58.08 \\ \hline
+    41 & 5911 & 0.328389 & 59.09 \\ \hline
+    42 & 5911 & 0.328389 & 59.13 \\ \hline
+    \end{longtable}
+\label{table:CPU result}
 \end{table}
 \bigskip
 
 \begin{table}
-\caption{First Test GPU}
+\caption{GPU Results}
 \centering
- \begin{tabular}{ | l | l | l |}
+ \begin{longtable}{ | l | l | l | l |}
     \hline
-    Generation & Score & Time \\ \hline
-    0 & 0.0932222 & 6.41 \\ \hline
-    1 & 0.0932222 & 6.41 \\ \hline
-    2 & 0.0971667 & 6.66 \\ \hline
-    3 & 0.0900556 & 6.2 \\ \hline
-    4 & 0.0975556 & 6.69 \\ \hline
-    5 & 0.105889 & 7.25 \\ \hline
-    6 & 0.107611 & 7.38 \\ \hline
-    7 & 0.107611 & 7.38 \\ \hline
-    8 & 0.114778 & 7.87 \\ \hline
-    9 & 0.114778 & 7.84 \\ \hline
-    10 & 0.114778 & 7.87 \\ \hline
-    11 & 0.114778 & 7.87 \\ \hline
-    12 & 0.114778 & 7.87 \\ \hline
-    13 & 0.114778 & 7.86 \\ \hline
-    14 & 0.114778 & 7.89 \\ \hline
-    15 & 0.1285 & 8.83 \\ \hline
-    16 & 0.114778 & 7.87 \\ \hline
-    17 & 0.118111 & 8.07 \\ \hline
-    18 & 0.114333 & 7.82 \\ \hline
-    19 & 0.114333 & 7.78 \\ \hline
-    20 & 0.128111 & 8.73 \\ \hline
-    21 & 0.118111 & 8.16 \\ \hline
-    22 & 0.126333 & 8.6 \\ \hline
-    23 & 0.126111 & 8.6 \\ \hline
-    24 & 0.126333 & 8.6 \\ \hline
-    25 & 0.126333 & 8.61 \\ \hline
-    26 & 0.126333 & 8.61 \\ \hline
-    27 & 0.126333 & 8.59 \\ \hline
-    28 & 0.126333 & 8.61 \\ \hline
-    29 & 0.126333 & 8.62 \\ \hline
-    30 & 0.126333 & 8.63 \\ \hline
-    31 & 0.126333 & 8.64 \\ \hline
-    32 & 0.126333 & 8.62 \\ \hline
-    33 & 0.126333 & 8.63 \\ \hline
-    34 & 0.126333 & 8.63 \\ \hline
-    35 & 0.126333 & 8.61 \\ \hline
-    36 & 0.126333 & 8.58 \\ \hline
-    37 & 0.126333 & 8.59 \\ \hline
-    38 & 0.126333 & 8.59 \\ \hline
-    39 & 0.126333 & 8.63 \\ \hline
-    40 & 0.126333 & 8.6 \\ \hline
-    41 & 0.126333 & 8.6 \\ \hline
-    42 & 0.126333 & 8.59 \\ \hline
-    43 & 0.126333 & 8.6 \\ \hline
-    44 & 0.126333 & 8.6 \\ \hline
-    45 & 0.126333 & 8.6 \\ \hline
-    \end{tabular}
-\label{table:GPU first test}
+    Generation & Frames & Score & Time \\ \hline
+    0 & 2790 & 0.155 & 3.33 \\ \hline
+    1 & 2790 & 0.155 & 3.54 \\ \hline
+    2 & 2790 & 0.155 & 3.71 \\ \hline
+    3 & 2790 & 0.155 & 3.88 \\ \hline
+    4 & 2790 & 0.155 & 4.03 \\ \hline
+    5 & 4074 & 0.226333 & 5.35 \\ \hline
+    6 & 4074 & 0.226333 & 5.52 \\ \hline
+    7 & 4074 & 0.226333 & 5.73 \\ \hline
+    8 & 4074 & 0.226333 & 5.86 \\ \hline
+    9 & 4074 & 0.226333 & 6.07 \\ \hline
+    10 & 4074 & 0.226333 & 6.23 \\ \hline
+    11 & 4074 & 0.226333 & 6.33 \\ \hline
+    12 & 4074 & 0.226333 & 6.43 \\ \hline
+    13 & 4074 & 0.226333 & 6.53 \\ \hline
+    14 & 5214 & 0.289667 & 7.59 \\ \hline
+    15 & 5214 & 0.289667 & 7.71 \\ \hline
+    16 & 5214 & 0.289667 & 7.77 \\ \hline
+    17 & 5214 & 0.289667 & 7.77 \\ \hline
+    18 & 5214 & 0.289667 & 7.76 \\ \hline
+    19 & 6064 & 0.336889 & 8.58 \\ \hline
+    20 & 6064 & 0.336889 & 8.62 \\ \hline
+    21 & 6064 & 0.336889 & 8.73 \\ \hline
+    22 & 6064 & 0.336889 & 8.69 \\ \hline
+    23 & 6064 & 0.336889 & 8.39 \\ \hline
+    28 & 6064 & 0.336889 & 8.69 \\ \hline
+    29 & 6064 & 0.336889 & 8.7 \\ \hline
+    30 & 6064 & 0.336889 & 8.78 \\ \hline
+    31 & 6064 & 0.336889 & 8.91 \\ \hline
+    32 & 6413 & 0.356278 & 9.42 \\ \hline
+    33 & 6413 & 0.356278 & 9.69 \\ \hline
+    34 & 6413 & 0.356278 & 10.2 \\ \hline
+    35 & 6413 & 0.356278 & 11.19 \\ \hline
+    36 & 6413 & 0.356278 & 11.54 \\ \hline
+    37 & 6413 & 0.356278 & 11.7 \\ \hline
+    38 & 6413 & 0.356278 & 11.84 \\ \hline
+    39 & 6413 & 0.356278 & 11.86 \\ \hline
+    40 & 6413 & 0.356278 & 11.88 \\ \hline
+    41 & 6413 & 0.356278 & 11.86 \\ \hline
+    47 & 6414 & 0.356333 & 11.87 \\ \hline
+    48 & 6414 & 0.356333 & 11.85 \\ \hline
+    49 & 6414 & 0.356333 & 11.89 \\ \hline
+    50 & 6414 & 0.356333 & 11.82 \\ \hline
+    \end{longtable}
+\label{table:GPU result}
 \end{table}
 \bigskip
-
-\begin{table}
-\caption{Second Test CPU}
-\centering
- \begin{tabular}{ | l | l | l |}
-    \hline
-    Generation & Score & Time \\ \hline
-    0 & 0.100056 & 4.96 \\ \hline
-    1 & 0.100056 & 4.98 \\ \hline
-    2 & 0.100556 & 5.04 \\ \hline
-    3 & 0.100389 & 5.49 \\ \hline
-    4 & 0.100556 & 5.13 \\ \hline
-    5 & 0.100556 & 5.37 \\ \hline
-    6 & 0.117556 & 6.06 \\ \hline
-    7 & 0.101944 & 5.38 \\ \hline
-    8 & 0.101944 & 5.5 \\ \hline
-    9 & 0.111556 & 5.65 \\ \hline
-    10 & 0.111556 & 6.01 \\ \hline
-    11 & 0.111556 & 5.71 \\ \hline
-    12 & 0.111556 & 5.67 \\ \hline
-    13 & 0.111556 & 5.91 \\ \hline
-    14 & 0.112444 & 5.98 \\ \hline
-    15 & 0.117556 & 6.35 \\ \hline
-    16 & 0.127167 & 6.32 \\ \hline
-    17 & 0.127167 & 6.58 \\ \hline
-    18 & 0.121 & 6.12 \\ \hline
-    19 & 0.119 & 6.41 \\ \hline
-    20 & 0.118333 & 6.47 \\ \hline
-    21 & 0.118333 & 6.33 \\ \hline
-    22 & 0.118333 & 6.27 \\ \hline
-    23 & 0.118333 & 6.59 \\ \hline
-    24 & 0.127167 & 6.55 \\ \hline
-    25 & 0.127167 & 6.95 \\ \hline
-    26 & 0.118333 & 6.44 \\ \hline
-    27 & 0.118333 & 6.88 \\ \hline
-    28 & 0.118333 & 6.39 \\ \hline
-    29 & 0.118333 & 6.67 \\ \hline
-    30 & 0.118333 & 6.32 \\ \hline
-    31 & 0.118333 & 6.25 \\ \hline
-    32 & 0.118333 & 6.28 \\ \hline
-    33 & 0.118333 & 6.42 \\ \hline
-    34 & 0.118333 & 6.77 \\ \hline
-    35 & 0.118333 & 7.09 \\ \hline
-    36 & 0.118333 & 6.67 \\ \hline
-    37 & 0.1375 & 7.13 \\ \hline
-    38 & 0.118333 & 5.99 \\ \hline
-    39 & 0.118333 & 6.19 \\ \hline
-    40 & 0.118333 & 6.63 \\ \hline
-    41 & 0.118333 & 6.11 \\ \hline
-    42 & 0.118333 & 5.98 \\ \hline
-    43 & 0.118333 & 6 \\ \hline
-    44 & 0.118333 & 6.05 \\ \hline
-    45 & 0.118333 & 6.53 \\ \hline
-    \end{tabular}
-\label{table:CPU second test}
-\end{table}
-\bigskip
-
-\begin{table}
-\caption{Second Test GPU}
-\centering
- \begin{tabular}{ | l | l | l |}
-    \hline
-    Generation & Score & Time \\ \hline
-     0 & 0.106222 & 7.26 \\ \hline
-     1 & 0.0954444 & 6.54 \\ \hline
-     2 & 0.0877222 & 6 \\ \hline
-     3 & 0.100167 & 6.87 \\ \hline
-     4 & 0.107667 & 7.35 \\ \hline
-     5 & 0.107667 & 7.38 \\ \hline
-     6 & 0.107667 & 7.39 \\ \hline
-     7 & 0.107944 & 7.4 \\ \hline
-     8 & 0.1085 & 7.41 \\ \hline
-     9 & 0.112444 & 7.64 \\ \hline
-     10 & 0.109889 & 7.5 \\ \hline
-     11 & 0.112444 & 7.69 \\ \hline
-     12 & 0.109833 & 7.64 \\ \hline
-     13 & 0.116056 & 8 \\ \hline
-     14 & 0.117556 & 8.03 \\ \hline
-     15 & 0.117556 & 8.01 \\ \hline
-     16 & 0.117556 & 8.02 \\ \hline
-     17 & 0.119778 & 8.18 \\ \hline
-     18 & 0.119778 & 8.18 \\ \hline
-     19 & 0.117556 & 8 \\ \hline
-     20 & 0.118 & 8.03 \\ \hline
-     21 & 0.127222 & 8.64 \\ \hline
-     22 & 0.127222 & 8.62 \\ \hline
-     23 & 0.127222 & 8.63 \\ \hline
-     24 & 0.127222 & 8.64 \\ \hline
-     25 & 0.127222 & 8.64 \\ \hline
-     26 & 0.127222 & 8.63 \\ \hline
-     27 & 0.127222 & 8.63 \\ \hline
-     28 & 0.123111 & 8.36 \\ \hline
-     29 & 0.127222 & 8.63 \\ \hline
-     30 & 0.127222 & 8.64 \\ \hline
-     31 & 0.123111 & 8.33 \\ \hline
-     32 & 0.123111 & 8.35 \\ \hline
-     33 & 0.123111 & 8.35 \\ \hline
-     34 & 0.123111 & 8.38 \\ \hline
-     35 & 0.123111 & 8.35 \\ \hline
-     36 & 0.123111 & 8.34 \\ \hline
-     37 & 0.123111 & 8.36 \\ \hline
-     38 & 0.123111 & 8.36 \\ \hline
-     39 & 0.123111 & 8.46 \\ \hline
-     40 & 0.123111 & 8.41 \\ \hline
-     41 & 0.123111 & 8.39 \\ \hline
-     42 & 0.123111 & 8.35 \\ \hline
-     43 & 0.123111 & 8.34 \\ \hline
-     44 & 0.123111 & 8.36 \\ \hline
-     45 & 0.123111 & 8.36 \\ \hline
-    \end{tabular}
-\label{table:GPU second test}
-\end{table}
