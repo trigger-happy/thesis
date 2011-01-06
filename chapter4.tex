@@ -24,83 +24,77 @@ The following were the tools, libraries and systems used for developing and test
 the application:
 
 \begin{enumerate}
-  \item Fedora 13 Linux (for the operating system)
+  \item Fedora 14 Linux (for the operating system)
   \item gcc 4.4.4 compiler suite
   \item Boost 1.43.0 libraries
-  \item Nvidia CUDA 3.1 SDK
+  \item Nvidia CUDA 3.2 SDK
   \item CMake 2.8 build system
   \item ClanLib 2.1 game engine (to be used for viewing the AI's performance)
 \end{enumerate}
 
 % We may have to use the new research comp for testing instead.
 The main system used for gathering results was a Fedora 13 desktop with an 
-Intel Core i3 for the CPU and an Nvidia GT 240 for the graphics card. The 
-main system utilized for developing and debugging the application was a 
-Fedora 13 laptop with an Intel Core i3 for the CPU and a Nvidia Geforce 
-310M for the GPU.
+Intel(R) Core(TM)2 Quad CPU Q9550 @ 2.83GHz for the CPU and an 
+Inno3d GeForce GTX 470 (Hawk edition) for the graphics card. The CPU used 8
+threads to compute for the result while the GPU used 1024 thread block with
+32 threads per block to compute. The main system utilized for developing and 
+debugging the application was a Fedora 13 laptop with an Intel Core i3 for 
+the CPU and a Nvidia Geforce 310M for the GPU.
 
 
-\subsection{Simulation Details}
+\subsection{Evolution Method}
 The game that we used as a test bed for our AI was a simple 2D tank game.
 In order to simplify the process, only a subset of the game was implemented.
 The game had a single tank controlled by the AI and the objective of the AI
-was to stay alive for as long as possible by evading all the bullets that approached
-it from fixed points on the field. The firing sequence and the rate
-of fire was determined at the start of the program and remained constant throughout
-the testing procedure. The AI took note of three elements in evading the
+was to stay alive for each scenario by evading all the bullets that approached
+it from fixed points on the field. The AI took note of five elements in evading the
 bullets in the playing field.
 
 \begin{enumerate}
- \item Collision State - a state where the AI takes note of the speed 
-of objects in the field.
- \item Direction State - a state where the AI takes note 
-of the direction it's facing.
+ \item Bullet Heading - the direction of where the bullet is heading.
+ \item Bullet Position - the position of the bullet in the field.
  \item Distance State - a state where the AI takes note of the distance 
 of the tank and the bullets.
+ \item AI Thrust - how the AI will move (move forward, move backward, or stop).
+ \item AI Heading - the indented direction the AI will move among the 18
+possible direction.
 \end{enumerate}
 
-In this scenario, the AI dodged the bullets that will collide with
-it. The fitness of the AI was determined by the duration between the start of
-the game and the moment the tank collides with a bullet.
+An individual was tested using 54 different scenarios. We used 18 different angles 
+the bullets can shoot from. We also used 4 distance states. However, the bullet 
+fired at the tank at distance state 0 is nearly impossible to dodge in nearly all 
+cases. Therefore, we used the last 3 distance states. The evading AI will then check
+for the bullet status, which includes the position, heading, and distance, every 30 
+frames. The AI will recieve 1 point for every scenario it survives. Finally, a 
+scenario only ends when either of the 2 conditions are met:
 
+\begin{enumerate}
+ \item Evading tank gets shot.
+ \item Fired bullet reaches its maximum distance and dies out.
+\end{enumerate}
 
-In a single generation, there were 1,024 individual genomes. Each individual genome 
-went through the evasion test bed to obtain its fitness score. When the tank in 
-each simulation was shot, the test for that particular generation ended and the 
-individuals were ranked according to their fitness score. The score of an individual 
-was assigned a value between 0 to 1 inclusive. A value of 0 would mean that the AI was 
-shot at the very moment that the game has started while a score of 1 would mean that 
-the AI was able to survive until the end of the time limit. Due to the nature of the 
-game, there was the possibility that the AI will remain unharmed for an indefinite 
-amount of time. To avoid this, we capped the game time to a maximum of 5 minutes. 
-Individuals that are still alive by then are given the score of 1.0 and may be considered 
-optimal for that particular stage configuration. The top 15\% of individuals were 
-automatically included as part of the next generation. The remaining 85\% became the 
-parents of the next generation through reproduction. The test then repeated the 
-process and evaluated the new generation of individuals. The evolution process ended
-when we reached a maximum number of generation or when an individual with a fitness 
-score of 1.0 is found during the evolution process.
-
+We used 4 different initial seeds. We ran each seed 10 times for both the CPU and 
+the GPU. Furthermore, the CPU and GPU are run separately, not simultaneously. This
+is due to the GPU using CPU cycles during the reproduction phase.
 
 \subsection{Data Analysis}
 Data was gathered by running the CPU and GPU based applications a number of
-times. There are 3 kinds of data that were gathered in each run of the application.
+times. There are 4 kinds of data that were gathered in each run of the application.
 
 \begin{enumerate}
+  \item The number of scenarios the best individual in that generation manages 
+to survive.
   \item The fitness score of the best individual.
-  \item The generation in which the individual was found.
-  \item The time it took to find that individual (in physical time).
+  \item The generation number.
+  \item The average time it took to finish all 54 scenarios for all individual of 
+that generation (in physical time).
 \end{enumerate}
 
-Data will be laid out in a table where the columns indicate the range of fitness
-values that are fixed into intervals of .30 while each row represents a single
-generation. This results in the table having columns representing the fitness
-ranges 0-0.33, 0.34-0.66, and so on. The data stored in this table
-will be the time the application took in seconds (in physical time) to obtain
-the best individual. Multiple results from the same application that end up in
-the same cell will have their mean value stored. Comparison is done only in the
-cells which have a recorded runtime from both the GPU and CPU based application.
-Cells with only one or the other are ignored. Scoring is done by tallying the
-number of cells where the runtime of one application is faster than the other.
-The application with the higher score can be concluded as the faster 
-implementation.
+The number of survived scenarios, fitness score, and the generation number were used for 
+comparision between the CPU and GPU of the same seed so as to know the consistency
+of the AI result. The time was used to compare for the speed at which the CPU and GPU
+completes the evolution. For each generation of the CPU, we got the average evolution
+time of each generation. We then averaged the time from all same generation within a seed.
+We repeated the process for all generation within a seed. After that, we averaged the 
+total evolution time of a seed. We then repeated the whole process for the GPU. After
+which, we compare the average evolution time.
