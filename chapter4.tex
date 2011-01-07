@@ -60,18 +60,30 @@ of the tank and the bullets.
 possible direction.
 \end{enumerate}
 
-An individual was tested using 54 different scenarios. We used 18 different angles 
-the bullets can shoot from. We also used 4 distance states. However, the bullet 
-fired at the tank at distance state 0 is nearly impossible to dodge in nearly all 
-cases. Therefore, we used the last 3 distance states. The evading AI will then check
-for the bullet status, which includes the position, heading, and distance, every 30 
-frames. The AI will recieve 1 point for every scenario it survives. Finally, a 
-scenario only ends when either of the 2 conditions are met:
+We used 1024 individuals for our tank AI. An individual was tested using 54 different
+scenarios. We used 18 different angles the bullets can shoot from. We also used 4
+distance states. However, the bullet fired at the tank at distance state 0 is nearly
+impossible to dodge in nearly all cases. Therefore, we used the last 3 distance states.
+The evading AI will then check for the bullet status, which includes the position, heading,
+and distance, every 30 frames. The AI will recieve 1 point for every scenario it survives.
+Finally, a scenario only ends when either of the 2 conditions are met:
 
 \begin{enumerate}
  \item Evading tank gets shot.
  \item Fired bullet reaches its maximum distance and dies out.
 \end{enumerate}
+
+Genetic evolution was performed after each generation. The top 15\% of individuals
+were automatically included as part of the next generation. The remaining 85\% became
+the parents of the next generation through reproduction. We got two individuals and
+picked a random point in which to split the individuals. The first part of the 
+first individual was then paired with the second part of the second individual to 
+create a new individual. Furthermore, the second part of the first individual was
+paired with the first part of the second individual to create another individual.
+Lastly, each of the new individual has a 50\% chance of mutating, i.e., a genome
+in the individual will have a different value. The process is repeated for the
+rest of the individuals in the lower 85\% bracket.
+
 
 We used 4 different initial seeds. We ran each seed 10 times for both the CPU and 
 the GPU. Furthermore, the CPU and GPU are run separately, not simultaneously. This
