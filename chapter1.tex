@@ -9,26 +9,26 @@ techniques that exist today. If implemented well, genetic algorithms can
 evolve a computer controlled agent to perform adequately according to some
 set criteria defined in a fitness function. However, a significant amount of 
 time is required for the algorithm to evolve a population of individual solutions 
-into an acceptable solution\cite{Schwab04}. The time it takes can range from
+into an acceptable solution \cite{Schwab04}. The time it takes can range from
 a few hours to a number of weeks, depending on the complexity of the game where
 the agent must perform. This limitation makes them difficult or impractical to
-use in the process of game development\cite{Schwab04}.
+use in the process of game development \cite{Schwab04}.
 
 % refer to the bottom part of p 415 and top part of p 417 in AI game engine prog
 The primary reasons genetic algorithms take up a lot of time are the number of 
 possible solutions that must be tested given a specific generation, the time it 
 takes to evaluate each of these possible solutions, and the number of generations 
-that may be needed before arriving at a single or a number of acceptable solutions\cite{Schwab04}. 
+that may be needed before arriving at a single or a number of acceptable solutions \cite{Schwab04}. 
 One way to tackle the issue is by using faster processors in order to reduce the
 overall computation time of the Genetic Algorithm. A better solution though would
 be to process all the individuals in a single generation in parallel through the
 use of threads. A computer processor is capable of a variety of things, but it is limited by its instruction throughput. Even with the modern CPU with multiple processing cores, the CPU can only
 run one instruction at a time per core. This is where Graphics Processing Units, or GPUs, come in.
 GPUs have been designed to execute a single set of instructions over numerous elements
-of data, a technique known as ``Single-Instruction, Multiple-Thread\cite{pdf:NVCudaPrgGuide}.''
+of data, a technique known as ``Single-Instruction, Multiple-Thread \cite{pdf:NVCudaPrgGuide}.''
 Not only do they have multiple processing units, each processing unit is also
 capable of running several identical instructions simultaneously, making GPUs ideal
-for highly parallel algorithms\cite{pdf:NVCudaPrgGuide}. It is our goal therefore to
+for highly parallel algorithms \cite{pdf:NVCudaPrgGuide}. It is our goal therefore to
 show that GPUs can be used to evolve an optimized solution for the behavior of computer
 controlled agents in a computer game at a rate that is much faster than those that are optimized
 through the use of a CPU.
@@ -83,16 +83,16 @@ Inspired by evolutionary biology, it can find the optimal solution
 for a given problem. For example, artificial neural networks (ANN),
 are used in the manufacturing industry to identify the best parameters
 for constructing a model. Genetic algorithm based ANNs are found to be
-the best due to its time-saving potential\cite{Venkatesan08}. Another
+the best due to its time-saving potential \cite{Venkatesan08}. Another
 application can be found in the field of traffic control. They used
 genetic algorithm to design an optimal toll ring scheme to reduce traffic
-congestion\cite{Sumalee08}. Other applications can be found in the field
+congestion \cite{Sumalee08}. Other applications can be found in the field
 of Game AI. For example, we can make more sophisticated AI using genetic
 algorithms. These AIs will be smarter in the sense that they can ``learn''.
 This aspect of AI can make it more challenging, a very valuable element
 in a computer game. With the age of graphics reaching its peak, the need
 for better AI is starting to become an ingredient for a succesful
-commercial game\cite{Yue06}. Because of the inherent ability of genetic
+commercial game \cite{Yue06}. Because of the inherent ability of genetic
 algorithms in learning, AIs can be made more robust. They could display
 behaviors that were not seen in the previous playthrough. Thus, this
 could make more challenging AIs after each playthrough. An application
@@ -102,7 +102,7 @@ computer controlled player played by trying different sets of inputs
 to defeat a particular boss named ``Air Man.'' With each generation,
 the computer player performed better than its previous playthrough
 until it had reached the point wherein its fitness score would no longer
-increase\cite{website:Kuliniewicz09}.
+increase \cite{website:Kuliniewicz09}.
 
 
 %Other applications of genetic algorithm can be found in companies like First Quadrant Corp.
@@ -119,7 +119,7 @@ Various studies have already been done in the fields of genetic algorithm with
 some of the applications being used commercially. However, it would seem that there
 has yet to be any study done in improving genetic algorithms using the GPU for optimizing
 game AI. It has been proven that genetic algorithms are limited and impractical without
-the processing power of the GPU\cite{Banzhaf09}. Without this limitation however, GAs
+the processing power of the GPU \cite{Banzhaf09}. Without this limitation however, GAs
 could be used to optimize game AI in place of manually hand tuning them. Not only does
 this have the potential to reduce the time it takes to fine-tune the game AI, it will
 also allow the game developer/designer to work on other tasks while the computer

@@ -15,21 +15,21 @@ Genetic programming can be a very time-consuming process.  The members of its
 populations are optimized against a fitness landscape through a fitness check. It
 then tries the output or plugs it in again for a better fitness score. For a large
 population, the processing power needed cannot be handled by the CPU alone. GPUs in
-PCs are considered as more powerful in pure FLOPS\cite{Banzhaf09}.
+PCs are considered as more powerful in pure FLOPS \cite{Banzhaf09}.
 For example, in the GeForce 8 Series the NVIDIA 8800 Ultra performs around 576 GFLOPS
 on 128 processing elements. This equates to around 4.5 GFLOPS per element, compared
 with 2.75 per core for the Blue Gene/L supercomputer.  With that kind of processing power, 
 new sets of problems can be solved.  
 
 A sample application can be found in the KDD 1999 IDS dataset, where, they had around
-4 million entries\cite{Banzhaf09}. They evaluated 10 percent of the total subset
+4 million entries \cite{Banzhaf09}. They evaluated 10 percent of the total subset
 that were given. They found out that it only took 5.86 ms to evaluate on a GPU
 compared to the 43.54 ms on the CPU. They also used genetic programming to
 reverse engineer image filters, i.e., find the mapping between an image and the
 output of a filter applied to it. The results were that the CPU process was 100
 times slower than the GPU one. 
 
-\subsection{Single Instruction, Multiple Threads Architechture of Nvidia
+\subsection{Single Instruction, Multiple Threads Architecture of Nvidia
 Graphics Card}
 
 
@@ -37,14 +37,14 @@ Graphics Card}
 	\centering
 		\graphicspath{{images/}}
 		\includegraphics[width=190 pt]{cpu_gpu_blackandwhite.png}
-	\caption{CPU vs GPU architechture}
+	\caption{CPU vs GPU architecture}
 	\cite{pdf:NVCudaPrgGuide}
 	\label{fig:gpu_diagram}
 \end{figure}
 \bigskip
 
 A multiprocessor creates, manages, and executes threads in groups of 32
-threads\cite{pdf:NVCudaPrgGuide}. 
+threads \cite{pdf:NVCudaPrgGuide}. 
 These group of threads are called as warps. Each threads have their start at the same 
 time and at the same program address. However, they have their own instruction address 
 counter and register state. Thus, the threads are able to branch and execute independently.
@@ -55,9 +55,9 @@ diverges via a data-dependent conditional branch, the warp serially executes eac
 The threads will then converge back to the same execution path.  However, the divergence only
 happens within a warp and does not affect other warps.
 
-The single instruction, multiple threads (SIMT) architechture is similar to the single instruction,
+The single instruction, multiple threads (SIMT) architecture is similar to the single instruction,
 multiple data (SIMD) vector organizations in that a single instruction controls multiple processing
-elements\cite{pdf:NVCudaPrgGuide}. The difference lie in that the SIMD vector
+elements \cite{pdf:NVCudaPrgGuide}. The difference lie in that the SIMD vector
 organizations expose the SIMD width to the software. The SIMT instructions, on
 the other hand, specify the execution and branching behavior of a single thread.
 In contrast with SIMD vector machines, SIMT enables parallel coding for
@@ -66,13 +66,13 @@ coordinated threads.
 	
 \subsection{Using CUDA in Accelerating Genetic Algorithms}
 Several computers can be used to efficiently process large datasets and execute complex
-and evolved programs.\cite{Harding09}. They used the spare processing power seen in the
+and evolved programs \cite{Harding09}. They used the spare processing power seen in the
 computers in the student's laboratory. It detailed how a root computer distributed work
 over a network of computers to increase processing speed and efficiency. Further
 implementations were introduced in the field of genetic algorithms. NVIDIA introduced a new 
 feature called the Compute Unified Device Architecture (CUDA),
 a general-purpose parallel architecture with a new parallel programming model and instruction
-set architecture\cite{Zhang09}. They present that with the given technology, genetic algorithms
+set architecture \cite{Zhang09}. They present that with the given technology, genetic algorithms
 are performed faster and more effectively. Because the GPU is much more effective in terms of primitive
 operations, CUDA was introduced to take advantage of the massively parallel high-performance
 computing on the GPU.  

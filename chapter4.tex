@@ -91,22 +91,28 @@ is due to the GPU using CPU cycles during the reproduction phase.
 
 \subsection{Data Analysis}
 Data was gathered by running the CPU and GPU based applications a number of
-times. There are 4 kinds of data that were gathered in each run of the application.
-
+times. There are 3 kinds of data that were gathered in each run of the application.
 \begin{enumerate}
-  \item The number of scenarios the best individual in that generation manages 
-to survive.
-  \item The fitness score of the best individual.
-  \item The generation number.
-  \item The average time it took to finish all 54 scenarios for all individual of 
+  \item The seed tag.
+  \item The processor tag.
+  \item The time it took to finish all 54 scenarios for all individual of 
 that generation (in physical time).
 \end{enumerate}
+The fitness score was not considered because the same seed and same run of each 
+generation for both applications were equal.
 
-The number of survived scenarios, fitness score, and the generation number were used for 
-comparision between the CPU and GPU of the same seed so as to know the consistency
-of the AI result. The time was used to compare for the speed at which the CPU and GPU
-completes the evolution. For each generation of the CPU, we got the average evolution
-time of each generation. We then averaged the time from all same generation within a seed.
-We repeated the process for all generation within a seed. After that, we averaged the 
-total evolution time of a seed. We then repeated the whole process for the GPU. After
-which, we compare the average evolution time.
+
+We used Analysis of Variance, ANOVA, to reduce getting a Type 1 error, a false
+positive error. We used a two way ANOVA because the output we get, time, might
+be affected by the seed or the processor or both.
+$$
+SS_{total} = SS_a + SS_b + SS_{ab} + SS_{error}
+$$
+Our null hypothesis is the speed of CPU is equal to the speed of GPU.
+$$
+\mu_{CPU} = \mu_{GPU}
+$$
+The alternative is that the speed of CPU and GPU are not equal.
+$$
+\mu_{CPU} \neq \mu_{GPU}
+$$

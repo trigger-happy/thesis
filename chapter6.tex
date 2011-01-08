@@ -1,30 +1,19 @@
 \chapter{CONCLUSION AND RECOMMENDATIONS}
 
 \section{Conclusion}
-The Philippines has been a victim of disasters such as heavy floods, landslides and storms.  We have always relied on predicted weather reports to prepare for an incoming disaster. However, very few have access to disaster management data which includes pre-disaster information and post-disaster information aside from real time visualization of disaster indicators. The aim of this project was to create a simplified web accessible visualization of rain data using three different sources.  This data can be used for the three phases of a disaster.  Based on computed data, users are made aware of the current weather for a particular location including an alert as to weather a storm fast approaching.  Accuracy of display and time delays were also tested. At present, visualization of rain data was made available through the web. However, the group is continuously developing data visualization on the mobile phone to make the rain data more accessible to a wider audience. In this manner, subscribers of mobile application can easily access rain information, thus be more empowered and prepared in the advent of bad weather conditions. Currently, the data visualization on the mobile phone is at the testing stage.
+Genetic algorithm is a powerful tool for AI creation. It can find the optimal
+solution to a given problem. The only limitation it has would be the time it 
+takes to undergo the process of genetic evolution. We proposed that using a
+GPU can shorten the time it takes to generate results. We have collected the
+seed, processor, and time data. The data was analysed and found that the results
+were not a type 1 error, false positive error. We have proven that the GPU is faster
+in manipulating game AI than the CPU.
 
 \section{Recommendations}
-
-\subsection{Visualization for other related fields}
-The visualization application makes use of reusable code and design architecture. It is ready to visualize any type of data including earthquake, flood and storm data given the fields from the sensing devices to be used.
-
-\subsection{Interfacing with sensors}
-As of the moment, the visualization application can display backlog data. Real time data can already be displayed but this is currently simulated since the devices are not yet directly connected to the system. Wireless systems can be attached to the sensors so that it could directly send rain data to the servers.
-
-\subsection{Analysis of rain data for prediction}
-The database structure is ready to perform analysis of rain. 
-
-\subsubsection{Temporal Prediction}
-Historical trending of rain fall rate can be used to predict the rain fall rate for the next hour or the next day. 
-
-\subsubsection{Spatial Prediction}
-Based on the location of the sensors, some contouring can be used to predict the rain fall rate of the surrounding areas without sensors. This way, cost can be reduced by reducing the amount of sensors needed. 
-
-\subsection{Multi-resolution Algorithm}
-In the current version of the visualization application, the icons for all the sensors are displayed. A multi-resolution algorithm can be applied such that when the map is focused on a country-level scale, only one icon for each of the 16 regions will be displayed. When it is zoomed in at region-level scale, all the icons for each of the sensors in the region shall be displayed.
-
-\subsection{Micro-blogging Service}
-The system can be developed further to allow government officials and NGOs to send SMS messages from the field. The messages will be displayed in info windows drawn against the Google Map, much like how micro-blogging services like Twitter, work. This will be an efficient way of sending real-time status reports and messages prompting for mobilization in the delivery of relief services. 
-
+Although we have proven that the GPU is indeed faster than the CPU, we have not
+been able to optimize the code extensively for both the CPU and GPU. Possible 
+optimizations for the GPU include making use of shared memory to speed up memory
+accesses. On the other hand, the CPU can benefit from using intrinsics to speed
+up some of the calculations.
 
   

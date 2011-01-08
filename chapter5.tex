@@ -1,97 +1,128 @@
 \chapter{RESULTS}
 \section{Tabular Results} 
 We have set the maximum amount of generations to 24. This is due to the AI
-will not evolve any further after the 24th generation. From the onset of
-the result, it has become clear that the GPU is faster than the CPU in
-finishing the computation. The table \ref{table: CPU vs GPU average time per generation}
-shows the huge advantage of the using the GPU over the CPU.
+will not evolve any further after the 24th generation. The 
+table \ref{table:CPU vs GPU total runtime} and 
+\ref{table:CPU vs GPU total runtime part 2} contains the total time in each
+run per seed for both CPU and GPU. The result we got is also not a type 1 
+error as shown in figure \ref{fig:anova_result}.
+\begin{figure}
+	\centering
+		\graphicspath{{images/}}
+		\includegraphics[width=260 pt]{Anova_Results.png}
+	\caption{Anova Results}
+	\label{fig:anova_result}
+\end{figure}
+The GPU can be considered to be faster than the CPU as shown in figure
+\ref{fig:anova_result_graph}.
+\begin{figure}
+	\centering
+		\graphicspath{{images/}}
+		\includegraphics[width=260 pt]{Anova_Result_Graph.png}
+	\caption{CPU vs GPU Graph}
+	\label{fig:anova_result_graph}
+\end{figure}
 
-
-%%%table here%%%
 \begin{table}
-\caption{CPU vs GPU Average Time per Generation}
+\caption{CPU vs GPU Total Runtime Seeds 0 and 1}
 \centering
  \begin{longtable}{ | l | l | l |}
     \hline
-    Generation & Frames & Score \\ \hline
-    0 & 2164 & 0.120222 \\ \hline
-    1 & 2166 & 0.120333 \\ \hline
-    2 & 2166 & 0.120333 \\ \hline
-    3 & 2931 & 0.162833 \\ \hline
-    4 & 3362 & 0.186778 \\ \hline
-    5 & 3362 & 0.186778 \\ \hline
-    6 & 3471 & 0.192833 \\ \hline
-    7 & 3471 & 0.192833 \\ \hline
-    8 & 3471 & 0.192833 \\ \hline
-    9 & 3471 & 0.192833 \\ \hline
-    10 & 3471 & 0.192833 \\ \hline
-    11 & 3471 & 0.192833 \\ \hline
-    12 & 3471 & 0.192833 \\ \hline
-    13 & 3471 & 0.192833 \\ \hline
-    14 & 3471 & 0.192833 \\ \hline
-    15 & 3471 & 0.192833 \\ \hline
-    16 & 3471 & 0.192833 \\ \hline
-    17 & 3471 & 0.192833 \\ \hline
-    18 & 3471 & 0.192833 \\ \hline
-    19 & 3471 & 0.192833 & 29.8 \\ \hline
-    20 & 3471 & 0.192833 & 29.91 \\ \hline
-    21 & 3471 & 0.192833 & 29.83 \\ \hline
-    22 & 3471 & 0.192833 & 29.88 \\ \hline
-    23 & 3471 & 0.192833 & 30.08 \\ \hline
+    Time & Seed & Processor \\ \hline
+    471.94 & 0 & CPU \\ \hline
+    469.5 & 0 & CPU \\ \hline
+    468.12 & 0 & CPU \\ \hline
+    468 & 0 & CPU \\ \hline
+    478.42 & 0 & CPU \\ \hline
+    467.59 & 0 & CPU \\ \hline
+    465.22 & 0 & CPU \\ \hline
+    465.5 & 0 & CPU \\ \hline
+    467.64 & 0 & CPU \\ \hline
+    467.19 & 0 & CPU \\ \hline
+    85 & 0 & GPU \\ \hline
+    83.96 & 0 & GPU \\ \hline
+    84.07 & 0 & GPU \\ \hline
+    83.91 & 0 & GPU \\ \hline
+    83.99 & 0 & GPU \\ \hline
+    83.94 & 0 & GPU \\ \hline
+    83.95 & 0 & GPU \\ \hline
+    83.96 & 0 & GPU \\ \hline
+    83.93 & 0 & GPU \\ \hline
+    83.93 & 0 & GPU \\ \hline
+    469.11 & 1 & CPU \\ \hline
+    466.16 & 1 & CPU \\ \hline
+    466.18 & 1 & CPU \\ \hline
+    468.07 & 1 & CPU \\ \hline
+    465.86 & 1 & CPU \\ \hline
+    466.64 & 1 & CPU \\ \hline
+    467.87 & 1 & CPU \\ \hline
+    468.76 & 1 & CPU \\ \hline
+    473.68 & 1 & CPU \\ \hline
+    501.45 & 1 & CPU \\ \hline
+    83.97 & 1 & GPU \\ \hline
+    84.79 & 1 & GPU \\ \hline
+    83.78 & 1 & GPU \\ \hline
+    83.83 & 1 & GPU \\ \hline
+    83.87 & 1 & GPU \\ \hline
+    83.85 & 1 & GPU \\ \hline
+    83.88 & 1 & GPU \\ \hline
+    83.8 & 1 & GPU \\ \hline
+    86.9 & 1 & GPU \\ \hline
+    86.91 & 1 & GPU \\ \hline
     \end{longtable}
-\label{table:CPU vs GPU average time per generation}
+\label{table:CPU vs GPU total runtime}
 \end{table}
 \bigskip
 
 \begin{table}
-\caption{GPU Results}
+\caption{CPU vs GPU Total Runtime Seeds 2 and 3}
 \centering
- \begin{longtable}{ | l | l | l | l |}
+ \begin{longtable}{ | l | l | l |}
     \hline
-    Generation & Frames & Score & Time \\ \hline
-    0 & 2790 & 0.155 & 3.33 \\ \hline
-    1 & 2790 & 0.155 & 3.54 \\ \hline
-    2 & 2790 & 0.155 & 3.71 \\ \hline
-    3 & 2790 & 0.155 & 3.88 \\ \hline
-    4 & 2790 & 0.155 & 4.03 \\ \hline
-    5 & 4074 & 0.226333 & 5.35 \\ \hline
-    6 & 4074 & 0.226333 & 5.52 \\ \hline
-    7 & 4074 & 0.226333 & 5.73 \\ \hline
-    8 & 4074 & 0.226333 & 5.86 \\ \hline
-    9 & 4074 & 0.226333 & 6.07 \\ \hline
-    10 & 4074 & 0.226333 & 6.23 \\ \hline
-    11 & 4074 & 0.226333 & 6.33 \\ \hline
-    12 & 4074 & 0.226333 & 6.43 \\ \hline
-    13 & 4074 & 0.226333 & 6.53 \\ \hline
-    14 & 5214 & 0.289667 & 7.59 \\ \hline
-    15 & 5214 & 0.289667 & 7.71 \\ \hline
-    16 & 5214 & 0.289667 & 7.77 \\ \hline
-    17 & 5214 & 0.289667 & 7.77 \\ \hline
-    18 & 5214 & 0.289667 & 7.76 \\ \hline
-    19 & 6064 & 0.336889 & 8.58 \\ \hline
-    20 & 6064 & 0.336889 & 8.62 \\ \hline
-    21 & 6064 & 0.336889 & 8.73 \\ \hline
-    22 & 6064 & 0.336889 & 8.69 \\ \hline
-    23 & 6064 & 0.336889 & 8.39 \\ \hline
-    28 & 6064 & 0.336889 & 8.69 \\ \hline
-    29 & 6064 & 0.336889 & 8.7 \\ \hline
-    30 & 6064 & 0.336889 & 8.78 \\ \hline
-    31 & 6064 & 0.336889 & 8.91 \\ \hline
-    32 & 6413 & 0.356278 & 9.42 \\ \hline
-    33 & 6413 & 0.356278 & 9.69 \\ \hline
-    34 & 6413 & 0.356278 & 10.2 \\ \hline
-    35 & 6413 & 0.356278 & 11.19 \\ \hline
-    36 & 6413 & 0.356278 & 11.54 \\ \hline
-    37 & 6413 & 0.356278 & 11.7 \\ \hline
-    38 & 6413 & 0.356278 & 11.84 \\ \hline
-    39 & 6413 & 0.356278 & 11.86 \\ \hline
-    40 & 6413 & 0.356278 & 11.88 \\ \hline
-    41 & 6413 & 0.356278 & 11.86 \\ \hline
-    47 & 6414 & 0.356333 & 11.87 \\ \hline
-    48 & 6414 & 0.356333 & 11.85 \\ \hline
-    49 & 6414 & 0.356333 & 11.89 \\ \hline
-    50 & 6414 & 0.356333 & 11.82 \\ \hline
+    Time & Seed & Processor \\ \hline
+    497.14 & 2 & CPU \\ \hline
+    462.1 & 2 & CPU \\ \hline
+    456.83 & 2 & CPU \\ \hline
+    489.04 & 2 & CPU \\ \hline
+    472.8 & 2 & CPU \\ \hline
+    471.66 & 2 & CPU \\ \hline
+    473.58 & 2 & CPU \\ \hline
+    474.54 & 2 & CPU \\ \hline
+    474.99 & 2 & CPU \\ \hline
+    474.22 & 2 & CPU \\ \hline
+    86.13 & 2 & GPU \\ \hline
+    90.46 & 2 & GPU \\ \hline
+    90.48 & 2 & GPU \\ \hline
+    85.75 & 2 & GPU \\ \hline
+    84.77 & 2 & GPU \\ \hline
+    84.96 & 2 & GPU \\ \hline
+    85.06 & 2 & GPU \\ \hline
+    84.92 & 2 & GPU \\ \hline
+    84.96 & 2 & GPU \\ \hline
+    86.18 & 2 & GPU \\ \hline
+    461.94 & 3 & CPU \\ \hline
+    464.13 & 3 & CPU \\ \hline
+    464.6 & 3 & CPU \\ \hline
+    461.13 & 3 & CPU \\ \hline
+    464.12 & 3 & CPU \\ \hline
+    463.9 & 3 & CPU \\ \hline
+    463.06 & 3 & CPU \\ \hline
+    464.25 & 3 & CPU \\ \hline
+    463.54 & 3 & CPU \\ \hline
+    464.36 & 3 & CPU \\ \hline
+    84.22 & 3 & GPU \\ \hline
+    84.27 & 3 & GPU \\ \hline
+    84.24 & 3 & GPU \\ \hline
+    84.24 & 3 & GPU \\ \hline
+    84.27 & 3 & GPU \\ \hline
+    84.25 & 3 & GPU \\ \hline
+    84.2 & 3 & GPU \\ \hline
+    84.23 & 3 & GPU \\ \hline
+    84.28 & 3 & GPU \\ \hline
+    84.22 & 3 & GPU \\ \hline
     \end{longtable}
-\label{table:GPU result}
+\label{table:CPU vs GPU total runtime part 2}
 \end{table}
 \bigskip
+
+
