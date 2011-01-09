@@ -19,7 +19,7 @@ PCs are considered as more powerful in pure FLOPS \cite{Banzhaf09}.
 For example, in the GeForce 8 Series the NVIDIA 8800 Ultra performs around 576 GFLOPS
 on 128 processing elements. This equates to around 4.5 GFLOPS per element, compared
 with 2.75 per core for the Blue Gene/L supercomputer.  With that kind of processing power, 
-new sets of problems can be solved.  
+solving computation-intensive problems will take less time.  
 
 A sample application can be found in the KDD 1999 IDS dataset, where, they had around
 4 million entries \cite{Banzhaf09}. They evaluated 10 percent of the total subset
@@ -57,7 +57,7 @@ happens within a warp and does not affect other warps.
 
 The single instruction, multiple threads (SIMT) architecture is similar to the single instruction,
 multiple data (SIMD) vector organizations in that a single instruction controls multiple processing
-elements \cite{pdf:NVCudaPrgGuide}. The difference lie in that the SIMD vector
+elements \cite{pdf:NVCudaPrgGuide}. The difference is that the SIMD vector
 organizations expose the SIMD width to the software. The SIMT instructions, on
 the other hand, specify the execution and branching behavior of a single thread.
 In contrast with SIMD vector machines, SIMT enables parallel coding for
@@ -82,7 +82,7 @@ However, not all genetic programs are equal in performance. Robbiliard and his c
 Block genetic programming and Thread genetic programming\cite{Robbilliard09}. A Block
 genetic progamming is where every genetic program is interpreted by all threads running
 on a given processor. On the other hand, a Thread genetic programming is where every genetic
-programs is interpreted by their own thread. They performed an experiment where
+program is interpreted by their own thread. They performed an experiment where
 the speeds at which each setup is executed are compared. The results were that the Block genetic
 programs out-performed the Thread genetic programs in every benchmark, population size and
 the number of fitness cases.
@@ -142,8 +142,8 @@ Position_{old} & = & Position_{new} \nonumber \\
 
 The Verlet integration eliminates the need to calculate the velocity since it estimates 
 the velocity using the current position and subtracting the distance with the old position. 
-Through this method, the computation is fast and stable, which means a lot in enhancing the
-performance of the game. Collision detection also becomes easier with the Verlet integration.
+Through this method, the computation is fast and stable, minimizing the computational
+overhead of the game. Collision detection also becomes easier with the Verlet integration.
 Collision is detected by finding the new position of an object and see if it intersects with
 another object.
 
