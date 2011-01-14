@@ -26,20 +26,20 @@ and analysing the data from the application:
 \begin{enumerate}
   \item Fedora 14 Linux (for the operating system)
   \item gcc 4.4.4 compiler suite
-  \item Boost 1.43.0 libraries
+  \item Boost 1.44.0 libraries
   \item Nvidia CUDA 3.2 SDK
   \item CMake 2.8 build system
-  \item ClanLib 2.1 game engine (to be used for viewing the AI's performance)
+  \item ClanLib 2.2.5 game engine (to be used for viewing the AI's performance)
   \item R 2.12.1 (for ANOVA data analysis)
 \end{enumerate}
 
 % We may have to use the new research comp for testing instead.
-The main system used for gathering results was a Fedora 13 desktop with an 
+The main system used for gathering results was a Fedora 14 desktop with an 
 Intel(R) Core(TM)2 Quad CPU Q9550 @ 2.83GHz for the CPU and an 
 Inno3d GeForce GTX 470 (Hawk edition) for the graphics card. The CPU used 8
-threads to compute for the result while the GPU used 1024 thread block with
+threads to compute for the result while the GPU used 1024 thread blocks with
 32 threads per block to compute. The main system utilized for developing and 
-debugging the application was a Fedora 13 laptop with an Intel Core i3 for 
+debugging the application was a Fedora 14 laptop with an Intel Core i3 for 
 the CPU and a Nvidia Geforce 310M for the GPU.
 
 
@@ -64,11 +64,11 @@ possible direction.
 We used 1024 individuals for our tank AI. An individual was tested using 54 different
 scenarios. We used 18 different angles the bullets can shoot from. We also used 4
 distance states. However, the bullet fired at the tank at distance state 0 is nearly
-impossible to dodge in nearly all cases. This is due to the bullet being fired at point-blank.
-Therefore, we used the last 3 distance states. The evading AI will then check for the bullet
-status, which includes the position, heading, and distance, every 30 frames. The AI will
-recieve 1 point for every scenario it survives. Finally, a scenario only ends when either
-of these 2 conditions are met:
+impossible to dodge in nearly all cases. This is due to the bullet being fired at a 
+very close range. Therefore, we used the last 3 distance states. The evading AI will
+then check for the bullet status, which includes the position, heading, and distance,
+every 30 frames. The AI will recieve 1 point for every scenario it survives. Finally,
+a scenario only ends when either of these 2 conditions are met:
 
 \begin{enumerate}
  \item Evading tank gets shot.
@@ -82,7 +82,7 @@ and picked a random point in which to split the individuals. The first part of t
 first individual was then paired with the second part of the second individual to 
 create a new individual. Furthermore, the second part of the first individual was
 paired with the first part of the second individual to create another individual.
-Lastly, each of the new individual has a 50\% chance of mutating, i.e., a genome
+Lastly, each of the new individuals has a 50\% chance of mutating, i.e., a genome
 in the individual will have a different value. The process is repeated for the
 rest of the individuals in the lower 85\% bracket.
 
@@ -97,11 +97,11 @@ times. There are 3 kinds of data that were gathered in each run of the applicati
 \begin{enumerate}
   \item The seed tag.
   \item The processor tag.
-  \item The time it took to finish all 54 scenarios for all individual of 
+  \item The time it took to finish all 54 scenarios for all individuals of 
 that generation (in physical time).
 \end{enumerate}
-The fitness score was not considered because the same seed and same run of each 
-generation for both applications were equal.
+The fitness score was not considered because the results of all runs with the
+same seed produced identical scores.
 
 
 We used Analysis of Variance, ANOVA, to reduce getting a Type 1 error, a false

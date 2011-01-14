@@ -1,14 +1,11 @@
 \chapter{REVIEW OF RELATED LITERATURE}
 
-% See if this should be removed in the future
 This section aims to provide the context where this study may be placed. 
 Studies that have already been made in the field are to be discussed here in order to 
 explain the concepts involved in enhancing genetic algorithms through the GPU and 
 genetic algorithms in a game. The section will also highlight contributions not yet 
 applied in the field, namely using the GPU to enhance genetic algorithms in a game.
 
-
-% We need to add more material in this entire chapter
 \section{Genetic Algorithms through the GPU}
 \subsection{Genetic Algorithm Acceleration through GPU}
 Genetic programming can be a very time-consuming process.  The members of its
@@ -41,17 +38,16 @@ Graphics Card}
 	\cite{pdf:NVCudaPrgGuide}
 	\label{fig:gpu_diagram}
 \end{figure}
-\bigskip
 
 A multiprocessor creates, manages, and executes threads in groups of 32
 threads \cite{pdf:NVCudaPrgGuide}. 
-These group of threads are called as warps. Each threads have their start at the same 
+These group of threads are called warps. Each threads have their start at the same 
 time and at the same program address. However, they have their own instruction address 
 counter and register state. Thus, the threads are able to branch and execute independently.
 When a multiprocessor is given one or more thread blocks to execute, it partitions into warps 
 that get scheduled for execution. A warp executes one common instruction at a time. When
 all 32 threads of a warp agree on their execution path, full efficiency is realized. If the threads
-diverges via a data-dependent conditional branch, the warp serially executes each branch.
+diverge via a data-dependent conditional branch, the warp serially executes each branch.
 The threads will then converge back to the same execution path.  However, the divergence only
 happens within a warp and does not affect other warps.
 
@@ -63,7 +59,7 @@ the other hand, specify the execution and branching behavior of a single thread.
 In contrast with SIMD vector machines, SIMT enables parallel coding for
 independent, scalar threads, as well as data-parallel code for 
 coordinated threads. 
-	
+
 \subsection{Using CUDA in Accelerating Genetic Algorithms}
 Several computers can be used to efficiently process large datasets and execute complex
 and evolved programs \cite{Harding09}. They used the spare processing power seen in the
@@ -106,7 +102,7 @@ was conducted by Milan Verma and Peter McOwan in their research \cite{Verma05}. 
 of modifying the behavior of the snake in the game, they used genetic algorithms instead
 for creating whole new game levels that matched the difficulty requested by the user.
 Their technique was to use genomes that determined various aspects of any single game
-level and then determined the level's fitness by having the level “played” by a synthetic
+level and then determined the level's fitness by having the level played by a synthetic
 game-player. The score that the synthetic game-player obtained would then determine if
 the level is too easy or too hard and levels that matched the user's wants would then be
 given to the user that requested it. Their study proved successful and they were able to
@@ -132,11 +128,11 @@ Verlet, and Leapfrog. Position Verlet gives the new position of the object by th
 formula:
 
 \begin{eqnarray}
-Position_{new}  & = &
-Position_{current} + 
-(Position_{current} - Position_{old}) +
-Acceleration * Timestep^2 \nonumber \\
-Position_{old} & = & Position_{new} \nonumber \\
+P_{new}  & = &
+P_{current} + 
+(P_{current} - P_{old}) +
+Accel * Timestep^2 \nonumber \\
+P_{old} & = & P_{new} \nonumber \\
 \label{Verlet}
 \end{eqnarray}
 
