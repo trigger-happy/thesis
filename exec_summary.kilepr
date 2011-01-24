@@ -180,10 +180,10 @@ order=-1
 
 [item:exec_summary.tex]
 archive=true
-column=14
+column=30
 encoding=UTF-8
 highlight=LaTeX
-line=54
+line=6
 mode=LaTeX
 open=true
 order=0
@@ -221,5 +221,5 @@ CursorColumn=28
 CursorLine=16
 
 [view-settings,view=0,item:exec_summary.tex]
-CursorColumn=14
-CursorLine=54
+CursorColumn=30
+CursorLine=6
