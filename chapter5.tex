@@ -1,4 +1,32 @@
 \chapter{RESULTS}
+
+\section{Code Structure}
+The code for the game was structured such that it fulfilled the necessary
+requirements of being able to run both on the CPU and the GPU without requiring
+too many modifications. The first major hurdle was the way the memory had to be
+structured to maximize performance on the GPU. The concept of a structure of
+arrays was used to fulfill this need. Instead of declaring a tank class and
+then having several instances of this class stored in an array to represent
+each tank in the game, the tank class was declared such that each of its
+parameters is an array. A tank instance is then identified by an array index
+which is then used to get and set its properties from the arrays. This ensured
+that whenever the program had to access the x position of the tanks, the memory
+access would be coalesced into a single read from a block of memory, thereby
+improving performance. Nearly all the objects in the game were structured as
+such and an unsigned integer was used to identify any particular instance of an
+object.
+
+The next problem was the memory transfer between the CPU and GPU. The problem
+was that it was necessary to check if the terminating conditions have been
+fulfilled for the fitness checking stage of the evolution, but transfering
+memory between the CPU and the GPU (or more specifically the GPU memory to CPU
+RAM) is a time consuming operation. To solve this, memory trasfers from the GPU
+memory to CPU RAM is only done every 30 frames. This minimized the number of
+memory transfers that had to be done while still being able to check
+periodically for the terminating conditions of the fitness stage. It should be
+noted however that the selection of this number of frames was done arbitrarily
+and still open to experimentation for improving the performance.
+
 \section{Tabular Results} 
 We have set the maximum amount of generations to 24, as we have observed 
 that the AI often does not evolve any further after the 24th generation. The 
